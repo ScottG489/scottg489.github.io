@@ -25,7 +25,7 @@
     "build": "gatsby build --log-pages",
     "clean": "gatsby clean",
     "config": "git update-index --skip-worktree .ghost.json",
-    "deploy": "gatsby build && echo 'demo.jamify.org' > public/CNAME && gh-pages -f -d public -b master -r git@github.com:styxlab/styxlab.github.io"
+    "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "gatsby": "^2.24.54",
