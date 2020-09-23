@@ -1,59 +1,27 @@
 module.exports = {
-    'parser': 'babel-eslint',
-    'parserOptions': {
-        'ecmaVersion': 6,
-        'ecmaFeatures': {
-            'jsx': true,
-            'experimentalObjectRestSpread': true
-        }
-    },
-    plugins: ['ghost', 'react'],
-    extends: [
-        'plugin:ghost/node',
-        'plugin:ghost/ember',
-        'plugin:react/recommended'
-    ],
-    "settings": {
-        "react": {
-            "createClass": "createReactClass",
-            "pragma": "React",
-            "version": "16.0",
-            "flowVersion": "0.53"
-        },
-        "propWrapperFunctions": ["forbidExtraProps"]
-    },
-    "rules": {
-        "ghost/sort-imports-es6-autofix/sort-imports-es6": "off",
-        "ghost/ember/use-ember-get-and-set": "off",
-        "no-console": "off",
-        "no-inner-declarations": "off",
-        "valid-jsdoc": "off",
-        "require-jsdoc": "off",
-        "quotes": ["error", "backtick"],
-        "consistent-return": ["error"],
-        "arrow-body-style": [
-            "error",
-            "as-needed",
-            { "requireReturnForObjectLiteral": true }
-        ],
-        "jsx-quotes": ["error", "prefer-double"],
-        "semi": ["error", "never"],
-        "object-curly-spacing": ["error", "always"],
-        "comma-dangle": [
-            "error",
-            {
-                "arrays": "always-multiline",
-                "objects": "always-multiline",
-                "imports": "always-multiline",
-                "exports": "always-multiline",
-                "functions": "ignore"
-            }
-        ],
-        "react/prop-types": [
-            "error",
-            {
-                "ignore": ["children"]
-            }
-        ]
-    }
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+    browser: true,
+  },
+  extends: ['xo-space/esnext', 'xo-react/space', 'xo-typescript'],
+  rules: {
+    'object-curly-spacing': ['error', 'always'],
+    '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
+    '@typescript-eslint/explicit-function-return-type': 0,
+    'capitalized-comments': 0,
+    'comma-dangle': ['error', 'always-multiline'],
+    'react/jsx-tag-spacing': 0,
+    'react/prop-types': 0,
+    'no-warning-comments': 0,
+    'complexity': 0,
+    '@typescript-eslint/strict-boolean-expressions': 0,
+    '@typescript-eslint/no-unnecessary-condition': 0,
+    '@typescript-eslint/no-unsafe-call': 0,
+    '@typescript-eslint/no-unsafe-member-access': 0,
+    '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/prefer-readonly-parameter-types': 0,
+    '@typescript-eslint/no-unsafe-return': 0,
+  },
 };

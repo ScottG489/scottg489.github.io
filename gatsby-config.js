@@ -1,104 +1,91 @@
-const path = require(`path`)
-
-let siteConfig
-let ghostConfig
-let mediaConfig
-let routesConfig
-
-try {
-    siteConfig = require(`./siteConfig`)
-} catch (e) {
-    siteConfig = null
-}
-
-try {
-    mediaConfig = require(`./mediaConfig`)
-} catch (e) {
-    mediaConfig = null
-}
-
-try {
-    routesConfig = require(`./routesConfig`)
-} catch (e) {
-    routesConfig = null
-}
-
-try {
-    ghostConfig = require(`./.ghost`)
-} catch (e) {
-    ghostConfig = {
-        development: {
-            apiUrl: process.env.GHOST_API_URL,
-            contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-        },
-        production: {
-            apiUrl: process.env.GHOST_API_URL,
-            contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-        },
-    }
-} finally {
-    const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
-
-    if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-        ghostConfig = null //allow default config to take over
-    }
-}
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
 
 module.exports = {
-    plugins: [
-        `gatsby-plugin-preact`,
-        `gatsby-plugin-netlify`,
-        {
-            resolve: `gatsby-source-filesystem`,
+  siteMetadata: {
+    title: 'Gatsby Casper',
+    description: 'A port of the casper blog built for gatsby',
+    siteUrl: 'https://gatsby-casper.netlify.com', // full path to blog - no ending slash
+  },
+  mapping: {
+    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
+  },
+  plugins: [
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        quality: 100,
+        stripMetadata: true,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: path.join(__dirname, 'src', 'content'),
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-                path: path.join(__dirname, `src`, `images`),
-                name: `images`,
+              wrapperStyle: 'margin-bottom: 1rem',
             },
-        },
-        {
-            resolve: `gatsby-theme-try-ghost`,
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-abbr',
+          {
+            resolve: 'gatsby-remark-images',
             options: {
-                ghostConfig: ghostConfig,
-                siteConfig: siteConfig,
-                mediaConfig: mediaConfig,
-                routes: routesConfig,
+              maxWidth: 2000,
+              quality: 100,
             },
-        },
-        {
-            resolve: `gatsby-theme-ghost-dark-mode`,
-            options: {
-                // Set to true if you want your theme to default to dark mode (default: false)
-                // Note that this setting has an effect only, if
-                //    1. The user has not changed the dark mode
-                //    2. Dark mode is not reported from OS
-                defaultModeDark: false,
-                // If you want the defaultModeDark setting to take precedence
-                // over the mode reported from OS, set this to true (default: false)
-                overrideOS: false,
-            },
-        },
-        {
-            resolve: `gatsby-theme-ghost-members`,
-        },
-        {
-            resolve: `gatsby-transformer-rehype`,
-            options: {
-                filter: node => (
-                    node.internal.type === `GhostPost` ||
-                    node.internal.type === `GhostPage`
-                ),
-                plugins: [
-                    {
-                        resolve: `gatsby-rehype-ghost-links`,
-                    },
-                    {
-                        resolve: `gatsby-rehype-prismjs`,
-                    },
-                ],
-            },
-        },
-        // this (optional) plugin enables Progressive Web App + Offline functionality
-        // This plugin is currently causing issues: https://github.com/gatsbyjs/gatsby/issues/25360
-        //`gatsby-plugin-offline`,
-    ],
-}
+          },
+        ],
+      },
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://gatsby-casper.netlify.com',
+      },
+    },
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-typescript',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-yaml',
+    'gatsby-plugin-feed',
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [require('postcss-color-function'), require('cssnano')()],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-XXXX-Y',
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // IP anonymization for GDPR compliance
+        anonymize: true,
+        // Disable analytics for users with `Do Not Track` enabled
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ['/preview/**'],
+        // Specifies what percentage of users should be tracked
+        sampleRate: 100,
+        // Determines how often site speed tracking beacons will be sent
+        siteSpeedSampleRate: 10,
+      },
+    },
+  ],
+};
