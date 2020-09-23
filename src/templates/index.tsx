@@ -24,7 +24,7 @@ import {
   SiteHeaderStyles,
 } from '../styles/shared';
 import config from '../website-config';
-import {HomeFullHeader, HomeFullTitle, PageContext, PostFullHeader, PostFullTitle} from './post';
+import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
 
 export interface IndexProps {
   pageContext: {
@@ -134,6 +134,17 @@ const IndexPage: React.FC<IndexProps> = props => {
             <HomeFullHeader className="post-full-header">
               <HomeFullTitle className="post-full-title">Projects</HomeFullTitle>
             </HomeFullHeader>
+            <div css={[PostFeed]}>
+              {props.data.allMarkdownRemark.edges.map(post => {
+                // filter out drafts in production
+                return (
+                  (post.node.frontmatter.draft !== true ||
+                    process.env.NODE_ENV !== 'production') && (
+                    <PostCard key={post.node.fields.slug} large post={post.node} />
+                  )
+                );
+              })}
+            </div>
           </div>
         </main>
         {props.children}
