@@ -25,7 +25,7 @@ import {
 } from '../styles/shared';
 import config from '../website-config';
 import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
-import {ProjectCard} from "../components/ProjectCard";
+import { ProjectCard } from '../components/ProjectCard';
 
 export interface IndexProps {
   pageContext: {
