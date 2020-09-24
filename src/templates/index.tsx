@@ -25,6 +25,7 @@ import {
 } from '../styles/shared';
 import config from '../website-config';
 import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
+import {ProjectCard} from "../components/ProjectCard";
 
 export interface IndexProps {
   pageContext: {
@@ -52,6 +53,12 @@ export interface IndexProps {
 
 const IndexPage: React.FC<IndexProps> = props => {
   const { width, height } = props.data.header.childImageSharp.fixed;
+  const posts = props.data.allMarkdownRemark.edges.filter(post => {
+    return post.node.fields.layout === 'post';
+  });
+  const projects = props.data.allMarkdownRemark.edges.filter(post => {
+    return post.node.fields.layout === 'project';
+  });
 
   return (
     <IndexLayout css={HomePosts}>
@@ -121,7 +128,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               <HomeFullTitle className="post-full-title">Posts</HomeFullTitle>
             </HomeFullHeader>
             <div css={[PostFeed]}>
-              {props.data.allMarkdownRemark.edges.map((post, index) => {
+              {posts.map((post, index) => {
                 // filter out drafts in production
                 return (
                   (post.node.frontmatter.draft !== true ||
@@ -135,12 +142,12 @@ const IndexPage: React.FC<IndexProps> = props => {
               <HomeFullTitle className="post-full-title">Projects</HomeFullTitle>
             </HomeFullHeader>
             <div css={[PostFeed]}>
-              {props.data.allMarkdownRemark.edges.map(post => {
+              {projects.map(project => {
                 // filter out drafts in production
                 return (
-                  (post.node.frontmatter.draft !== true ||
+                  (project.node.frontmatter.draft !== true ||
                     process.env.NODE_ENV !== 'production') && (
-                    <PostCard key={post.node.fields.slug} large post={post.node} />
+                    <ProjectCard key={project.node.fields.slug} post={project.node} />
                   )
                 );
               })}
