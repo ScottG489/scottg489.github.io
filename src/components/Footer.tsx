@@ -21,9 +21,9 @@ export const Footer: React.FC = () => {
         </section>
         <SiteFooterNav>
           <Link to="/">Latest Posts</Link>
-          {config.facebook && (
-            <a href={config.facebook} target="_blank" rel="noopener noreferrer">
-              Facebook
+          {config.github && (
+            <a href={config.github} target="_blank" rel="noopener noreferrer">
+              GitHub
             </a>
           )}
           {config.twitter && (
@@ -31,7 +31,11 @@ export const Footer: React.FC = () => {
               Twitter
             </a>
           )}
-
+          {config.facebook && (
+            <a href={config.facebook} target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          )}
           <a href="/rss.xml">RSS</a>
         </SiteFooterNav>
       </div>
