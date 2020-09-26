@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
         <section className="copyright">
           <Link to="/">{config.title}</Link> &copy; {new Date().getFullYear()}{' '}
           {config.footer && `| ${config.footer}`}
-          <Link to="https://github.com/scttcper/gatsby-casper/">
+          <a href="https://github.com/scttcper/gatsby-casper/" target="_blank" rel="noopener noreferrer">
             scttcper/gatsby-casper
-          </Link>
+          </a>
         </section>
         <SiteFooterNav>
           <Link to="/">Latest Posts</Link>
