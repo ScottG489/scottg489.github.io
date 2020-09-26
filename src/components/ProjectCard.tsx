@@ -32,17 +32,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
-        <Link className="post-card-image-link" css={PostCardImageLink} to={post.fields.slug}>
-          <PostCardImage className="post-card-image">
-            {post.frontmatter?.image?.childImageSharp?.fluid && (
-              <Img
-                alt={`${post.frontmatter.title} cover image`}
-                style={{ height: '100%' }}
-                fluid={post.frontmatter.image.childImageSharp.fluid}
-              />
-            )}
-          </PostCardImage>
-        </Link>
+        <object data="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" type="image/svg+xml" />
       )}
       <PostCardContent className="post-card-content">
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>

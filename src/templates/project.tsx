@@ -222,11 +222,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
 
               {post.frontmatter.image?.childImageSharp && (
                 <PostFullImage>
-                  <Img
-                    style={{ height: '100%' }}
-                    fluid={post.frontmatter.image.childImageSharp.fluid}
-                    alt={post.frontmatter.title}
-                  />
+                  <object data="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" type="image/svg+xml" />
                 </PostFullImage>
               )}
               <PostContent htmlAst={post.htmlAst} />
@@ -449,27 +445,7 @@ export const PostFullTitle = styled.h1`
 `;
 
 const PostFullImage = styled.figure`
-  margin: 25px 0 50px;
-  height: 800px;
-  background: ${colors.lightgrey} center center;
-  background-size: cover;
-  border-radius: 5px;
-
-  @media (max-width: 1170px) {
-    margin: 25px -6vw 50px;
-    border-radius: 0;
-    img {
-      max-width: 1170px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    height: 400px;
-  }
-  @media (max-width: 500px) {
-    margin-bottom: 4vw;
-    height: 350px;
-  }
+  text-align: center;
 `;
 
 export const query = graphql`
