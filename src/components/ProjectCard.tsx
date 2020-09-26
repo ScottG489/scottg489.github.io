@@ -1,23 +1,24 @@
-import { format } from 'date-fns';
-import { Link } from 'gatsby';
+import {format} from 'date-fns';
+import {Link} from 'gatsby';
 import Img from 'gatsby-image';
 import _ from 'lodash';
-import { lighten } from 'polished';
+import {lighten} from 'polished';
 import React from 'react';
 
-import { css } from '@emotion/core';
+import {css} from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { colors } from '../styles/colors';
-import { PageContext } from '../templates/post';
-import { AuthorList } from './AuthorList';
+import {colors} from '../styles/colors';
+import {PageContext} from '../templates/post';
+import {AuthorList} from './AuthorList';
+import {PostFullHeader} from "../templates/project";
 
 export interface ProjectCardProps {
   post: PageContext;
   large?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) => {
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
   const datetime = format(date, 'yyyy-MM-dd');
@@ -32,36 +33,32 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
-        <object data="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" type="image/svg+xml" />
+        <object
+          data="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true"
+          type="image/svg+xml"/>
       )}
       <PostCardContent className="post-card-content">
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
           <PostCardHeader className="post-card-header">
+            <PostCardPrimaryTag className="post-card-primary-tag">
+              {
+                post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
+                  return (
+                    <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                      {tag}
+                      {/* TODO: Not on last */}
+                      {', '}
+                    </Link>
+                  );
+                })
+              }
+            </PostCardPrimaryTag>
             <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           </PostCardHeader>
           <PostCardExcerpt className="post-card-excerpt">
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
         </Link>
-        <PostCardMeta className="post-card-meta">
-          <AuthorList authors={post.frontmatter.author} tooltip="small" />
-          <PostCardBylineContent className="post-card-byline-content">
-            <span>
-              {post.frontmatter.author.map((author, index) => {
-                return (
-                  <React.Fragment key={author.id}>
-                    <Link to={`/author/${_.kebabCase(author.id)}/`}>{author.id}</Link>
-                    {post.frontmatter.author.length - 1 > index && ', '}
-                  </React.Fragment>
-                );
-              })}
-            </span>
-            <span className="post-card-byline-date">
-              <time dateTime={datetime}>{displayDatetime}</time>{' '}
-              <span className="bull">&bull;</span> {post.timeToRead} min read
-            </span>
-          </PostCardBylineContent>
-        </PostCardMeta>
       </PostCardContent>
     </article>
   );
@@ -137,20 +134,6 @@ const PostCardLarge = css`
   }
 `;
 
-const PostCardImageLink = css`
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
-`;
-
-const PostCardImage = styled.div`
-  width: auto;
-  height: 200px;
-  background: ${colors.lightgrey} no-repeat center center;
-  background-size: cover;
-`;
-
 const PostCardContent = styled.div`
   flex-grow: 1;
   display: flex;
@@ -187,42 +170,6 @@ const PostCardExcerpt = styled.section`
   }
 `;
 
-const PostCardMeta = styled.footer`
-  display: flex;
-  align-items: flex-start;
-  padding: 0;
-`;
-
-const PostCardBylineContent = styled.div`
-  flex: 1 1 50%;
-  display: flex;
-  flex-direction: column;
-  margin: 4px 0 0 10px;
-  /* color: color(var(--midgrey) l(+10%)); */
-  color: ${lighten('0.1', colors.midgrey)};
-  font-size: 1.2rem;
-  line-height: 1.4em;
-  font-weight: 400;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
-
-  span {
-    margin: 0;
-  }
-
-  a {
-    /* color: color(var(--darkgrey) l(+20%)); */
-    color: ${lighten('0.2', colors.darkgrey)};
-    font-weight: 600;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    a {
-      color: rgba(255, 255, 255, 0.75);
-    }
-  }
-`;
-
 const PostCardHeader = styled.header`
   margin: 15px 0 0;
 `;
@@ -254,4 +201,14 @@ export const AuthorProfileImage = css`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
+`;
+
+const PostCardPrimaryTag = styled.div`
+  margin: 0 0 0.2em;
+  /* color: var(--blue); */
+  color: ${colors.blue};
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
 `;

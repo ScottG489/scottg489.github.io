@@ -185,12 +185,20 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
             {/* TODO: no-image css tag? */}
             <article css={[PostFull, !post.frontmatter.image && NoImage]}>
               <PostFullHeader className="post-full-header">
-                <PostFullTags className="post-full-tags">
-                  {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                    <Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>
-                      {post.frontmatter.tags[0]}
-                    </Link>
-                  )}
+                <PostFullTags className="post-card-primary-tag">
+                  {
+                    post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
+                      return (
+                        <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                          <span>
+                            {tag}
+                            {/* TODO: Not on last and add space */}
+                            ,
+                          </span>
+                        </Link>
+                      );
+                    })
+                  }
                 </PostFullTags>
                 <PostFullTitle className="post-full-title">{post.frontmatter.title}</PostFullTitle>
                 <PostFullCustomExcerpt className="post-full-custom-excerpt">
