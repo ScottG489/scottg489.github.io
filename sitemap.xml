@@ -6,7 +6,5 @@
 <url> <loc>https://gatsby-casper.netlify.com/test-project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-casper.netlify.com/tags/source/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://gatsby-casper.netlify.com/tags/tests/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://gatsby-casper.netlify.com/author/scott/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://gatsby-casper.netlify.com/author/another-author/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://gatsby-casper.netlify.com/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://gatsby-casper.netlify.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
