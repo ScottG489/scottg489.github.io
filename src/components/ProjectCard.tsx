@@ -38,15 +38,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) =>
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">
           {
-            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
+            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
               return (
                 <Link
                   key={tag} className="post-card-primary-tag"
                   to={`/tags/${_.kebabCase(tag)}/`}
                 >
                   {tag}
-                  {/* TODO: Not on last */}
-                  {', '}
+                  {index === arr.length - 1 || ', '}
                 </Link>
               );
             })

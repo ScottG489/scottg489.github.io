@@ -187,13 +187,12 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               <PostFullHeader className="post-full-header">
                 <PostFullTags className="post-card-primary-tag">
                   {
-                    post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
+                    post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
                       return (
                         <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
                           <span>
                             {tag}
-                            {/* TODO: Not on last and add space */}
-                            ,
+                            {index === arr.length - 1 || ', '}
                           </span>
                         </Link>
                       );
