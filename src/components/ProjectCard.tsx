@@ -38,21 +38,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) =>
           type="image/svg+xml"/>
       )}
       <PostCardContent className="post-card-content">
+        <PostCardPrimaryTag className="post-card-primary-tag">
+          {
+            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
+              return (
+                <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                  {tag}
+                  {/* TODO: Not on last */}
+                  {', '}
+                </Link>
+              );
+            })
+          }
+        </PostCardPrimaryTag>
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
           <PostCardHeader className="post-card-header">
-            <PostCardPrimaryTag className="post-card-primary-tag">
-              {
-                post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
-                  return (
-                    <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
-                      {tag}
-                      {/* TODO: Not on last */}
-                      {', '}
-                    </Link>
-                  );
-                })
-              }
-            </PostCardPrimaryTag>
             <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           </PostCardHeader>
           <PostCardExcerpt className="post-card-excerpt">
@@ -204,6 +204,7 @@ export const AuthorProfileImage = css`
 `;
 
 const PostCardPrimaryTag = styled.div`
+  padding: 0 0 0 40px;
   margin: 0 0 0.2em;
   /* color: var(--blue); */
   color: ${colors.blue};
