@@ -36,11 +36,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) =>
         <img src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" alt="repo card"/>
       )}
       <PostCardContent className="post-card-content">
-        <PostCardPrimaryTag className="post-card-primary-tag">
+        <PostCardHeader className="post-card-header">
           {
             post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map(tag => {
               return (
-                <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                <Link
+                  key={tag} className="post-card-primary-tag"
+                  to={`/tags/${_.kebabCase(tag)}/`}
+                >
                   {tag}
                   {/* TODO: Not on last */}
                   {', '}
@@ -48,11 +51,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) =>
               );
             })
           }
-        </PostCardPrimaryTag>
+        </PostCardHeader>
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
-          <PostCardHeader className="post-card-header">
-            <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
-          </PostCardHeader>
+          <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           <PostCardExcerpt className="post-card-excerpt">
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
@@ -120,6 +121,10 @@ const PostCardLarge = css`
       padding: 0 0 0 40px;
     }
 
+    .post-card-primary-tag {
+      padding: 0 0 0 40px;
+    }
+
     .post-card-meta {
       padding: 0 0 0 40px;
     }
@@ -129,6 +134,16 @@ const PostCardLarge = css`
       font-size: 1.8rem;
       line-height: 1.5em;
     }
+  }
+
+  .post-card-primary-tag {
+    margin: 0 0 0.2em;
+    /* color: var(--blue); */
+    color: ${colors.blue};
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
   }
 `;
 
@@ -199,15 +214,4 @@ export const AuthorProfileImage = css`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
-`;
-
-const PostCardPrimaryTag = styled.div`
-  padding: 0 0 0 40px;
-  margin: 0 0 0.2em;
-  /* color: var(--blue); */
-  color: ${colors.blue};
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
 `;
