@@ -230,7 +230,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
 
               {post.frontmatter.image?.childImageSharp && (
                 <PostFullImage>
-                  <object data="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" type="image/svg+xml" />
+                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" alt="repo card"/>
                 </PostFullImage>
               )}
               <PostContent htmlAst={post.htmlAst} />
