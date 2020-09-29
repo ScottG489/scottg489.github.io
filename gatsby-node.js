@@ -182,16 +182,13 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create author pages
   const authorTemplate = path.resolve('./src/templates/author.tsx');
-  result.data.allAuthorYaml.edges.forEach(edge => {
-    createPage({
-      path: `/author/${_.kebabCase(edge.node.id)}/`,
-      component: authorTemplate,
-      context: {
-        author: edge.node.id,
-      },
-    });
+  createPage({
+    path: '/about',
+    component: authorTemplate,
+    context: {
+      author: result.data.allAuthorYaml.edges[0].node.id,
+    },
   });
 };
 
