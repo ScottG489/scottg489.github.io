@@ -1,30 +1,20 @@
-import {format} from 'date-fns';
-import {Link} from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import _ from 'lodash';
-import {lighten} from 'polished';
+import { lighten } from 'polished';
 import React from 'react';
 
-import {css} from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import {colors} from '../styles/colors';
-import {PageContext} from '../templates/post';
-import {AuthorList} from './AuthorList';
-import {PostFullHeader} from "../templates/project";
+import { colors } from '../styles/colors';
+import { PageContext } from '../templates/post';
 
 export interface ProjectCardProps {
   post: PageContext;
   large?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({post, large = true}) => {
-  const date = new Date(post.frontmatter.date);
-  // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
-  // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
-
+export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
   return (
     <article
       className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
