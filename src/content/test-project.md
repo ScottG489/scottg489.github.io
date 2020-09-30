@@ -1,6 +1,7 @@
 ---
 layout: project
 title: This is a project
+ghimage: https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true
 image: img/testimg-cover.jpg
 author: [Scott]
 date: 2019-09-30T07:03:47.149Z

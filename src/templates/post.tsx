@@ -92,6 +92,7 @@ export interface PageContext {
         fluid: FluidObject;
       };
     };
+    ghimage: string;
     excerpt: string;
     title: string;
     date: string;

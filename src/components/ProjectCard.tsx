@@ -15,6 +15,7 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
+  const { ghimage } = post.frontmatter;
   return (
     <article
       className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
@@ -23,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" alt="repo card"/>
+        <img src={ghimage} alt="repo card"/>
       )}
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">

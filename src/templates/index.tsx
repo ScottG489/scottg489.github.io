@@ -209,6 +209,7 @@ export const pageQuery = graphql`
                 }
               }
             }
+            ghimage
             author {
               id
               bio
