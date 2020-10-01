@@ -458,7 +458,7 @@ export const PostFullTitle = styled.h1`
 
 const PostFullImage = styled.figure`
   margin: 25px 0 50px;
-  height: 800px;
+  height: 400px;
   background: ${colors.lightgrey} center center;
   background-size: cover;
   border-radius: 5px;
