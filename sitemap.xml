@@ -3,9 +3,11 @@
 <url> <loc>https://giminiani.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/github-link/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/a-full-style-test/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/initial-commit/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/scottg489.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/tags/source/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/tags/tests/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/tags/first/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/tags/web/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/tags/gatsby/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
