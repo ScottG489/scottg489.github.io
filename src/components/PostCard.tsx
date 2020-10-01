@@ -44,15 +44,23 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
         </Link>
       )}
       <PostCardContent className="post-card-content">
+        <PostCardHeader className="post-card-header">
+          {
+            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
+              return (
+                <Link
+                  key={tag} className="post-card-primary-tag"
+                  to={`/tags/${_.kebabCase(tag)}/`}
+                >
+                  {tag}
+                  {index === arr.length - 1 || ', '}
+                </Link>
+              );
+            })
+          }
+        </PostCardHeader>
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
-          <PostCardHeader className="post-card-header">
-            {post.frontmatter.tags && (
-              <PostCardPrimaryTag className="post-card-primary-tag">
-                {post.frontmatter.tags[0]}
-              </PostCardPrimaryTag>
-            )}
-            <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
-          </PostCardHeader>
+          <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           <PostCardExcerpt className="post-card-excerpt">
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
@@ -86,6 +94,16 @@ const PostCardStyles = css`
   @media (prefers-color-scheme: dark) {
     /* border-bottom-color: color(var(--darkmode) l(+8%)); */
     border-bottom-color: ${lighten('0.08', colors.darkmode)};
+  }
+
+  .post-card-primary-tag {
+    margin: 0 0 0.2em;
+    /* color: var(--blue); */
+    color: ${colors.blue};
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
   }
 `;
 
@@ -138,6 +156,16 @@ const PostCardLarge = css`
       line-height: 1.5em;
     }
   }
+
+  .post-card-primary-tag {
+    margin: 0 0 0.2em;
+    /* color: var(--blue); */
+    color: ${colors.blue};
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
 `;
 
 const PostCardImageLink = css`
@@ -169,16 +197,6 @@ const PostCardContentLink = css`
   :hover {
     text-decoration: none;
   }
-`;
-
-const PostCardPrimaryTag = styled.div`
-  margin: 0 0 0.2em;
-  /* color: var(--blue); */
-  color: ${colors.blue};
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
 `;
 
 const PostCardTitle = styled.h2`

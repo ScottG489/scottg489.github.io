@@ -251,7 +251,7 @@ const HomePosts = css`
     }
 
     .post-card-large:not(.no-image) .post-card-header {
-      margin-top: 0;
+      margin: 15px 40px 0;
     }
 
     .post-card-large .post-card-image-link {
