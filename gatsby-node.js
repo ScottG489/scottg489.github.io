@@ -165,10 +165,10 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const authorTemplate = path.resolve('./src/templates/author.tsx');
+  const aboutTemplate = path.resolve('./src/templates/author.tsx');
   createPage({
     path: '/about',
-    component: authorTemplate,
+    component: aboutTemplate,
     context: {
       author: result.data.allAuthorYaml.edges[0].node.id,
     },

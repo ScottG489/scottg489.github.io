@@ -254,7 +254,7 @@ export const NoImage = css`
 export const PostFullHeader = styled.header`
   position: relative;
   margin: 0 auto;
-  padding: 70px 170px 50px;
+  padding: 70px 170px 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 
@@ -342,9 +342,7 @@ const PostFullByline = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 35px 0 0;
-  padding-top: 15px;
   /* border-top: 1px solid color(var(--lightgrey) l(+10%)); */
-  border-top: 1px solid ${lighten('0.1', colors.lightgrey)};
 
   .post-full-byline-content {
     flex-grow: 1;
