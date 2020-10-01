@@ -16,6 +16,8 @@ export interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
   const { ghimage } = post.frontmatter;
+  const { title } = post.frontmatter;
+
   return (
     <article
       className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
@@ -24,7 +26,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {ghimage && (
-        <img src={ghimage} alt="repo card"/>
+        <ProjectCardImage href={`https://github.com/ScottG489/${title}`} target="_blank" rel="noopener noreferrer">
+          <img src={ghimage} alt={`${title} GitHub repo card`}/>
+        </ProjectCardImage>
       )}
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">
@@ -175,6 +179,10 @@ const PostCardHeader = styled.header`
   }
 
   margin: 15px 0 0;
+`;
+
+const ProjectCardImage = styled.a`
+  align-self: center;
 `;
 
 export const StaticAvatar = css`
