@@ -8,7 +8,3 @@ tags:
   - Web
   - Gatsby
 ---
-
-# My personal website
-
-This is the project for my personal site, [giminiani.com](http://www.giminiani.com).
