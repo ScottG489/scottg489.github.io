@@ -1,6 +1,7 @@
 # Personal Website
 
-Project for my personal website, [giminiani.com](http://www.giminiani.com)
+Project for my personal website, [giminiani.com](http://www.giminiani.com).
+Created using the [Gatsby framework](https://github.com/gatsbyjs/gatsby).
 
 ## Posting
 
