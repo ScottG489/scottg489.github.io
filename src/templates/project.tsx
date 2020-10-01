@@ -53,6 +53,7 @@ interface PageTemplateProps {
             fluid: any;
           };
         };
+        ghimage: string;
         excerpt: string;
         tags: string[];
         author: Author[];
@@ -92,6 +93,7 @@ export interface PageContext {
         fluid: FluidObject;
       };
     };
+    ghimage: string;
     excerpt: string;
     title: string;
     date: string;
@@ -103,6 +105,7 @@ export interface PageContext {
 
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const post = data.markdownRemark;
+  const { ghimage, title } = post.frontmatter;
   let width = '';
   let height = '';
   if (post.frontmatter.image?.childImageSharp) {
@@ -227,10 +230,12 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                 </PostFullByline>
               </PostFullHeader>
 
-              {post.frontmatter.image?.childImageSharp && (
-                <PostFullImage>
-                  <img src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats&show_owner=true" alt="repo card"/>
-                </PostFullImage>
+              {ghimage && (
+                <ProjectImage>
+                  <a href={`https://github.com/ScottG489/${title}`} target="_blank" rel="noopener noreferrer">
+                    <img src={ghimage} alt={`${title} GitHub repo card`}/>
+                  </a>
+                </ProjectImage>
               )}
               <PostContent htmlAst={post.htmlAst} />
 
@@ -266,6 +271,10 @@ const PostTemplate = css`
       background: ${colors.darkmode};
     }
   }
+`;
+
+const ProjectImage = styled.div`
+  text-align: center;
 `;
 
 export const PostFull = css`
@@ -475,6 +484,7 @@ export const query = graphql`
         date
         tags
         excerpt
+        ghimage
         image {
           childImageSharp {
             fluid(maxWidth: 3720) {
