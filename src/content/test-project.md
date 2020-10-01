@@ -5,8 +5,8 @@ ghimage: https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&re
 image: img/testimg-cover.jpg
 author: [Scott]
 date: 2019-09-30T07:03:47.149Z
-draft: false
-excerpt: Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
+draft: true
+excerpt: This is a test project which has a bunch of stuff in it. Keeping it around for now but disabling
 tags:
   - Tests
 ---
