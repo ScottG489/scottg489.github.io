@@ -3,12 +3,14 @@ layout: post
 title: A Full and Comprehensive Style Test
 image: img/testimg-cover.jpg
 author: [Scott]
-date: 2019-09-30T07:03:47.149Z
+date: 1970-01-01T00:00:00Z
 draft: false
-excerpt: Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
+excerpt: This is a post that came with the theme I'm using for this website. I'm keeping it because it demonstrates a lot of useful Markdown styling. Also there's a cool picture of a bear.
 tags:
-  - Tests
+  - test-post-please-ignore
 ---
+
+Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
 
 # Heading 1
 

@@ -1,9 +1,6 @@
 - id: First
   description: All of my very first blog posts
   image: img/first-tag.jpg
-- id: speeches
-  description: Some of the greatest words ever spoken.
-  image: img/speeches-cover.jpg
-- id: tests
+- id: test-post-please-ignore
   description: Some test posts
   image: img/speeches-cover.jpg
