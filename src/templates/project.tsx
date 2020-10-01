@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { graphql, Link } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
 import * as _ from 'lodash';
@@ -19,17 +18,6 @@ import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
 import { inner, outer, SiteMain } from '../styles/shared';
 import config from '../website-config';
-import { AuthorList } from '../components/AuthorList';
-
-export interface Author {
-  id: string;
-  bio: string;
-  avatar: {
-    children: Array<{
-      fluid: FluidObject;
-    }>;
-  };
-}
 
 interface PageTemplateProps {
   location: Location;
@@ -56,7 +44,6 @@ interface PageTemplateProps {
         ghimage: string;
         excerpt: string;
         tags: string[];
-        author: Author[];
       };
     };
     relatedPosts: {
@@ -99,7 +86,6 @@ export interface PageContext {
     date: string;
     draft?: boolean;
     tags: string[];
-    author: Author[];
   };
 }
 
@@ -112,12 +98,6 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
     width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
     height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
   }
-
-  const date = new Date(post.frontmatter.date);
-  // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
-  // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
 
   return (
     <IndexLayout className="post-template">
@@ -157,7 +137,6 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
           />
         )}
         <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={post.frontmatter.author[0].id} />
         <meta name="twitter:label2" content="Filed under" />
         {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
         {config.twitter && (
@@ -439,10 +418,6 @@ export const PostFullTitle = styled.h1`
   }
 `;
 
-const PostFullImage = styled.figure`
-  text-align: center;
-`;
-
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
     logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
@@ -468,19 +443,6 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 3720) {
               ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        author {
-          id
-          bio
-          avatar {
-            children {
-              ... on ImageSharp {
-                fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
             }
           }
         }

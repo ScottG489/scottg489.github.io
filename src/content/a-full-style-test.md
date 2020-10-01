@@ -2,7 +2,6 @@
 layout: post
 title: A Full and Comprehensive Style Test
 image: img/testimg-cover.jpg
-author: [Scott]
 date: 1970-01-01T00:00:00Z
 draft: false
 excerpt: This is a post that came with the theme I'm using for this website. I'm keeping it because it demonstrates a lot of useful Markdown styling. Also there's a cool picture of a bear.

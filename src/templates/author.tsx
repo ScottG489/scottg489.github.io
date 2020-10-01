@@ -6,14 +6,12 @@ import { FluidObject } from 'gatsby-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import {
   AuthorProfileImage,
   inner,
   outer,
-  PostFeed,
   SiteHeader,
   SiteHeaderContent,
   SiteTitle,
@@ -23,10 +21,10 @@ import {
   ResponsiveHeaderBackground,
   SiteHeaderBackground,
 } from '../styles/shared';
-import {NoImage, PageContext, PostFull, PostFullHeader, PostFullTitle} from './post';
+import { NoImage, PageContext, PostFull, PostFullHeader, PostFullTitle } from './post';
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
-import {PostFullContent} from "../components/PostContent";
+import { PostFullContent } from '../components/PostContent';
 
 interface AuthorTemplateProps {
   location: Location;
@@ -65,22 +63,6 @@ interface AuthorTemplateProps {
 
 const Author = ({ data, location }: AuthorTemplateProps) => {
   const author = data.authorYaml;
-
-  const edges = data.allMarkdownRemark.edges.filter(edge => {
-    const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development';
-
-    let authorParticipated = false;
-    if (edge.node.frontmatter.author) {
-      edge.node.frontmatter.author.forEach(element => {
-        if (element.id === author.id) {
-          authorParticipated = true;
-        }
-      });
-    }
-
-    return isDraft && authorParticipated;
-  });
-  const totalCount = edges.length;
 
   return (
     <IndexLayout>
@@ -142,11 +124,6 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
                         {author.location}
                       </div>
                     )}
-                    <div className="author-stats" css={[HiddenMobile]}>
-                      {totalCount > 1 && `${totalCount} posts`}
-                      {totalCount === 1 && '1 post'}
-                      {totalCount === 0 && 'No posts'}
-                    </div>
                     {author.website && (
                       <AuthorSocialLink className="author-social-link">
                         <AuthorSocialLinkAnchor
@@ -290,19 +267,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            author {
-              id
-              bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fluid(quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
           }
           fields {
             layout
@@ -368,6 +332,10 @@ const AuthorMeta = css`
     .author-stats + .author-social-link:first-of-type:before {
       display: none;
     }
+  }
+
+  .author-location {
+    margin-right: 50px;
   }
 `;
 

@@ -20,16 +20,6 @@ import { colors } from '../styles/colors';
 import { inner, outer, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
-export interface Author {
-  id: string;
-  bio: string;
-  avatar: {
-    children: Array<{
-      fluid: FluidObject;
-    }>;
-  };
-}
-
 interface PageTemplateProps {
   location: Location;
   data: {
@@ -54,7 +44,6 @@ interface PageTemplateProps {
         };
         excerpt: string;
         tags: string[];
-        author: Author[];
       };
     };
     relatedPosts: {
@@ -97,7 +86,6 @@ export interface PageContext {
     date: string;
     draft?: boolean;
     tags: string[];
-    author: Author[];
   };
 }
 
@@ -154,7 +142,6 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
           />
         )}
         <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={post.frontmatter.author[0].id} />
         <meta name="twitter:label2" content="Filed under" />
         {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
         {config.twitter && (
@@ -495,19 +482,6 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 3720) {
               ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        author {
-          id
-          bio
-          avatar {
-            children {
-              ... on ImageSharp {
-                fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
             }
           }
         }
