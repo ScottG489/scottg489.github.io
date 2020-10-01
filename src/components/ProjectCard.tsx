@@ -23,7 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       }`}
       css={[PostCardStyles, large && PostCardLarge]}
     >
-      {post.frontmatter.image && (
+      {ghimage && (
         <img src={ghimage} alt="repo card"/>
       )}
       <PostCardContent className="post-card-content">
@@ -111,10 +111,6 @@ const PostCardLarge = css`
       padding: 0 0 0 40px;
     }
 
-    .post-card-primary-tag {
-      padding: 0 0 0 40px;
-    }
-
     .post-card-meta {
       padding: 0 0 0 40px;
     }
@@ -174,6 +170,10 @@ const PostCardExcerpt = styled.section`
 `;
 
 const PostCardHeader = styled.header`
+  @media (min-width: 795px) {
+    margin: 15px 40px 0;
+  }
+
   margin: 15px 0 0;
 `;
 
