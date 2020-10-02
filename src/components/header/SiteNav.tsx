@@ -109,17 +109,6 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
           </SiteNavLeft>
           <SiteNavRight>
             <SocialLinks>
-              {config.email && (
-                <a
-                  css={SocialLink}
-                  href={config.email}
-                  title="Email"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Email />
-                </a>
-              )}
               {config.github && (
                 <a
                   css={SocialLink}
@@ -163,6 +152,17 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   rel="noopener noreferrer"
                 >
                   <Facebook />
+                </a>
+              )}
+              {config.email && (
+                <a
+                  css={SocialLink}
+                  href={config.email}
+                  title="Email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Email />
                 </a>
               )}
             </SocialLinks>
