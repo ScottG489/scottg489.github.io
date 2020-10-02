@@ -8,26 +8,12 @@ export interface WebsiteConfig {
    * See: https://dequeuniversity.com/rules/axe/2.2/valid-lang
    */
   lang: string;
-  /**
-   * blog full path, no ending slash!
-   */
   siteUrl: string;
-  /**
-   * full url, no username
-   */
   github?: string;
-  /**
-   * full url, no username
-   */
   linkedin?: string;
-  /**
-   * full url, no username
-   */
   twitter?: string;
-  /**
-   * full url, no username
-   */
   facebook?: string;
+  email?: string;
   /**
    * hide or show all email subscribe boxes
    */
@@ -67,6 +53,7 @@ const config: WebsiteConfig = {
   linkedin: 'https://www.linkedin.com/in/scott-giminiani/',
   twitter: 'https://twitter.com/scottg489',
   facebook: 'https://www.facebook.com/scott.giminiani',
+  email: 'mailto:scottg489@gmail.com',
   showSubscribe: false,
   mailchimpAction: 'https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75',
   mailchimpName: 'b_a89b6987ac248c81b0b7f3a0f_7d777b7d75',

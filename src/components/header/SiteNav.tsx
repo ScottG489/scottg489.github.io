@@ -14,6 +14,7 @@ import { GitHub } from '../icons/github';
 import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 import { LinkedIn } from '../icons/linkedin';
+import { Email } from '../icons/email';
 
 interface SiteNavProps {
   isHome?: boolean;
@@ -108,6 +109,17 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
           </SiteNavLeft>
           <SiteNavRight>
             <SocialLinks>
+              {config.email && (
+                <a
+                  css={SocialLink}
+                  href={config.email}
+                  title="Email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Email />
+                </a>
+              )}
               {config.github && (
                 <a
                   css={SocialLink}
