@@ -295,10 +295,6 @@ export const HomeFullHeader = styled.header`
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 
-  @media (max-width: 1170px) {
-    padding: 60px 11vw 50px;
-  }
-
   @media (max-width: 800px) {
     padding-right: 5vw;
     padding-left: 5vw;
