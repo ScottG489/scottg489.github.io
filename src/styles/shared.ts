@@ -182,6 +182,7 @@ export const SiteArchiveHeader = css`
 
 export const SiteHeaderBackground = css`
   margin-top: 64px;
+  margin-bottom: 20px;
 `;
 
 export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string }>`
