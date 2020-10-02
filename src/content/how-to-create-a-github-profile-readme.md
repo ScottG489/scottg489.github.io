@@ -2,7 +2,7 @@
 layout: post
 title: How to create a GitHub profile README
 image: img/profile-with-readme.png
-date: 2020-10-01T23:09:45Z
+date: 2020-10-02T04:30:07Z
 draft: false
 excerpt: A GitHub profile README is an easy way to add some personality to your website. Here's how to create one.
 tags:
