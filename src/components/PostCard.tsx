@@ -228,7 +228,6 @@ const PostCardBylineContent = styled.div`
   flex: 1 1 50%;
   display: flex;
   flex-direction: column;
-  margin: 4px 0 0 10px;
   /* color: color(var(--midgrey) l(+10%)); */
   color: ${lighten('0.1', colors.midgrey)};
   font-size: 1.2rem;
