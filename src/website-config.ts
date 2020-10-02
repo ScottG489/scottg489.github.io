@@ -19,6 +19,10 @@ export interface WebsiteConfig {
   /**
    * full url, no username
    */
+  linkedin?: string;
+  /**
+   * full url, no username
+   */
   twitter?: string;
   /**
    * full url, no username
@@ -60,6 +64,7 @@ const config: WebsiteConfig = {
   lang: 'en',
   siteUrl: 'http://www.giminiani.com',
   github: 'https://github.com/ScottG489',
+  linkedin: 'https://www.linkedin.com/in/scott-giminiani/',
   twitter: 'https://twitter.com/scottg489',
   facebook: 'https://www.facebook.com/scott.giminiani',
   showSubscribe: false,
