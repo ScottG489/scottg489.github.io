@@ -14,6 +14,7 @@ import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 import { LinkedIn } from '../icons/linkedin';
 import { Email } from '../icons/email';
+import { Rss } from '../icons/rss';
 
 interface SiteNavProps {
   isHome?: boolean;
@@ -150,6 +151,17 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   rel="noopener noreferrer"
                 >
                   <Email />
+                </a>
+              )}
+              {config.rss && (
+                <a
+                  css={SocialLink}
+                  href={config.rss}
+                  title="RSS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Rss />
                 </a>
               )}
             </SocialLinks>
