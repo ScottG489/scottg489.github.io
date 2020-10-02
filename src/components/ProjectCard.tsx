@@ -46,12 +46,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
             })
           }
         </PostCardHeader>
-        <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
+        <PostCardContentText className="post-card-content-link">
           <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
           <PostCardExcerpt className="post-card-excerpt">
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
-        </Link>
+        </PostCardContentText>
       </PostCardContent>
     </article>
   );
@@ -141,6 +141,12 @@ const PostCardContent = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+`;
+
+const PostCardContentText = styled.div`
+  .post-card-content-link {
+    padding: 0 0 0 40px;
+  }
 `;
 
 const PostCardContentLink = css`
