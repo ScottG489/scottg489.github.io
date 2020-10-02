@@ -63,9 +63,7 @@ const PostCardStyles = css`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin: 0 0 40px;
-  padding: 0 20px 40px;
-  min-height: 220px;
+  margin: 0 0 20px;
   /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
   border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
   background-size: cover;
@@ -80,8 +78,6 @@ const PostCardLarge = css`
   @media (min-width: 795px) {
     flex: 1 1 100%;
     flex-direction: row;
-    padding-bottom: 40px;
-    min-height: 280px;
     border-top: 0;
 
     :not(.no-image) .post-card-header {
@@ -146,17 +142,6 @@ const PostCardContent = styled.div`
 const PostCardContentText = styled.div`
   .post-card-content-link {
     padding: 0 0 0 40px;
-  }
-`;
-
-const PostCardContentLink = css`
-  position: relative;
-  display: block;
-  /* color: var(--darkgrey); */
-  color: ${colors.darkgrey};
-
-  :hover {
-    text-decoration: none;
   }
 `;
 

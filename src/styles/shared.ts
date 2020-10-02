@@ -70,12 +70,9 @@ export const PostFeed = css`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -20px;
-  padding: 50px 0 0;
   background: #fff;
 
   /* Special Template Styles */
-  padding: 40px 0 5vw;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 
