@@ -151,7 +151,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true }, layout: { ne: "project" } } }
     ) {
       totalCount
       edges {
