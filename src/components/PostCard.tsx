@@ -50,7 +50,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
               return (
                 <Link
                   key={tag} className="post-card-primary-tag"
-                  to={`/tags/${_.kebabCase(tag)}/`}
+                  to={`/posts/tags/${_.kebabCase(tag)}/`}
                 >
                   {tag}
                   {index === arr.length - 1 || ', '}

@@ -176,7 +176,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                   {
                     post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
                       return (
-                        <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                        <Link key={tag} to={`/posts/tags/${_.kebabCase(tag)}/`}>
                           <span>
                             {tag}
                             {index === arr.length - 1 || ', '}
