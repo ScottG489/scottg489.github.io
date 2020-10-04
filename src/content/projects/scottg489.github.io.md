@@ -5,6 +5,6 @@ ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo
 draft: false
 excerpt: The project for the website you're looking at right now! Built using the Gatsby framework.
 tags:
-  - Web
+  - TypeScript
   - Gatsby
 ---
