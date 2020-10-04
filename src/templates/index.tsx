@@ -221,7 +221,7 @@ export const pageQuery = graphql`
       }
     }
     projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___order], order: ASC }
       filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
       limit: $limit
       skip: $skip
