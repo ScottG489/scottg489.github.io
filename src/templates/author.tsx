@@ -124,39 +124,6 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
                         {author.location}
                       </div>
                     )}
-                    {author.website && (
-                      <AuthorSocialLink className="author-social-link">
-                        <AuthorSocialLinkAnchor
-                          href={author.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Website
-                        </AuthorSocialLinkAnchor>
-                      </AuthorSocialLink>
-                    )}
-                    {author.twitter && (
-                      <AuthorSocialLink className="author-social-link">
-                        <AuthorSocialLinkAnchor
-                          href={`https://twitter.com/${author.twitter}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Twitter
-                        </AuthorSocialLinkAnchor>
-                      </AuthorSocialLink>
-                    )}
-                    {author.facebook && (
-                      <AuthorSocialLink className="author-social-link">
-                        <AuthorSocialLinkAnchor
-                          href={`https://www.facebook.com/${author.facebook}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Facebook
-                        </AuthorSocialLinkAnchor>
-                      </AuthorSocialLink>
-                    )}
                   </div>
                 </AuthHeaderContent>
               </SiteHeaderContent>
@@ -194,10 +161,7 @@ export const pageQuery = graphql`
   query($author: String) {
     authorYaml(id: { eq: $author }) {
       id
-      website
-      twitter
       bio
-      facebook
       location
       profile_image {
         childImageSharp {
@@ -308,12 +272,6 @@ const AuthorMeta = css`
   }
 `;
 
-const AuthorSocialLink = styled.span`
-  display: inline-block;
-  margin: 0;
-  padding: 6px 0;
-`;
-
 const AuthorBio = styled.h2`
   z-index: 10;
   flex-shrink: 0;
@@ -345,15 +303,6 @@ const AuthorProfileBioImage = css`
   height: 110px;
   box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 6px;
   border-radius: 100%;
-`;
-
-const AuthorSocialLinkAnchor = styled.a`
-  color: #fff;
-  font-weight: 600;
-
-  :hover {
-    opacity: 1;
-  }
 `;
 
 export default Author;
