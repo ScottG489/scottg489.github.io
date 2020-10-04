@@ -24,6 +24,7 @@ import {
 import { PageContext } from './post';
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
+import {ProjectCard} from "../components/ProjectCard";
 
 interface TagTemplateProps {
   location: Location;
@@ -36,6 +37,7 @@ interface TagTemplateProps {
         node: {
           id: string;
           description: string;
+          layout: string;
           image?: {
             childImageSharp: {
               fluid: FluidObject;
@@ -118,7 +120,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
           <div css={inner}>
             <div css={[PostFeed]}>
               {edges.map(({ node }) => (
-                <PostCard key={node.fields.slug} post={node} />
+                <ProjectCard key={node.fields.slug} post={node} />
               ))}
             </div>
           </div>
@@ -138,20 +140,13 @@ export const pageQuery = graphql`
         node {
           id
           description
-          image {
-            childImageSharp {
-              fluid(maxWidth: 3720) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
         }
       }
     }
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+      filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
     ) {
       totalCount
       edges {
@@ -163,6 +158,8 @@ export const pageQuery = graphql`
             excerpt
             tags
             date
+            layout
+            ghimage
             image {
               childImageSharp {
                 fluid(maxWidth: 1240) {

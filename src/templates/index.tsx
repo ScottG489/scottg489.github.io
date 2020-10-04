@@ -43,7 +43,12 @@ export interface IndexProps {
         fixed: FixedObject;
       };
     };
-    allMarkdownRemark: {
+    posts: {
+      edges: Array<{
+        node: PageContext;
+      }>;
+    };
+    projects: {
       edges: Array<{
         node: PageContext;
       }>;
@@ -53,12 +58,8 @@ export interface IndexProps {
 
 const IndexPage: React.FC<IndexProps> = props => {
   const { width, height } = props.data.header.childImageSharp.fixed;
-  const posts = props.data.allMarkdownRemark.edges.filter(post => {
-    return post.node.fields.layout === 'post';
-  });
-  const projects = props.data.allMarkdownRemark.edges.filter(post => {
-    return post.node.fields.layout === 'project';
-  });
+  const posts = props.data.posts.edges;
+  const projects = props.data.projects.edges;
 
   return (
     <IndexLayout css={HomePosts}>
@@ -178,7 +179,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    header: file(relativePath: { eq: "img/blog-cover.png" }) {
+    header: file(relativePath: { eq: "posts/img/blog-cover.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
@@ -187,9 +188,41 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          timeToRead
+          frontmatter {
+            title
+            date
+            tags
+            draft
+            excerpt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 3720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            ghimage
+          }
+          excerpt
+          fields {
+            layout
+            slug
+          }
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
       limit: $limit
       skip: $skip
     ) {

@@ -93,13 +93,92 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  const postResults = await graphql(`
+    {
+      allMarkdownRemark(
+        limit: 2000
+        sort: { fields: [frontmatter___date], order: ASC }
+        filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+      ) {
+        edges {
+          node {
+            excerpt
+            timeToRead
+            frontmatter {
+              title
+              tags
+              date
+              draft
+              excerpt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 3720) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+            }
+            fields {
+              layout
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const projectResults = await graphql(`
+    {
+      allMarkdownRemark(
+        limit: 2000
+        sort: { fields: [frontmatter___date], order: ASC }
+        filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
+      ) {
+        edges {
+          node {
+            excerpt
+            timeToRead
+            frontmatter {
+              title
+              tags
+              date
+              draft
+              excerpt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 3720) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+            }
+            fields {
+              layout
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
   if (result.errors) {
     console.error(result.errors);
     throw new Error(result.errors);
   }
 
   // Create post pages
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = postResults.data.allMarkdownRemark.edges;
+  const projects = projectResults.data.allMarkdownRemark.edges;
 
   // Create paginated index
   // TODO: new pagination
@@ -147,18 +226,36 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create tag pages
-  const tagTemplate = path.resolve('./src/templates/tags.tsx');
-  const tags = _.uniq(
+  const postTagTemplate = path.resolve('./src/templates/tags.tsx');
+  const projectTagTemplate = path.resolve('./src/templates/project-tags.tsx');
+  const postTags = _.uniq(
     _.flatten(
-      result.data.allMarkdownRemark.edges.map(edge => {
+      posts.map(edge => {
         return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
       }),
     ),
   );
-  tags.forEach(tag => {
+  postTags.forEach(tag => {
     createPage({
       path: `/posts/tags/${_.kebabCase(tag)}/`,
-      component: tagTemplate,
+      component: postTagTemplate,
+      context: {
+        tag,
+      },
+    });
+  });
+
+  const projectTags = _.uniq(
+    _.flatten(
+      projects.map(edge => {
+        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
+      }),
+    ),
+  );
+  projectTags.forEach(tag => {
+    createPage({
+      path: `/projects/tags/${_.kebabCase(tag)}/`,
+      component: projectTagTemplate,
       context: {
         tag,
       },

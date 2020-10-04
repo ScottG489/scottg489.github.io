@@ -37,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
               return (
                 <Link
                   key={tag} className="post-card-primary-tag"
-                  to={`/posts/tags/${_.kebabCase(tag)}/`}
+                  to={`/projects/tags/${_.kebabCase(tag)}/`}
                 >
                   {tag}
                   {index === arr.length - 1 || ', '}

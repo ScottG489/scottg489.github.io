@@ -1,6 +1,5 @@
 - id: First
   description: Every single one of my very first blog post
-  image: img/smooth.jpg
+  image: posts/img/smooth.jpg
 - id: test-post-please-ignore
   description: Some test posts
-  image: img/blog-cover.png
