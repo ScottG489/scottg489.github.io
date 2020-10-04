@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://giminiani.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/a-full-style-test/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/frist-psot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/initial-commit/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/how-to-create-a-github-profile-readme/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/scottg489.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/scottg489-scottg489/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/test-post-please-ignore/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/first/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/meta/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/git-hub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/how-to/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/web/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/tags/gatsby/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/a-full-style-test/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/frist-psot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/initial-commit/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/how-to-create-a-github-profile-readme/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/test-post-please-ignore/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/first/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/meta/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/git-hub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/how-to/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/git-hub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/web/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/gatsby/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
