@@ -81,6 +81,7 @@ export interface PageContext {
       };
     };
     ghimage: string;
+    link: string;
     excerpt: string;
     title: string;
     date: string;

@@ -15,7 +15,7 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
-  const { ghimage } = post.frontmatter;
+  const { ghimage, link } = post.frontmatter;
   const { title } = post.frontmatter;
 
   return (
@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {ghimage && (
-        <ProjectCardImage href={`https://github.com/ScottG489/${title}`} target="_blank" rel="noopener noreferrer">
+        <ProjectCardImage href={link} target="_blank" rel="noopener noreferrer">
           <img src={ghimage} alt={`${title} GitHub repo card`}/>
         </ProjectCardImage>
       )}

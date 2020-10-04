@@ -235,6 +235,7 @@ export const pageQuery = graphql`
             tags
             draft
             excerpt
+            link
             image {
               childImageSharp {
                 fluid(maxWidth: 3720) {
