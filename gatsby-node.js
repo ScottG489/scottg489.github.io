@@ -211,6 +211,19 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: '/projects',
+      component: path.resolve('./src/templates/projects.tsx'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
   posts.forEach(({ node }, index) => {
     const { slug, layout } = node.fields;
     const prev = index === 0 ? null : posts[index - 1].node;
