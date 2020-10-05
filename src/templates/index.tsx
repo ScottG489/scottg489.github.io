@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -24,8 +24,9 @@ import {
   SiteHeaderStyles,
 } from '../styles/shared';
 import config from '../website-config';
-import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
+import { HomeFullTitle, PageContext } from './post';
 import { ProjectCard } from '../components/ProjectCard';
+import styled from '@emotion/styled';
 
 export interface IndexProps {
   pageContext: {
@@ -125,9 +126,13 @@ const IndexPage: React.FC<IndexProps> = props => {
         </div>
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={[inner, Posts]}>
-            <HomeFullHeader className="post-full-header">
-              <HomeFullTitle className="post-full-title">Posts</HomeFullTitle>
-            </HomeFullHeader>
+            <HomeContentHeader className="post-full-header">
+              <Link to="/posts" css={HomeContentHeaderLink}>
+                <HomeFullTitle className="post-full-title">
+                  Posts
+                </HomeFullTitle>
+              </Link>
+            </HomeContentHeader>
             <div css={[PostFeed]}>
               {posts.map((post, index) => {
                 // filter out drafts in production
@@ -139,9 +144,13 @@ const IndexPage: React.FC<IndexProps> = props => {
                 );
               })}
             </div>
-            <HomeFullHeader className="post-full-header">
-              <HomeFullTitle className="post-full-title">Projects</HomeFullTitle>
-            </HomeFullHeader>
+            <HomeContentHeader className="post-full-header">
+              <Link to="/projects" css={HomeContentHeaderLink}>
+                <HomeFullTitle className="post-full-title">
+                  Projects
+                </HomeFullTitle>
+              </Link>
+            </HomeContentHeader>
             <div css={[PostFeed]}>
               {projects.map(project => {
                 // filter out drafts in production
@@ -308,6 +317,36 @@ const HomePosts = css`
       font-size: 1.8rem;
       line-height: 1.5em;
     }
+  }
+`;
+
+export const HomeContentHeader = styled.header`
+  a:hover {
+    text-decoration: none;
+  }
+  position: relative;
+  margin: 0 auto;
+  padding: 50px 0px 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  @media (max-width: 800px) {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  @media (max-width: 500px) {
+    padding: 20px 0 35px;
+  }
+`;
+
+const HomeContentHeaderLink = css`
+  a:hover {
+    text-decoration: none;
+  }
+
+  h1:hover {
+    color: #26a6ed;
   }
 `;
 
