@@ -9,7 +9,7 @@ import { PostCard } from '../components/PostCard';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
-import { inner, outer, PostFeed, SiteHeader, SiteNavMain } from '../styles/shared';
+import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
 import { PageContext } from '../templates/post';
 
 interface NotFoundTemplateProps {
@@ -46,7 +46,7 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
               </Link>
             </section>
 
-            <div css={PostFeed} className="post-feed">
+            <div css={PostFeed404} className="post-feed">
               {edges.map(({ node }) => (
                 <PostCard key={node.fields.slug} post={node} />
               ))}
@@ -60,7 +60,11 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 3,
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+    ) {
       edges {
         node {
           timeToRead
@@ -138,6 +142,22 @@ const ErrorDescription = styled.p`
 const ErrorLink = css`
   display: inline-block;
   margin-top: 5px;
+`;
+
+export const PostFeed404 = css`
+  padding-top: 40px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+
+  /* Special Template Styles */
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  @media (prefers-color-scheme: dark) {
+    background: ${colors.darkmode};
+  }
 `;
 
 export default NotFoundPage;
