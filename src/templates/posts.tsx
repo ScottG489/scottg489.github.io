@@ -97,7 +97,7 @@ const PostsPage: React.FC<PostsProps> = props => {
       </Helmet>
       <Wrapper>
         <div
-          css={[outer, SiteHeader, SiteHeaderStyles]}
+          css={[outer, SiteHeader]}
           className="site-header-background"
           style={{
             backgroundImage: `url('${props.data.header.childImageSharp.fixed.src}')`,
@@ -105,20 +105,6 @@ const PostsPage: React.FC<PostsProps> = props => {
         >
           <div css={inner}>
             <SiteNav />
-            <SiteHeaderContent className="site-header-conent">
-              <SiteTitle className="site-title">
-                {props.data.logo ? (
-                  <img
-                    style={{ maxHeight: '200px' }}
-                    src={props.data.logo.childImageSharp.fixed.src}
-                    alt={config.title}
-                  />
-                ) : (
-                  config.title
-                )}
-              </SiteTitle>
-              <SiteDescription>{config.description}</SiteDescription>
-            </SiteHeaderContent>
           </div>
         </div>
         <main id="site-main" css={[SiteMain, outer]}>
