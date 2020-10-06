@@ -12,10 +12,6 @@ tags:
 # Frist psot
 
 First!
-
-This is my first blog post.
-
-That is all.
 \
 \
 \
