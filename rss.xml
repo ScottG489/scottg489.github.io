@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 06 Oct 2020 16:06:05 GMT</lastBuildDate><item><title><![CDATA[docker-ci-prototype]]></title><link>https://giminiani.com/projects/docker-ci-prototype/</link><guid isPermaLink="false">https://giminiani.com/projects/docker-ci-prototype/</guid><content:encoded></content:encoded></item><item><title><![CDATA[scottg489/scottg489]]></title><link>https://giminiani.com/projects/scottg489-scottg489/</link><guid isPermaLink="false">https://giminiani.com/projects/scottg489-scottg489/</guid><content:encoded></content:encoded></item><item><title><![CDATA[scottg489.github.io]]></title><link>https://giminiani.com/projects/scottg489.github.io/</link><guid isPermaLink="false">https://giminiani.com/projects/scottg489.github.io/</guid><content:encoded></content:encoded></item><item><title><![CDATA[How to create a GitHub profile README]]></title><description><![CDATA[GitHub profile page The GitHub profile page README is a bit of an Easter egg. It doesn’t seem to have ever been officially announced…]]></description><link>https://giminiani.com/posts/how-to-create-a-github-profile-readme/</link><guid isPermaLink="false">https://giminiani.com/posts/how-to-create-a-github-profile-readme/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;GitHub profile page&lt;/h1&gt;
-&lt;p&gt;The GitHub profile page README is a bit of an Easter egg. It doesn’t seem to have ever been officially announced
-although it’s &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;fully documented&lt;/a&gt;.
-It appears to have been released sometime around July 2020.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 06 Oct 2020 17:49:58 GMT</lastBuildDate><item><title><![CDATA[docker-ci-prototype]]></title><link>https://giminiani.com/projects/docker-ci-prototype/</link><guid isPermaLink="false">https://giminiani.com/projects/docker-ci-prototype/</guid><content:encoded></content:encoded></item><item><title><![CDATA[scottg489.github.io]]></title><link>https://giminiani.com/projects/scottg489.github.io/</link><guid isPermaLink="false">https://giminiani.com/projects/scottg489.github.io/</guid><content:encoded></content:encoded></item><item><title><![CDATA[How to create your GitHub profile README]]></title><description><![CDATA[Personalize your GitHub profile page In the past, your ability to customize your GitHub profile overview page was a bit limited.
+You could…]]></description><link>https://giminiani.com/posts/how-to-create-your-github-profile-readme/</link><guid isPermaLink="false">https://giminiani.com/posts/how-to-create-your-github-profile-readme/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Personalize your GitHub profile page&lt;/h1&gt;
+&lt;p&gt;In the past, your ability to customize your GitHub profile overview page was a bit limited.
+You could &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile&quot;&gt;select what repositories you wanted to pin&lt;/a&gt;
+or choose to &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/showing-an-overview-of-your-activity-on-your-profile&quot;&gt;display your activity overview&lt;/a&gt;
+below your yearly contributions. However, these options didn’t really allow you to express yourself.&lt;/p&gt;
+&lt;p&gt;With the introduction of the &lt;strong&gt;GitHub profile README&lt;/strong&gt;, you’re able to add some personality to your profile
+with the full power of &lt;a href=&quot;https://www.markdownguide.org/&quot;&gt;Markdown&lt;/a&gt;.
+The new feature is a bit of an Easter egg. It doesn’t seem to have ever been officially announced,
+though it’s &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;fully documented&lt;/a&gt;.
+It appears to have been released in early July 2020.&lt;/p&gt;
 &lt;p&gt;If you’d like to set this up for your own profile simply:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Create a repo with the same name as your username&lt;/li&gt;
-&lt;li&gt;Create a README.md file in that repo&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/new&quot;&gt;Create a repo&lt;/a&gt; with the same name as your username&lt;/li&gt;
+&lt;li&gt;Create a &lt;strong&gt;README.md&lt;/strong&gt; file in that repo’s root&lt;/li&gt;
 &lt;li&gt;Put some content in it!&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The README will then appear at the top of your profile page. For more information, see the GitHub &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;Managing your profile README&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;p&gt;The README will then render at the top of your profile page.
+For more information, see the GitHub documentation on &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;Managing your profile README&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This is my GitHub profile README at the time of writing (layout may differ):&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=scottg489&amp;#x26;show_icons=true&amp;#x26;count_private=true&amp;#x26;line_height=34&quot; alt=&quot;GitHub Stats&quot;&gt;
 &lt;img src=&quot;https://github-readme-stats.vercel.app/api/top-langs/?username=scottg489&amp;#x26;cache_seconds=1800&amp;#x26;hide=python&quot; alt=&quot;Top Languages&quot;&gt;&lt;/p&gt;
-&lt;p&gt; Check out my GitHub profile page to view the current version: &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;scottg489/scottg489&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First! This is my first blog post. That is all.
+&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
                                                   :)]]></description><link>https://giminiani.com/posts/frist-psot/</link><guid isPermaLink="false">https://giminiani.com/posts/frist-psot/</guid><pubDate>Thu, 01 Oct 2020 02:51:29 GMT</pubDate><content:encoded>&lt;h1&gt;Frist psot&lt;/h1&gt;
-&lt;p&gt;First!&lt;/p&gt;
-&lt;p&gt;This is my first blog post.&lt;/p&gt;
-&lt;p&gt;That is all.
+&lt;p&gt;First!
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
