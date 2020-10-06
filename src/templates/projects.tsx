@@ -15,12 +15,8 @@ import {
   outer,
   PostFeed,
   Posts,
-  SiteDescription,
   SiteHeader,
-  SiteHeaderContent,
   SiteMain,
-  SiteTitle,
-  SiteHeaderStyles,
 } from '../styles/shared';
 import config from '../website-config';
 import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
