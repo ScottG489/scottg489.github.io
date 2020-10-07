@@ -4,7 +4,6 @@ import { FluidObject } from 'gatsby-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import {
@@ -21,10 +20,9 @@ import {
   ResponsiveHeaderBackground,
   SiteHeaderBackground,
 } from '../styles/shared';
-import { PageContext } from './post';
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
-import {ProjectCard} from "../components/ProjectCard";
+import { ProjectCard } from '../components/ProjectCard';
 
 interface TagTemplateProps {
   location: Location;
@@ -46,10 +44,22 @@ interface TagTemplateProps {
         };
       }>;
     };
-    allMarkdownRemark: {
+    projects: {
       totalCount: number;
       edges: Array<{
-        node: PageContext;
+        node: {
+          id: string;
+          post: string;
+          large: boolean;
+          layout: string;
+          title: string;
+          link: string;
+          ghimage: string;
+          order: string;
+          draft?: boolean;
+          excerpt: string;
+          tags: string[];
+        };
       }>;
     };
   };
@@ -57,7 +67,7 @@ interface TagTemplateProps {
 
 const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
   const tag = pageContext.tag ? pageContext.tag : '';
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { edges, totalCount } = data.projects;
   const tagData = data.allTagYaml.edges.find(
     n => n.node.id.toLowerCase() === tag.toLowerCase(),
   );
@@ -107,9 +117,9 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
                   tagData.node.description
                 ) : (
                   <>
-                    A collection of {totalCount > 1 && `${totalCount} posts`}
-                    {totalCount === 1 && '1 post'}
-                    {totalCount === 0 && 'No posts'}
+                    A collection of {totalCount > 1 && `${totalCount} projects`}
+                    {totalCount === 1 && '1 project'}
+                    {totalCount === 0 && 'No projects'}
                   </>
                 )}
               </SiteDescription>
@@ -120,7 +130,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
           <div css={inner}>
             <div css={[PostFeed]}>
               {edges.map(({ node }) => (
-                <ProjectCard key={node.fields.slug} post={node} />
+                <ProjectCard key={node.id} post={node} />
               ))}
             </div>
           </div>
@@ -140,6 +150,23 @@ export const pageQuery = graphql`
         node {
           id
           description
+        }
+      }
+    }
+    projects: allProjsYaml(
+      filter: { tags: { in: [$tag] }, draft: { ne: true } }
+     ) {
+      edges {
+        node {
+          id
+          layout
+          title
+          link
+          ghimage
+          order
+          draft
+          excerpt
+          tags
         }
       }
     }

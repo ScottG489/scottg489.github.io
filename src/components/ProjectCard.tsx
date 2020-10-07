@@ -7,20 +7,31 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import { colors } from '../styles/colors';
-import { PageContext } from '../templates/post';
 
 export interface ProjectCardProps {
-  post: PageContext;
+  post: {
+    id: string;
+    post: string;
+    large: boolean;
+    layout: string;
+    title: string;
+    link: string;
+    ghimage: string;
+    order: string;
+    draft?: boolean;
+    excerpt: string;
+    tags: string[];
+  };
   large?: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
-  const { ghimage, link } = post.frontmatter;
-  const { title } = post.frontmatter;
+  const { ghimage, link } = post;
+  const { title } = post;
 
   return (
     <article
-      className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
+      className={`post-card 'no-image' ${
         large ? 'post-card-large' : ''
       }`}
       css={[PostCardStyles, large && PostCardLarge]}
@@ -33,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">
           {
-            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
+            post.tags && post.tags.length > 0 && post.tags.map((tag, index, arr) => {
               return (
                 <Link
                   key={tag} className="post-card-primary-tag"
@@ -47,9 +58,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
           }
         </PostCardHeader>
         <PostCardContentText className="post-card-content-link">
-          <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
+          <PostCardTitle className="post-card-title">{post.title}</PostCardTitle>
           <PostCardExcerpt className="post-card-excerpt">
-            <p>{post.frontmatter.excerpt || post.excerpt}</p>
+            <p>{post.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
         </PostCardContentText>
       </PostCardContent>

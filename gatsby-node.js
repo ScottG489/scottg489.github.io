@@ -134,37 +134,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projectResults = await graphql(`
     {
-      allMarkdownRemark(
-        limit: 2000
-        sort: { fields: [frontmatter___date], order: ASC }
-        filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
-      ) {
+      projects: allProjsYaml {
         edges {
           node {
+            id
+            layout
+            title
+            link
+            ghimage
+            order
+            draft
             excerpt
-            timeToRead
-            frontmatter {
-              title
-              tags
-              date
-              draft
-              excerpt
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 3720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
-            fields {
-              layout
-              slug
-            }
+            tags
           }
         }
       }
@@ -178,7 +159,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create post pages
   const posts = postResults.data.allMarkdownRemark.edges;
-  const projects = projectResults.data.allMarkdownRemark.edges;
+  const projects = projectResults.data.projects.edges;
 
   // Create paginated index
   // TODO: new pagination
@@ -274,7 +255,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectTags = _.uniq(
     _.flatten(
       projects.map(edge => {
-        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
+        return _.castArray(_.get(edge, 'node.tags', []));
       }),
     ),
   );

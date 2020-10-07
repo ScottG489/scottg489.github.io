@@ -51,7 +51,19 @@ export interface IndexProps {
     };
     projects: {
       edges: Array<{
-        node: PageContext;
+        node: {
+          id: string;
+          post: string;
+          large: boolean;
+          layout: string;
+          title: string;
+          link: string;
+          ghimage: string;
+          order: string;
+          draft?: boolean;
+          excerpt: string;
+          tags: string[];
+        };
       }>;
     };
   };
@@ -155,9 +167,9 @@ const IndexPage: React.FC<IndexProps> = props => {
               {projects.map(project => {
                 // filter out drafts in production
                 return (
-                  (project.node.frontmatter.draft !== true ||
+                  (project.node.draft !== true ||
                     process.env.NODE_ENV !== 'production') && (
-                    <ProjectCard key={project.node.fields.slug} post={project.node} />
+                    <ProjectCard key={project.node.id} post={project.node} />
                   )
                 );
               })}
@@ -229,36 +241,18 @@ export const pageQuery = graphql`
         }
       }
     }
-    projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___order], order: ASC }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
-      limit: $limit
-      skip: $skip
-    ) {
+    projects: allProjsYaml {
       edges {
         node {
-          timeToRead
-          frontmatter {
-            title
-            date
-            tags
-            draft
-            excerpt
-            link
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            ghimage
-          }
+          id
+          layout
+          title
+          link
+          ghimage
+          order
+          draft
           excerpt
-          fields {
-            layout
-            slug
-          }
+          tags
         }
       }
     }
