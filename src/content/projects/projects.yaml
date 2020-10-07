@@ -11,9 +11,9 @@
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=unified-diff-parser&show_owner=true
   excerpt: Extract metadata from unified diffs. Provides information such as type of change, file names, mode change, etc.
   tags:
-    - Provisioning
-    - Terraform
-    - Ansible
+    - Diff
+    - Java
+    - Spock
 - title: docker-ci-prototype
   layout: project
   link: https://github.com/ScottG489/docker-ci-prototype
@@ -29,6 +29,7 @@
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489.github.io&show_owner=true
   excerpt: The project for the website you're looking at right now! Built using the Gatsby framework.
   tags:
+    - Website
     - TypeScript
     - Gatsby
 - title: scottg489/scottg489
@@ -38,3 +39,4 @@
   excerpt: My GitHub profile README. This displays at the top of my GitHub profile page.
   tags:
     - GitHub
+    - Markdown
