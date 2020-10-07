@@ -43,11 +43,6 @@ export interface PostsProps {
         node: PageContext;
       }>;
     };
-    projects: {
-      edges: Array<{
-        node: PageContext;
-      }>;
-    };
   };
 }
 
@@ -176,40 +171,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            ghimage
-          }
-          excerpt
-          fields {
-            layout
-            slug
-          }
-        }
-      }
-    }
-    projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___order], order: ASC }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          timeToRead
-          frontmatter {
-            title
-            date
-            tags
-            draft
-            excerpt
-            link
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            ghimage
           }
           excerpt
           fields {

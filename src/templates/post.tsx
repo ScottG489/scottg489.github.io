@@ -80,7 +80,6 @@ export interface PageContext {
         fluid: FluidObject;
       };
     };
-    ghimage: string;
     link: string;
     excerpt: string;
     title: string;

@@ -170,37 +170,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }, fileAbsolutePath: {regex: "/content/projects/"} }
-    ) {
-      totalCount
-      edges {
-        node {
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            excerpt
-            tags
-            date
-            layout
-            ghimage
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1240) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            layout
-            slug
-          }
-        }
-      }
-    }
   }
 `;

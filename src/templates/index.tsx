@@ -231,7 +231,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            ghimage
           }
           excerpt
           fields {

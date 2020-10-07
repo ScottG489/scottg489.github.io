@@ -147,7 +147,7 @@ const ProjectsPage: React.FC<ProjectsProps> = props => {
 };
 
 export const pageQuery = graphql`
-  query projectsPageQuery($skip: Int!, $limit: Int!) {
+  query projectsPageQuery {
     logo: file(relativePath: { eq: "img/scott-logo.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
@@ -163,38 +163,6 @@ export const pageQuery = graphql`
         # Makes it trivial to update as your page's design changes.
         fixed(width: 2000, quality: 100) {
           ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          timeToRead
-          frontmatter {
-            title
-            date
-            tags
-            draft
-            excerpt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            ghimage
-          }
-          excerpt
-          fields {
-            layout
-            slug
-          }
         }
       }
     }
