@@ -23,6 +23,7 @@ import {
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
 import { ProjectCard } from '../components/ProjectCard';
+import { ProjectContext } from './projects';
 
 interface TagTemplateProps {
   location: Location;
@@ -45,20 +46,8 @@ interface TagTemplateProps {
       }>;
     };
     projects: {
-      totalCount: number;
       edges: Array<{
-        node: {
-          id: string;
-          post: string;
-          large: boolean;
-          layout: string;
-          title: string;
-          link: string;
-          ghimage: string;
-          draft?: boolean;
-          excerpt: string;
-          tags: string[];
-        };
+        node: ProjectContext;
       }>;
     };
   };

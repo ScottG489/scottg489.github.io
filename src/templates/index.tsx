@@ -27,6 +27,7 @@ import config from '../website-config';
 import { HomeFullTitle, PageContext } from './post';
 import { ProjectCard } from '../components/ProjectCard';
 import styled from '@emotion/styled';
+import { ProjectContext } from './projects';
 
 export interface IndexProps {
   pageContext: {
@@ -51,18 +52,7 @@ export interface IndexProps {
     };
     projects: {
       edges: Array<{
-        node: {
-          id: string;
-          post: string;
-          large: boolean;
-          layout: string;
-          title: string;
-          link: string;
-          ghimage: string;
-          draft?: boolean;
-          excerpt: string;
-          tags: string[];
-        };
+        node: ProjectContext;
       }>;
     };
   };

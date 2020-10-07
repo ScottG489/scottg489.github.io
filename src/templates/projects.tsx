@@ -45,21 +45,23 @@ export interface ProjectsProps {
     };
     projects: {
       edges: Array<{
-        node: {
-          id: string;
-          post: string;
-          large: boolean;
-          layout: string;
-          title: string;
-          link: string;
-          ghimage: string;
-          draft?: boolean;
-          excerpt: string;
-          tags: string[];
-        };
+        node: ProjectContext;
       }>;
     };
   };
+}
+
+export interface ProjectContext {
+  id: string;
+  post: string;
+  large: boolean;
+  layout: string;
+  title: string;
+  link: string;
+  ghimage: string;
+  draft?: boolean;
+  excerpt: string;
+  tags: string[];
 }
 
 const ProjectsPage: React.FC<ProjectsProps> = props => {

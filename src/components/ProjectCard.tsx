@@ -7,20 +7,10 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import { colors } from '../styles/colors';
+import { ProjectContext } from '../templates/projects';
 
 export interface ProjectCardProps {
-  post: {
-    id: string;
-    post: string;
-    large: boolean;
-    layout: string;
-    title: string;
-    link: string;
-    ghimage: string;
-    draft?: boolean;
-    excerpt: string;
-    tags: string[];
-  };
+  post: ProjectContext;
   large?: boolean;
 }
 
