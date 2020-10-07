@@ -119,7 +119,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
           <div css={inner}>
             <div css={[PostFeed]}>
               {edges.map(({ node }) => (
-                <ProjectCard key={node.id} post={node} />
+                <ProjectCard key={node.title} post={node} />
               ))}
             </div>
           </div>
@@ -147,9 +147,8 @@ export const pageQuery = graphql`
      ) {
       edges {
         node {
-          id
-          layout
           title
+          layout
           link
           ghimage
           excerpt

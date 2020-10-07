@@ -137,9 +137,8 @@ exports.createPages = async ({ graphql, actions }) => {
       projects: allProjectsYaml {
         edges {
           node {
-            id
-            layout
             title
+            layout
             link
             ghimage
             excerpt

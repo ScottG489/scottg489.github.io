@@ -52,11 +52,10 @@ export interface ProjectsProps {
 }
 
 export interface ProjectContext {
-  id: string;
+  title: string;
   post: string;
   large: boolean;
   layout: string;
-  title: string;
   link: string;
   ghimage: string;
   excerpt: string;
@@ -124,7 +123,7 @@ const ProjectsPage: React.FC<ProjectsProps> = props => {
               {projects.map(project => {
                 return (
                   (process.env.NODE_ENV !== 'production') && (
-                    <ProjectCard key={project.node.id} post={project.node} />
+                    <ProjectCard key={project.node.title} post={project.node} />
                   )
                 );
               })}
@@ -167,9 +166,8 @@ export const pageQuery = graphql`
     projects: allProjectsYaml {
       edges {
         node {
-          id
-          layout
           title
+          layout
           link
           ghimage
           excerpt
