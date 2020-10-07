@@ -148,7 +148,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          layout
           link
           ghimage
           excerpt

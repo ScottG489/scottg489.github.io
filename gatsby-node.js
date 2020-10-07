@@ -138,7 +138,6 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             title
-            layout
             link
             ghimage
             excerpt

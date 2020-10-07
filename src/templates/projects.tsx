@@ -55,7 +55,6 @@ export interface ProjectContext {
   title: string;
   post: string;
   large: boolean;
-  layout: string;
   link: string;
   ghimage: string;
   excerpt: string;
@@ -167,7 +166,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          layout
           link
           ghimage
           excerpt
