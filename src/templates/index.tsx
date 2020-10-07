@@ -154,10 +154,8 @@ const IndexPage: React.FC<IndexProps> = props => {
             </HomeContentHeader>
             <div css={[PostFeed]}>
               {projects.map(project => {
-                // filter out drafts in production
                 return (
-                  (project.node.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
+                  (process.env.NODE_ENV !== 'production') && (
                     <ProjectCard key={project.node.id} post={project.node} />
                   )
                 );
@@ -237,7 +235,6 @@ export const pageQuery = graphql`
           title
           link
           ghimage
-          draft
           excerpt
           tags
         }

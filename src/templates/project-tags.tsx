@@ -143,7 +143,7 @@ export const pageQuery = graphql`
       }
     }
     projects: allProjectsYaml(
-      filter: { tags: { in: [$tag] }, draft: { ne: true } }
+      filter: { tags: { in: [$tag] } }
      ) {
       edges {
         node {
@@ -152,7 +152,6 @@ export const pageQuery = graphql`
           title
           link
           ghimage
-          draft
           excerpt
           tags
         }
