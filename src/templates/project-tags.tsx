@@ -66,7 +66,8 @@ interface TagTemplateProps {
 
 const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
   const tag = pageContext.tag ? pageContext.tag : '';
-  const { edges, totalCount } = data.projects;
+  const { edges } = data.projects;
+  const totalCount = edges.length;
   const tagData = data.allTagYaml.edges.find(
     n => n.node.id.toLowerCase() === tag.toLowerCase(),
   );
