@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projectResults = await graphql(`
     {
-      projects: allProjsYaml {
+      projects: allProjectsYaml {
         edges {
           node {
             id

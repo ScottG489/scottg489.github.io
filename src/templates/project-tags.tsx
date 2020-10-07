@@ -153,7 +153,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    projects: allProjsYaml(
+    projects: allProjectsYaml(
       filter: { tags: { in: [$tag] }, draft: { ne: true } }
      ) {
       edges {

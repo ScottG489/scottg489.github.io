@@ -166,7 +166,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    projects: allProjsYaml {
+    projects: allProjectsYaml {
       edges {
         node {
           id
