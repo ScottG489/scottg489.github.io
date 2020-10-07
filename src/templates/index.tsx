@@ -63,6 +63,7 @@ const IndexPage: React.FC<IndexProps> = props => {
   const posts = props.data.posts.edges;
   const projects = props.data.projects.edges;
 
+
   return (
     <IndexLayout css={HomePosts}>
       <Helmet>
@@ -154,11 +155,7 @@ const IndexPage: React.FC<IndexProps> = props => {
             </HomeContentHeader>
             <div css={[PostFeed]}>
               {projects.map(project => {
-                return (
-                  (process.env.NODE_ENV !== 'production') && (
-                    <ProjectCard key={project.node.title} post={project.node} />
-                  )
-                );
+                return (<ProjectCard key={project.node.title} post={project.node} />);
               })}
             </div>
           </div>

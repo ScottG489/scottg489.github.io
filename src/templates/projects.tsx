@@ -120,11 +120,7 @@ const ProjectsPage: React.FC<ProjectsProps> = props => {
             </HomeFullHeader>
             <div css={[PostFeed]}>
               {projects.map(project => {
-                return (
-                  (process.env.NODE_ENV !== 'production') && (
-                    <ProjectCard key={project.node.title} post={project.node} />
-                  )
-                );
+                return (<ProjectCard key={project.node.title} post={project.node} />);
               })}
             </div>
           </div>
