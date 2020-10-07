@@ -53,7 +53,6 @@ export interface ProjectsProps {
           title: string;
           link: string;
           ghimage: string;
-          order: string;
           draft?: boolean;
           excerpt: string;
           tags: string[];
@@ -174,7 +173,6 @@ export const pageQuery = graphql`
           title
           link
           ghimage
-          order
           draft
           excerpt
           tags

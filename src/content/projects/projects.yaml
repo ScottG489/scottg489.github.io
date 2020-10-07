@@ -3,7 +3,6 @@
   title: docker-ci-prototype
   link: https://github.com/ScottG489/docker-ci-prototype
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=docker-ci-prototype&show_owner=true
-  order: 0
   draft: false
   excerpt: Simple build server which pulls, runs, then returns a given Docker image's output.
   tags:
@@ -15,7 +14,6 @@
   title: scottg489.github.io
   link: https://github.com/ScottG489/scottg489.github.io
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489.github.io&show_owner=true
-  order: 1
   draft: false
   excerpt: The project for the website you're looking at right now! Built using the Gatsby framework.
   tags:
@@ -26,7 +24,6 @@
   title: scottg489/scottg489
   link: https://github.com/ScottG489/scottg489
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489&show_owner=true
-  order: 2
   draft: false
   excerpt: My GitHub profile README. This displays at the top of my GitHub profile page.
   tags:

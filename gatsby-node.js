@@ -142,7 +142,6 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             link
             ghimage
-            order
             draft
             excerpt
             tags

@@ -17,7 +17,6 @@ export interface ProjectCardProps {
     title: string;
     link: string;
     ghimage: string;
-    order: string;
     draft?: boolean;
     excerpt: string;
     tags: string[];
