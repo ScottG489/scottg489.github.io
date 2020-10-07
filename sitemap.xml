@@ -13,11 +13,15 @@
 <url> <loc>https://giminiani.com/projects/tags/provisioning/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/terraform/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/ansible/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/projects/tags/ci-cd/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/diff/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/java/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/spock/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/ci-cd/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/docker/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/website/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/type-script/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/gatsby/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/git-hub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/projects/tags/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
