@@ -35,6 +35,8 @@ COPY config /root/.aws/config
 
 RUN mkdir /root/.docker
 
+COPY gitconfig /root/.gitconfig
+
 RUN mkdir -p /opt/build
 COPY run.sh /opt/build/run.sh
 COPY run-test.sh /opt/build/run-test.sh
