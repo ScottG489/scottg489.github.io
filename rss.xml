@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 08 Oct 2020 15:50:09 GMT</lastBuildDate><item><title><![CDATA[How to create your GitHub profile README]]></title><description><![CDATA[Personalize your GitHub profile page In the past, your ability to customize your GitHub profile overview page was a bit limited.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Oct 2020 23:22:04 GMT</lastBuildDate><item><title><![CDATA[How to create your GitHub profile README]]></title><description><![CDATA[Personalize your GitHub profile page In the past, your ability to customize your GitHub profile overview page was a bit limited.
 You could…]]></description><link>https://giminiani.com/posts/how-to-create-your-github-profile-readme/</link><guid isPermaLink="false">https://giminiani.com/posts/how-to-create-your-github-profile-readme/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Personalize your GitHub profile page&lt;/h1&gt;
 &lt;p&gt;In the past, your ability to customize your GitHub profile overview page was a bit limited.
 You could &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile&quot;&gt;select what repositories you wanted to pin&lt;/a&gt;
@@ -20,7 +20,189 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
 &lt;p&gt;This is my GitHub profile README at the time of writing (layout may differ):&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=scottg489&amp;#x26;show_icons=true&amp;#x26;count_private=true&amp;#x26;line_height=34&quot; alt=&quot;GitHub Stats&quot;&gt;
 &lt;img src=&quot;https://github-readme-stats.vercel.app/api/top-langs/?username=scottg489&amp;#x26;cache_seconds=1800&amp;#x26;hide=python&quot; alt=&quot;Top Languages&quot;&gt;&lt;/p&gt;
-&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
+&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Manage your Google Drive using the googleapi node package]]></title><description><![CDATA[Google APIs with Node.js, and the official  client This guide will explain how to integrate with the Google API for Google Drive using the…]]></description><link>https://giminiani.com/posts/google-drive-api-with-node-js/</link><guid isPermaLink="false">https://giminiani.com/posts/google-drive-api-with-node-js/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Google APIs with Node.js, and the official &lt;code class=&quot;language-text&quot;&gt;googleapi&lt;/code&gt; client&lt;/h1&gt;
+&lt;p&gt;This guide will explain how to integrate with the Google API for Google Drive using the &lt;code class=&quot;language-text&quot;&gt;googleapi&lt;/code&gt; npm package.
+I try to make as few assumptions as possible and will be starting from scratch. If you’ve already done some
+setup yourself, feel free to skip to the relevant section.&lt;/p&gt;
+&lt;h2&gt;Table of contents&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#google-cloud-api-setup&quot;&gt;Google Cloud API setup&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#setting-up-a-google-cloud-account&quot;&gt;Setting up Google Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#creating-a-project&quot;&gt;Creating a project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#configuring-your-project-to-use-google-drive&quot;&gt;Configuring your project to use Google Drive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#setting-up-credentials&quot;&gt;Setting up credentials&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#create-a-service-account&quot;&gt;Create a service account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#add-a-key-to-your-service-account&quot;&gt;Add a key to your service account&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#google-drive-configuration&quot;&gt;Google Drive configuration&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#find-your-service-accounts-client_email&quot;&gt;Find your service account’s &lt;code class=&quot;language-text&quot;&gt;client_email&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#share-your-files-with-the-service-account&quot;&gt;Share your files with the service account&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#application-code-and-configuration&quot;&gt;Application code and configuration&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#install-prerequisites&quot;&gt;Install prerequisites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#project-configuration&quot;&gt;Project configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#application-code&quot;&gt;Application code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#running-the-application&quot;&gt;Running the application&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Google Cloud API setup&lt;/h2&gt;
+&lt;h3&gt;Setting up a Google Cloud account&lt;/h3&gt;
+&lt;p&gt;In order to access Google APIs you need to set up &lt;a href=&quot;https://console.cloud.google.com&quot;&gt;Google Cloud&lt;/a&gt;.
+Navigate to their &lt;a href=&quot;https://cloud.google.com/getting-started&quot;&gt;getting-started&lt;/a&gt; page and click on &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/freetrial&quot;&gt;Get started for free&lt;/a&gt;&lt;/strong&gt;
+in the top right corner.
+If you already have a Google account (who doesn’t?), follow the guide to sign up and then you should be brought to the &lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;Google Cloud Dashboard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that I set up my Google Cloud account years ago, so I apologize if this sign up procedure is a little off.&lt;/p&gt;
+&lt;h3&gt;Creating a project&lt;/h3&gt;
+&lt;p&gt;Google should create your first project for you but if you want to create a new one for yourself, or manage all of your
+projects in the future, you can go to the &lt;a href=&quot;https://console.cloud.google.com/cloud-resource-manager&quot;&gt;Cloud Resource Manager&lt;/a&gt;
+to do so.&lt;/p&gt;
+&lt;h3&gt;Configuring your project to use Google Drive&lt;/h3&gt;
+&lt;p&gt;Once you’re in your project navigate to your project’s &lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;dashboard&lt;/a&gt;.
+Here you can click on &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/library?project=api-access-832bc17f4878&quot;&gt;ENABLE APIS AND SERVICES&lt;/a&gt;&lt;/strong&gt;.
+Search for “drive” and click on &lt;a href=&quot;https://console.cloud.google.com/apis/library/drive.googleapis.com&quot;&gt;Google Drive API&lt;/a&gt;
+once it pops up. You can also navigate to it directly by clicking the previous link and enabling it for your project.&lt;/p&gt;
+&lt;h3&gt;Setting up credentials&lt;/h3&gt;
+&lt;p&gt;After you’ve enabled Google Drive for your project, click &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/api/drive.googleapis.com/overview&quot;&gt;Manage&lt;/a&gt;&lt;/strong&gt;
+and then on the left nav bar click &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials&quot;&gt;Credentials&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;Create a service account&lt;/h4&gt;
+&lt;p&gt;In the nav bar near the top click &lt;strong&gt;CREATE CREDENTIALS&lt;/strong&gt; and then in the dropdown, &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/iam-admin/serviceaccounts/create&quot;&gt;Service account&lt;/a&gt;&lt;/strong&gt;.
+Give the service account a name and description then click &lt;strong&gt;CREATE&lt;/strong&gt;. In the next step you’ll also need to grant
+the service account access to your project. I opted for the “Owner” role which gives “Full access to all resources”.
+However, depending on your use case, there may be a more targeted role you could choose.&lt;/p&gt;
+&lt;h4&gt;Add a key to your service account&lt;/h4&gt;
+&lt;p&gt;Once you’re back on the &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials&quot;&gt;Credentials&lt;/a&gt;&lt;/strong&gt;
+page, under the &lt;strong&gt;Service Accounts&lt;/strong&gt; section, click on the service account you just created to edit it. At the bottom of
+the &lt;strong&gt;Service account details&lt;/strong&gt; page, under the &lt;strong&gt;Keys&lt;/strong&gt; section, click on &lt;strong&gt;ADD KEY&lt;/strong&gt;. On the dialog window that
+pops up choose “JSON” then click &lt;strong&gt;CREATE&lt;/strong&gt;. For the purposes of this guide this is the format we’ll be using
+and is important for later steps. The download dialog window should then pop up, and you should save the file
+into your project’s directory. Later on in the guide I’ll refer to this file as &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I should note that this was the first project I’ve set up in Google Cloud. So keep that in mind in case you run
+into something that conflicts with this guide. However, I’ve made every effort to make sure the steps are
+accurate to my experience.&lt;/p&gt;
+&lt;p&gt;Otherwise, this should be all the setup you need to do in Google Cloud. Next we’ll start creating our application.&lt;/p&gt;
+&lt;h2&gt;Google Drive configuration&lt;/h2&gt;
+&lt;p&gt;In order for the service account you’ve created to have access to your personal Google account’s Drive you need
+to share the file(s) or directory(s) with it. Personally I found this a bit awkward, and it would be nice for
+there to be a way to give my application access to everything my personal account has access to in Drive. If
+anyone knows how to do this (without an &lt;strong&gt;OAuth&lt;/strong&gt; popup) I’d be interested to know.&lt;/p&gt;
+&lt;h2&gt;Find your service account’s &lt;code class=&quot;language-text&quot;&gt;client_email&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;In the &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt; file you downloaded earlier there should be a field called &lt;code class=&quot;language-text&quot;&gt;client_email&lt;/code&gt;. Note this
+down as you’ll need it for the next step.
+If you happen to have &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; installed you can run &lt;code class=&quot;language-text&quot;&gt;jq -r .client_email credentials.json&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Share your files with the service account&lt;/h2&gt;
+&lt;p&gt;Navigate to &lt;a href=&quot;https://drive.google.com/&quot;&gt;Google Drive&lt;/a&gt; and find the file(s) or directory(s) you wish to share with
+the service account. Right click on them and in the menu select &lt;strong&gt;Share&lt;/strong&gt;. In he *Add people and groups** text
+box enter the &lt;code class=&quot;language-text&quot;&gt;client_email&lt;/code&gt; value from the last step. To the right of this text box there’s a dropdown that will
+let you select what permissions the service account will have. Choose whatever is appropriate for your use case.
+For the purpose of this guide, we only need read access so I selected “Viewer”. Then click the &lt;strong&gt;Share&lt;/strong&gt; button
+in the bottom right of the dialog box.&lt;/p&gt;
+&lt;h2&gt;Application code and configuration&lt;/h2&gt;
+&lt;h3&gt;Install prerequisites&lt;/h3&gt;
+&lt;p&gt;For this project we’ll be using:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt; &lt;strong&gt;v10.19.0&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; &lt;strong&gt;v6.14.4&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; &lt;strong&gt;v9.0.0&lt;/strong&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; is very popular and can probably be installed with any package manager. You can
+also download it from the &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;Node.js downloads&lt;/a&gt; page. Once you’ve installed
+&lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt; you’ll also have &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; installed.
+To install &lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; run &lt;code class=&quot;language-text&quot;&gt;npm install -g ts-node&lt;/code&gt; or follow the&lt;a href=&quot;https://www.npmjs.com/package/ts-node#installation&quot;&gt;ts-node installation&lt;/a&gt;
+instructions.&lt;/p&gt;
+&lt;h3&gt;Project configuration&lt;/h3&gt;
+&lt;p&gt;To configure our &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; project we’ll need a &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; and a &lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt;.
+Below you’ll find minimal versions of these files.
+&lt;br/&gt;
+&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;My Google Drive API project&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;typescript&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^4.0.3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;googleapis&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^61.0.0&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; has been generated from &lt;code class=&quot;language-text&quot;&gt;npm init&lt;/code&gt; and I’ve added the latest version (at the time of writing)
+of the package’s we’ll need. You may want to install the latest versions yourself. You can do so by
+running &lt;code class=&quot;language-text&quot;&gt;npm install typescript googleapis&lt;/code&gt;.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;compilerOptions&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;target&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ES2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;module&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;commonjs&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;strict&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;esModuleInterop&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;skipLibCheck&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;forceConsistentCasingInFileNames&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;$schema&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://json.schemastore.org/tsconfig&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;display&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Recommended&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt; was taken from the &lt;a href=&quot;https://github.com/tsconfig/bases/blob/master/bases/recommended.json&quot;&gt;recommended&lt;/a&gt;
+&lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt; from the &lt;a href=&quot;https://github.com/tsconfig/bases&quot;&gt;Centralized Recommendations for TSConfig bases&lt;/a&gt;
+GitHub project.&lt;/p&gt;
+&lt;p&gt;After you have these two files in place run &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Application code&lt;/h3&gt;
+&lt;p&gt;The example code is a simple demonstration that lists all the files that have been shared with the
+service account.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;index.ts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;google&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;googleapis&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; auth &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;GoogleAuth&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    keyFile&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./credentials.json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    scopes&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;https://www.googleapis.com/auth/drive&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; drive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; google&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;drive&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;version&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;v3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; auth&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; driveResponse &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; drive&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;files&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        fields&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;*&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;driveResponse&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;files&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note the reference to your &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt; file.&lt;/p&gt;
+&lt;h3&gt;Running the application&lt;/h3&gt;
+&lt;p&gt;Run &lt;code class=&quot;language-text&quot;&gt;npm install -g ts-node&lt;/code&gt; or follow the &lt;a href=&quot;https://www.npmjs.com/package/ts-node#installation&quot;&gt;ts-node installation&lt;/a&gt;
+steps. Then run &lt;code class=&quot;language-text&quot;&gt;ts-node index.ts&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The application will print out the JSON object representation of the file(s) you
+&lt;a href=&quot;#share-your-files-with-the-service-account&quot;&gt;previously&lt;/a&gt; shared with the service account.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;You now have a working example integrated with the Google Drive API. However, you likely want to do more than just
+print out the JSON objects of your Google Drive files.&lt;/p&gt;
+&lt;p&gt;The best starting point is to check out the documentation on the npm &lt;a href=&quot;https://www.npmjs.com/package/googleapis&quot;&gt;googleapis&lt;/a&gt;
+package page. You can also find some nice samples in the GitHub &lt;a href=&quot;https://www.npmjs.com/package/googleapis&quot;&gt;google-api-nodejs-client&lt;/a&gt;
+repository.&lt;/p&gt;
+&lt;h1&gt;TODO:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;create gist&lt;/li&gt;
+&lt;li&gt;explain how to clone gist&lt;/li&gt;
+&lt;li&gt;add link at top - “if you’re just looking for the code”&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
                                                   :)]]></description><link>https://giminiani.com/posts/frist-psot/</link><guid isPermaLink="false">https://giminiani.com/posts/frist-psot/</guid><pubDate>Thu, 01 Oct 2020 02:51:29 GMT</pubDate><content:encoded>&lt;h1&gt;Frist psot&lt;/h1&gt;
 &lt;p&gt;First!
 &lt;br&gt;
