@@ -7,7 +7,7 @@ draft: false
 excerpt: A GitHub profile README is an easy way to add some personality to your GitHub profile overview page. Here's how to create one.
 tags:
   - GitHub
-  - How-to
+  - Guide
 ---
 
 # Personalize your GitHub profile page
