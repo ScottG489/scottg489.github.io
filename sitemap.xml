@@ -6,10 +6,13 @@
 <url> <loc>https://giminiani.com/posts/a-full-style-test/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/posts/frist-psot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/posts/how-to-create-your-github-profile-readme/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/google-drive-api-with-node-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/posts/tags/test-post-please-ignore/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/posts/tags/first/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/posts/tags/git-hub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://giminiani.com/posts/tags/how-to/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/guide/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/google-drive/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://giminiani.com/posts/tags/node-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/provisioning/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/terraform/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://giminiani.com/projects/tags/ansible/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

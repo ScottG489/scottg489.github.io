@@ -1,29 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Oct 2020 23:22:04 GMT</lastBuildDate><item><title><![CDATA[How to create your GitHub profile README]]></title><description><![CDATA[Personalize your GitHub profile page In the past, your ability to customize your GitHub profile overview page was a bit limited.
-You could…]]></description><link>https://giminiani.com/posts/how-to-create-your-github-profile-readme/</link><guid isPermaLink="false">https://giminiani.com/posts/how-to-create-your-github-profile-readme/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Personalize your GitHub profile page&lt;/h1&gt;
-&lt;p&gt;In the past, your ability to customize your GitHub profile overview page was a bit limited.
-You could &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile&quot;&gt;select what repositories you wanted to pin&lt;/a&gt;
-or choose to &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/showing-an-overview-of-your-activity-on-your-profile&quot;&gt;display your activity overview&lt;/a&gt;
-below your yearly contributions. However, these options didn’t really allow you to express yourself.&lt;/p&gt;
-&lt;p&gt;With the introduction of the &lt;strong&gt;GitHub profile README&lt;/strong&gt;, you’re able to add some personality to your profile
-with the full power of &lt;a href=&quot;https://www.markdownguide.org/&quot;&gt;Markdown&lt;/a&gt;.
-The new feature is a bit of an Easter egg. It doesn’t seem to have ever been officially announced,
-though it’s &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;fully documented&lt;/a&gt;.
-It appears to have been released in early July 2020.&lt;/p&gt;
-&lt;p&gt;If you’d like to set this up for your own profile simply:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/new&quot;&gt;Create a repo&lt;/a&gt; with the same name as your username&lt;/li&gt;
-&lt;li&gt;Create a &lt;strong&gt;README.md&lt;/strong&gt; file in that repo’s root&lt;/li&gt;
-&lt;li&gt;Put some content in it!&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The README will then render at the top of your profile page.
-For more information, see the GitHub documentation on &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;Managing your profile README&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is my GitHub profile README at the time of writing (layout may differ):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=scottg489&amp;#x26;show_icons=true&amp;#x26;count_private=true&amp;#x26;line_height=34&quot; alt=&quot;GitHub Stats&quot;&gt;
-&lt;img src=&quot;https://github-readme-stats.vercel.app/api/top-langs/?username=scottg489&amp;#x26;cache_seconds=1800&amp;#x26;hide=python&quot; alt=&quot;Top Languages&quot;&gt;&lt;/p&gt;
-&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Manage your Google Drive using the googleapi node package]]></title><description><![CDATA[Google APIs with Node.js, and the official  client This guide will explain how to integrate with the Google API for Google Drive using the…]]></description><link>https://giminiani.com/posts/google-drive-api-with-node-js/</link><guid isPermaLink="false">https://giminiani.com/posts/google-drive-api-with-node-js/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Google APIs with Node.js, and the official &lt;code class=&quot;language-text&quot;&gt;googleapi&lt;/code&gt; client&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 04:53:47 GMT</lastBuildDate><item><title><![CDATA[Using the Google Drive API with Node.js]]></title><description><![CDATA[A simple Node.js application with the Google Drive API This guide will explain how to integrate with the Google API for Google Drive using…]]></description><link>https://giminiani.com/posts/google-drive-api-with-node-js/</link><guid isPermaLink="false">https://giminiani.com/posts/google-drive-api-with-node-js/</guid><pubDate>Mon, 26 Oct 2020 04:44:48 GMT</pubDate><content:encoded>&lt;h1&gt;A simple Node.js application with the Google Drive API&lt;/h1&gt;
 &lt;p&gt;This guide will explain how to integrate with the Google API for Google Drive using the &lt;code class=&quot;language-text&quot;&gt;googleapi&lt;/code&gt; npm package.
-I try to make as few assumptions as possible and will be starting from scratch. If you’ve already done some
-setup yourself, feel free to skip to the relevant section.&lt;/p&gt;
+I try to make as few assumptions as possible and will be starting from scratch. If you’ve already done
+some setup yourself, feel free to skip to the relevant section.
+The app is a bare-bones command line implementation meant to get you started.
+You’ll then be ready to explore and play around with the API yourself.&lt;/p&gt;
+&lt;h5&gt;If you’re just looking for the code it can be found &lt;a href=&quot;https://gist.github.com/ScottG489/b6d134d37dcbb4e8f9e07aca48a9cde1&quot;&gt;as a GitHub gist&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Or run the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shellscript&quot;&gt;&lt;pre class=&quot;language-shellscript&quot;&gt;&lt;code class=&quot;language-shellscript&quot;&gt;git clone git@github.com:b6d134d37dcbb4e8f9e07aca48a9cde1.git google-drive-api-project
+cd google-drive-api-project
+npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then copy in your service account’s &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt; key file and run:
+&lt;br/&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shellscript&quot;&gt;&lt;pre class=&quot;language-shellscript&quot;&gt;&lt;code class=&quot;language-shellscript&quot;&gt;ts-node index.ts&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Table of contents&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -31,7 +19,7 @@ setup yourself, feel free to skip to the relevant section.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#setting-up-a-google-cloud-account&quot;&gt;Setting up Google Cloud&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#creating-a-project&quot;&gt;Creating a project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#configuring-your-project-to-use-google-drive&quot;&gt;Configuring your project to use Google Drive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#configuring-your-project-to-use-the-google-drive-api&quot;&gt;Configuring your project to use Google Drive&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&quot;#setting-up-credentials&quot;&gt;Setting up credentials&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -57,6 +45,7 @@ setup yourself, feel free to skip to the relevant section.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;#running-the-application&quot;&gt;Running the application&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;Google Cloud API setup&lt;/h2&gt;
 &lt;h3&gt;Setting up a Google Cloud account&lt;/h3&gt;
@@ -69,8 +58,28 @@ If you already have a Google account (who doesn’t?), follow the guide to sign 
 &lt;p&gt;Google should create your first project for you but if you want to create a new one for yourself, or manage all of your
 projects in the future, you can go to the &lt;a href=&quot;https://console.cloud.google.com/cloud-resource-manager&quot;&gt;Cloud Resource Manager&lt;/a&gt;
 to do so.&lt;/p&gt;
-&lt;h3&gt;Configuring your project to use Google Drive&lt;/h3&gt;
-&lt;p&gt;Once you’re in your project navigate to your project’s &lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;dashboard&lt;/a&gt;.
+&lt;h3&gt;Configuring your project to use the Google Drive API&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAkUlEQVQI14WPPQpCMRCEc0ePZSFewNIDvGtIQNKEQJpnYUAI+dsXMH/rErGw0a8YmNldmGWI2CuMvvU+vPchBGttSsk5F2PEn7Dc8Xg55Nu+1SaE4JxLKbXWSiljzJ/jFe6783JarjkHgK2UQun4QLbWWr55TmjKaDXAeCTsYwCAn1B50jihkJQeeSvZMGmtvQBJs+ODE172GQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Google Drive API&quot;
+        title=&quot;Google Drive API&quot;
+        src=&quot;/static/da23cf1ec1b363a88d600495332743f3/663f3/gdrive_api.png&quot;
+        srcset=&quot;/static/da23cf1ec1b363a88d600495332743f3/0eb09/gdrive_api.png 500w,
+/static/da23cf1ec1b363a88d600495332743f3/663f3/gdrive_api.png 650w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+Once you’re in your project navigate to your project’s &lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;dashboard&lt;/a&gt;.
 Here you can click on &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/library?project=api-access-832bc17f4878&quot;&gt;ENABLE APIS AND SERVICES&lt;/a&gt;&lt;/strong&gt;.
 Search for “drive” and click on &lt;a href=&quot;https://console.cloud.google.com/apis/library/drive.googleapis.com&quot;&gt;Google Drive API&lt;/a&gt;
 once it pops up. You can also navigate to it directly by clicking the previous link and enabling it for your project.&lt;/p&gt;
@@ -85,7 +94,7 @@ However, depending on your use case, there may be a more targeted role you could
 &lt;h4&gt;Add a key to your service account&lt;/h4&gt;
 &lt;p&gt;Once you’re back on the &lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials&quot;&gt;Credentials&lt;/a&gt;&lt;/strong&gt;
 page, under the &lt;strong&gt;Service Accounts&lt;/strong&gt; section, click on the service account you just created to edit it. At the bottom of
-the &lt;strong&gt;Service account details&lt;/strong&gt; page, under the &lt;strong&gt;Keys&lt;/strong&gt; section, click on &lt;strong&gt;ADD KEY&lt;/strong&gt;. On the dialog window that
+the &lt;strong&gt;Service account details&lt;/strong&gt; page, under the &lt;strong&gt;Keys&lt;/strong&gt; section, click on &lt;strong&gt;ADD KEY&lt;/strong&gt;. In the dialog window that
 pops up choose “JSON” then click &lt;strong&gt;CREATE&lt;/strong&gt;. For the purposes of this guide this is the format we’ll be using
 and is important for later steps. The download dialog window should then pop up, and you should save the file
 into your project’s directory. Later on in the guide I’ll refer to this file as &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt;.&lt;/p&gt;
@@ -93,7 +102,7 @@ into your project’s directory. Later on in the guide I’ll refer to this file
 &lt;p&gt;I should note that this was the first project I’ve set up in Google Cloud. So keep that in mind in case you run
 into something that conflicts with this guide. However, I’ve made every effort to make sure the steps are
 accurate to my experience.&lt;/p&gt;
-&lt;p&gt;Otherwise, this should be all the setup you need to do in Google Cloud. Next we’ll start creating our application.&lt;/p&gt;
+&lt;p&gt;Otherwise, this should be all the setup you need to do in Google Cloud. Next we’ll start creating our application!&lt;/p&gt;
 &lt;h2&gt;Google Drive configuration&lt;/h2&gt;
 &lt;p&gt;In order for the service account you’ve created to have access to your personal Google account’s Drive you need
 to share the file(s) or directory(s) with it. Personally I found this a bit awkward, and it would be nice for
@@ -111,17 +120,20 @@ let you select what permissions the service account will have. Choose whatever i
 For the purpose of this guide, we only need read access so I selected “Viewer”. Then click the &lt;strong&gt;Share&lt;/strong&gt; button
 in the bottom right of the dialog box.&lt;/p&gt;
 &lt;h2&gt;Application code and configuration&lt;/h2&gt;
+&lt;img align=&quot;right&quot; src=&quot;https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg&quot; style=&quot;width: 150px; margin: 0 20px 0 1px;&quot;&gt;
+&lt;img align=&quot;right&quot; src=&quot;https://raw.githubusercontent.com/gilbarbara/logos/master/logos/nodejs-icon.svg&quot; style=&quot;width: 150px; margin: 0 20px 0 1px;&quot;&gt;
 &lt;h3&gt;Install prerequisites&lt;/h3&gt;
 &lt;p&gt;For this project we’ll be using:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt; &lt;strong&gt;v10.19.0&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; &lt;strong&gt;v6.14.4&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; &lt;strong&gt;v9.0.0&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; &lt;strong&gt;v9.0.0&lt;/strong&gt;
+&lt;img align=&quot;right&quot; src=&quot;https://raw.githubusercontent.com/gilbarbara/logos/master/logos/npm.svg&quot; style=&quot;width: 150px; margin: 0 70px 0 100px;&quot;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; is very popular and can probably be installed with any package manager. You can
 also download it from the &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;Node.js downloads&lt;/a&gt; page. Once you’ve installed
 &lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt; you’ll also have &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; installed.
-To install &lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; run &lt;code class=&quot;language-text&quot;&gt;npm install -g ts-node&lt;/code&gt; or follow the&lt;a href=&quot;https://www.npmjs.com/package/ts-node#installation&quot;&gt;ts-node installation&lt;/a&gt;
+To install &lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt; run &lt;code class=&quot;language-text&quot;&gt;npm install -g ts-node&lt;/code&gt; or follow the &lt;a href=&quot;https://www.npmjs.com/package/ts-node#installation&quot;&gt;ts-node installation&lt;/a&gt;
 instructions.&lt;/p&gt;
 &lt;h3&gt;Project configuration&lt;/h3&gt;
 &lt;p&gt;To configure our &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; project we’ll need a &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; and a &lt;code class=&quot;language-text&quot;&gt;tsconfig.json&lt;/code&gt;.
@@ -130,12 +142,16 @@ Below you’ll find minimal versions of these files.
 &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;My Google Drive API project&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;google-drive-api-project&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Google Drive API with Node.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token property&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;repository&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;git&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://gist.github.com/ScottG489/b6d134d37dcbb4e8f9e07aca48a9cde1&quot;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -185,24 +201,40 @@ service account.&lt;/p&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Note the reference to your &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Note the reference to your &lt;code class=&quot;language-text&quot;&gt;credentials.json&lt;/code&gt; file. This needs to be in the same directory before &lt;code class=&quot;language-text&quot;&gt;index.ts&lt;/code&gt; can
+be run.&lt;/p&gt;
 &lt;h3&gt;Running the application&lt;/h3&gt;
-&lt;p&gt;Run &lt;code class=&quot;language-text&quot;&gt;npm install -g ts-node&lt;/code&gt; or follow the &lt;a href=&quot;https://www.npmjs.com/package/ts-node#installation&quot;&gt;ts-node installation&lt;/a&gt;
-steps. Then run &lt;code class=&quot;language-text&quot;&gt;ts-node index.ts&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shellscript&quot;&gt;&lt;pre class=&quot;language-shellscript&quot;&gt;&lt;code class=&quot;language-shellscript&quot;&gt;ts-node index.ts&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The application will print out the JSON object representation of the file(s) you
 &lt;a href=&quot;#share-your-files-with-the-service-account&quot;&gt;previously&lt;/a&gt; shared with the service account.&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;You now have a working example integrated with the Google Drive API. However, you likely want to do more than just
+&lt;p&gt;You now have a working example integrated with the &lt;a href=&quot;https://developers.google.com/drive&quot;&gt;Google Drive API&lt;/a&gt;. However, you likely want to do more than just
 print out the JSON objects of your Google Drive files.&lt;/p&gt;
 &lt;p&gt;The best starting point is to check out the documentation on the npm &lt;a href=&quot;https://www.npmjs.com/package/googleapis&quot;&gt;googleapis&lt;/a&gt;
 package page. You can also find some nice samples in the GitHub &lt;a href=&quot;https://www.npmjs.com/package/googleapis&quot;&gt;google-api-nodejs-client&lt;/a&gt;
-repository.&lt;/p&gt;
-&lt;h1&gt;TODO:&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;create gist&lt;/li&gt;
-&lt;li&gt;explain how to clone gist&lt;/li&gt;
-&lt;li&gt;add link at top - “if you’re just looking for the code”&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
+repository.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to create your GitHub profile README]]></title><description><![CDATA[Personalize your GitHub profile page In the past, your ability to customize your GitHub profile overview page was a bit limited.
+You could…]]></description><link>https://giminiani.com/posts/how-to-create-your-github-profile-readme/</link><guid isPermaLink="false">https://giminiani.com/posts/how-to-create-your-github-profile-readme/</guid><pubDate>Fri, 02 Oct 2020 04:30:07 GMT</pubDate><content:encoded>&lt;h1&gt;Personalize your GitHub profile page&lt;/h1&gt;
+&lt;p&gt;In the past, your ability to customize your GitHub profile overview page was a bit limited.
+You could &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile&quot;&gt;select what repositories you wanted to pin&lt;/a&gt;
+or choose to &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/showing-an-overview-of-your-activity-on-your-profile&quot;&gt;display your activity overview&lt;/a&gt;
+below your yearly contributions. However, these options didn’t really allow you to express yourself.&lt;/p&gt;
+&lt;p&gt;With the introduction of the &lt;strong&gt;GitHub profile README&lt;/strong&gt;, you’re able to add some personality to your profile
+with the full power of &lt;a href=&quot;https://www.markdownguide.org/&quot;&gt;Markdown&lt;/a&gt;.
+The new feature is a bit of an Easter egg. It doesn’t seem to have ever been officially announced,
+though it’s &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;fully documented&lt;/a&gt;.
+It appears to have been released in early July 2020.&lt;/p&gt;
+&lt;p&gt;If you’d like to set this up for your own profile simply:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/new&quot;&gt;Create a repo&lt;/a&gt; with the same name as your username&lt;/li&gt;
+&lt;li&gt;Create a &lt;strong&gt;README.md&lt;/strong&gt; file in that repo’s root&lt;/li&gt;
+&lt;li&gt;Put some content in it!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The README will then render at the top of your profile page.
+For more information, see the GitHub documentation on &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme&quot;&gt;Managing your profile README&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is my GitHub profile README at the time of writing (layout may differ):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=scottg489&amp;#x26;show_icons=true&amp;#x26;count_private=true&amp;#x26;line_height=34&quot; alt=&quot;GitHub Stats&quot;&gt;
+&lt;img src=&quot;https://github-readme-stats.vercel.app/api/top-langs/?username=scottg489&amp;#x26;cache_seconds=1800&amp;#x26;hide=python&quot; alt=&quot;Top Languages&quot;&gt;&lt;/p&gt;
+&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
                                                   :)]]></description><link>https://giminiani.com/posts/frist-psot/</link><guid isPermaLink="false">https://giminiani.com/posts/frist-psot/</guid><pubDate>Thu, 01 Oct 2020 02:51:29 GMT</pubDate><content:encoded>&lt;h1&gt;Frist psot&lt;/h1&gt;
 &lt;p&gt;First!
 &lt;br&gt;
