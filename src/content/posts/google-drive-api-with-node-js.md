@@ -32,6 +32,7 @@ Then copy in your service account's `credentials.json` key file and run:
 ```shell script
 ts-node index.ts
 ```
+<br/>
 
 ## Table of contents
 1. [Google Cloud API setup](#google-cloud-api-setup)
@@ -50,6 +51,8 @@ ts-node index.ts
     3. [Application code](#application-code)
     4. [Running the application](#running-the-application)
 4. [Conclusion](#conclusion)
+<br/>
+<br/>
 
 ## Google Cloud API setup
 ### Setting up a Google Cloud account
