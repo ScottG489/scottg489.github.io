@@ -30,6 +30,13 @@ const PostContent: React.FC<PostContentProps> = ({ htmlAst }) => {
 };
 
 export const PostFullContent = styled.section`
+  h1 > a, h2 > a, h3 > a, h4 > a {
+    box-shadow: 0 0 BLACK;
+  }
+
+  h1 a:hover:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+    box-shadow: 0 0 BLACK;
+  }
   position: relative;
   margin: 0 auto;
   padding: 0 170px 6vw;
