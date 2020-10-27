@@ -31,6 +31,14 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              offsetY: '75',
+              isIconAfterHeader: true,
+              elements: ['h1', 'h2', 'h3', 'h4'],
+            },
+          },
+          {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
               wrapperStyle: 'margin-bottom: 1rem',
