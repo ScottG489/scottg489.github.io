@@ -119,8 +119,8 @@ For the purpose of this guide, we only need read access so I selected "Viewer". 
 in the bottom right of the dialog box.
 
 ## Application code and configuration
-<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" style="width: 150px; margin: 0 20px 0 1px;">
-<img align="right" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/nodejs-icon.svg" style="width: 150px; margin: 0 20px 0 1px;">
+<img alt="typescript logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">
+<img alt="nodejs logo" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/nodejs-icon.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">
 
 ### Install prerequisites
 
