@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-casper",
-  "description": "Casper for gatsby",
+  "name": "scottg489.github.io",
+  "description": "Website for giminiani.com",
   "version": "0.0.0",
   "private": true,
-  "author": "Scott Cooper <scttcper@gmail.com>",
+  "author": "Scott Giminiani <scottg489@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
