@@ -4,7 +4,7 @@ title: Using the Google Drive API with Node.js
 image: img/gdrive_node.png
 date: 2020-10-26T04:44:48Z
 draft: false
-excerpt: A complete guide starting from scratch to create a Node.js application that can interact with your personal Google Drive
+excerpt: A complete guide, starting from scratch, to create a Node.js application that can interact with your personal Google Drive files
 tags:
   - Google Drive
   - Node.js
@@ -61,7 +61,7 @@ Navigate to their [getting-started](https://cloud.google.com/getting-started) pa
 in the top right corner.
 If you already have a Google account (who doesn't?), follow the guide to sign up and then you should be brought to the [Google Cloud Dashboard](https://console.cloud.google.com/).
 
-Note that I set up my Google Cloud account years ago, so I apologize if this sign up procedure is a little off.
+I set up my Google Cloud account years ago, so I apologize if this sign up procedure is a little off.
 
 ### Creating a project
 Google should create your first project for you but if you want to create a new one for yourself, or manage all of your 
@@ -70,26 +70,27 @@ to do so.
 
 ### Configuring your project to use the Google Drive API
 ![Google Drive API](img/gdrive_api.png)
-Once you're in your project navigate to your project's [dashboard](https://console.cloud.google.com/apis/dashboard).
+Once you're in your project navigate, to your project's [API dashboard](https://console.cloud.google.com/apis/dashboard). 
 Here you can click on **[ENABLE APIS AND SERVICES](https://console.cloud.google.com/apis/library?project=api-access-832bc17f4878)**.
 Search for "drive" and click on [Google Drive API](https://console.cloud.google.com/apis/library/drive.googleapis.com)
-once it pops up. You can also navigate to it directly by clicking the previous link and enabling it for your project.
+once it pops up. You can also navigate to it directly by clicking the previous link. Once you're on this page
+click <samp>**ENABLE**</samp>.
 
 ### Setting up credentials
-After you've enabled Google Drive for your project, click **[Manage](https://console.cloud.google.com/apis/api/drive.googleapis.com/overview)**
-and then on the left nav bar click **[Credentials](https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials)**.
+After you've enabled Google Drive for your project you should be brought to the **[Google Drive API Overview](https://console.cloud.google.com/apis/api/drive.googleapis.com/overview)**
+page. On the left nav bar click **[Credentials](https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials)**.
 
 #### Create a service account
-In the nav bar near the top click **CREATE CREDENTIALS** and then in the dropdown, **[Service account](https://console.cloud.google.com/iam-admin/serviceaccounts/create)**.
-Give the service account a name and description then click **CREATE**. In the next step you'll also need to grant
+In the nav bar near the top, click <samp>**+CREATE CREDENTIALS**</samp> and then in the dropdown, **[Service account](https://console.cloud.google.com/iam-admin/serviceaccounts/create)**.
+Give the service account a name and description then click <samp>**CREATE**</samp>. In the next step you'll also need to grant
 the service account access to your project. I opted for the "Owner" role which gives "Full access to all resources".
-However, depending on your use case, there may be a more targeted role you could choose.
+However, depending on your use case, there may be a more targeted role you'll want to choose.
 
 #### Add a key to your service account
 Once you're back on the **[Credentials](https://console.cloud.google.com/apis/api/drive.googleapis.com/credentials)**
 page, under the **Service Accounts** section, click on the service account you just created to edit it. At the bottom of
-the **Service account details** page, under the **Keys** section, click on **ADD KEY**. In the dialog window that
-pops up choose "JSON" then click **CREATE**. For the purposes of this guide this is the format we'll be using
+the **Service account details** page, under the **Keys** section, click on <samp>**ADD KEY**</samp>. In the dialog window that
+pops up choose "JSON" then click <samp>**CREATE**</samp>. For the purposes of this guide this is the format we'll be using
 and is important for later steps. The download dialog window should then pop up, and you should save the file
 into your project's directory. Later on in the guide I'll refer to this file as `credentials.json`.
 ___
@@ -106,33 +107,34 @@ there to be a way to give my application access to everything my personal accoun
 anyone knows how to do this (without an **OAuth** popup) I'd be interested to know.
 
 ## Find your service account's `client_email`
-In the `credentials.json` file you downloaded earlier there should be a field called `client_email`. Note this
+In the `credentials.json` [file you downloaded](#add-a-key-to-your-service-account) earlier there should be a field called `client_email`. Note this
 down as you'll need it for the next step.
-If you happen to have `jq` installed you can run `jq -r .client_email credentials.json`.
+If you happen to have [`jq`](https://stedolan.github.io/jq/) installed you can run `jq -r .client_email credentials.json`.
 
 ## Share your files with the service account
 Navigate to [Google Drive](https://drive.google.com/) and find the file(s) or directory(s) you wish to share with
-the service account. Right click on them and in the menu select **Share**. In he *Add people and groups** text
-box enter the `client_email` value from the last step. To the right of this text box there's a dropdown that will
+the service account. Right click on them and in the menu select <samp>**Share**</samp>. In he **Add people and groups**
+text box enter the `client_email` value from the last step. To the right of this text box there's a dropdown that will
 let you select what permissions the service account will have. Choose whatever is appropriate for your use case.
-For the purpose of this guide, we only need read access so I selected "Viewer". Then click the **Share** button
-in the bottom right of the dialog box.
+For the purpose of this guide, we only need read access, so I selected "Viewer". You can also uncheck the
+<samp>**Notify people**</samp> checkbox since there's no use in notifying a service account. Then click
+the <samp>**Share**</samp> button in the bottom right of the dialog box.
 
 ## Application code and configuration
-<img alt="typescript logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">
-<img alt="nodejs logo" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/nodejs-icon.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">
+[<img alt="typescript logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">](https://www.typescriptlang.org/)
+[<img alt="nodejs logo" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/nodejs-icon.svg" style="float: right; width: 150px; margin: 0 20px 0 1px;">](https://nodejs.org/)
 
 ### Install prerequisites
 
 For this project we'll be using:
-- `node` **v10.19.0**
-- `npm` **v6.14.4**
-- `ts-node` **v9.0.0** 
-<img align="right" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/npm.svg" style="width: 150px; margin: 0 70px 0 100px;">
+- [`node`](https://nodejs.org/) **v10.19.0**
+- [`npm`](https://www.npmjs.com/) **v6.14.4**
+- [`ts-node`](https://www.npmjs.com/package/ts-node/) **v9.0.0** 
+[<img align="right" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/npm.svg" style="width: 150px; margin: 0 70px 0 100px;">](https://www.npmjs.com/)
 
-[Node.js](https://nodejs.org/) is very popular and can probably be installed with any package manager. You can
-also download it from the [Node.js downloads](https://nodejs.org/en/download/) page. Once you've installed
-`node` you'll also have `npm` installed.
+[Node.js](https://nodejs.org/) is very popular and can be found and installed by most popular package managers.
+You can also download it from the [Node.js downloads](https://nodejs.org/en/download/) page.
+Once you've installed `node` you'll also have `npm` installed.
 To install `ts-node` run `npm install -g ts-node` or follow the [ts-node installation](https://www.npmjs.com/package/ts-node#installation)
 instructions.
 
@@ -142,7 +144,7 @@ Below you'll find minimal versions of these files.
 <br/>
 <br/>
 
-`package.json`
+`package.json` <a id="package-json"></a>
 ```json
 {
   "name": "google-drive-api-project",
@@ -164,13 +166,13 @@ Below you'll find minimal versions of these files.
   }
 }
 ```
-The `package.json` has been generated from `npm init` and I've added the latest version (at the time of writing)
+This `package.json` has been generated from `npm init` and I've added the latest version (at the time of writing)
 of the package's we'll need. You may want to install the latest versions yourself. You can do so by
 running `npm install typescript googleapis`.
 
 <br/>
 
-`tsconfig.json`
+`tsconfig.json` <a id="tsconfig-json"></a>
 ```json
 {
   "compilerOptions": {
@@ -185,7 +187,7 @@ running `npm install typescript googleapis`.
   "display": "Recommended"
 }
 ```
-The `tsconfig.json` was taken from the [recommended](https://github.com/tsconfig/bases/blob/master/bases/recommended.json)
+This `tsconfig.json` was taken from the [recommended](https://github.com/tsconfig/bases/blob/master/bases/recommended.json)
 `tsconfig.json` from the [Centralized Recommendations for TSConfig bases](https://github.com/tsconfig/bases)
 GitHub project.
 
@@ -196,7 +198,7 @@ After you have these two files in place run `npm install`.
 The example code is a simple demonstration that lists all the files that have been shared with the
 service account.
 
-`index.ts`
+`index.ts` <a id="index-ts"></a>
 ```typescript
 import {google} from 'googleapis';
 
