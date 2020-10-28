@@ -195,8 +195,8 @@ After you have these two files in place run `npm install`.
 
 ### Application code
 
-The example code is a simple demonstration that lists all the files that have been shared with the
-service account.
+The example code is a simple demonstration that lists all the files that [were shared](#share-your-files-with-the-service-account)
+with the service account.
 
 `index.ts` <a id="index-ts"></a>
 ```typescript
@@ -231,7 +231,7 @@ The application will print out the JSON object representation of the file(s) you
 
 ## Conclusion
 You now have a working example integrated with the [Google Drive API](https://developers.google.com/drive). However, you likely want to do more than just
-print out the JSON objects of your Google Drive files.
+print out the JSON object representations of your Google Drive files.
 
 The best starting point is to check out the documentation on the npm [googleapis](https://www.npmjs.com/package/googleapis)
 package page. You can also find some nice samples in the GitHub [google-api-nodejs-client](https://www.npmjs.com/package/googleapis)
