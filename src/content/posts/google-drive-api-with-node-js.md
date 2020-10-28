@@ -27,7 +27,7 @@ cd google-drive-api-project
 npm install
 ```
 
-Then copy in your service account's `credentials.json` key file and run:
+Then copy in your service account's [`credentials.json`](#add-a-key-to-your-service-account) key file and run:
 <br/>
 ```shell script
 ts-node index.ts
@@ -107,7 +107,7 @@ there to be a way to give my application access to everything my personal accoun
 anyone knows how to do this (without an **OAuth** popup) I'd be interested to know.
 
 ## Find your service account's `client_email`
-In the `credentials.json` [file you downloaded](#add-a-key-to-your-service-account) earlier there should be a field called `client_email`. Note this
+In the [`credentials.json`](#add-a-key-to-your-service-account) [file you downloaded](#add-a-key-to-your-service-account) earlier there should be a field called `client_email`. Note this
 down as you'll need it for the next step.
 If you happen to have [`jq`](https://stedolan.github.io/jq/) installed you can run `jq -r .client_email credentials.json`.
 
@@ -218,7 +218,7 @@ const drive = google.drive({version: 'v3', auth});
 });
 ```
 
-Note the reference to your `credentials.json` file. This needs to be in the same directory before `index.ts` can
+Note the reference to your [`credentials.json`](#add-a-key-to-your-service-account) file. This needs to be in the same directory before `index.ts` can
 be run.
 
 ### Running the application
