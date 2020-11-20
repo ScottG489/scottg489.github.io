@@ -14,13 +14,13 @@
     - Diff
     - Java
     - Spock
-- title: docker-ci-prototype
+- title: conjob
   layout: project
-  link: https://github.com/ScottG489/docker-ci-prototype
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=docker-ci-prototype&show_owner=true
-  excerpt: Simple build server which pulls, runs, then returns a given Docker image's output.
+  link: https://github.com/ScottG489/conjob
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=conjob&show_owner=true
+  excerpt: Simple un-opinionated service to run containers as jobs or serverless functions
   tags:
-    - CI/CD
+    - Serverless
     - Java
     - Docker
 - title: scottg489.github.io
