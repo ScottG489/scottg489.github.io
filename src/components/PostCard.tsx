@@ -87,8 +87,6 @@ const PostCardStyles = css`
   margin: 0 0 40px;
   padding: 0 20px 40px;
   min-height: 220px;
-  /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-  border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
   background-size: cover;
 
   @media (prefers-color-scheme: dark) {
@@ -180,6 +178,10 @@ const PostCardImage = styled.div`
   height: 200px;
   background: ${colors.lightgrey} no-repeat center center;
   background-size: cover;
+
+  @media (prefers-color-scheme: dark) {
+    background: ${colors.darkmode};
+  }
 `;
 
 const PostCardContent = styled.div`
