@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc, getImage } from "gatsby-plugin-image";
 import * as _ from 'lodash';
 import { lighten, setLightness } from 'polished';
 import React from 'react';
@@ -84,7 +84,7 @@ export interface PageContext {
   frontmatter: {
     image: {
       childImageSharp: {
-        fluid: FluidObject;
+        fluid: GatsbyImage;
       };
     };
     link: string;
@@ -106,9 +106,9 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const post = data.markdownRemark;
   let width = '';
   let height = '';
-  if (post.frontmatter.image?.childImageSharp) {
-    width = post.frontmatter.image.childImageSharp.gatsbyImageData.sizes.split(', ')[1].split('px')[0];
-    height = String(Number(width) / post.frontmatter.image.childImageSharp.gatsbyImageData.aspectRatio);
+  if (post.frontmatter.image) {
+    width = getImage(post.frontmatter.image).width;
+    height = getImage(post.frontmatter.image).height;
   }
 
   const date = new Date(post.frontmatter.date);
@@ -135,10 +135,10 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
         <meta property="og:title" content={post.frontmatter.title} />
         <meta property="og:description" content={post.frontmatter.excerpt || post.excerpt} />
         <meta property="og:url" content={config.siteUrl + location.pathname} />
-        {post.frontmatter.image?.childImageSharp && (
+        {post.frontmatter.image && (
           <meta
             property="og:image"
-            content={`${config.siteUrl}${post.frontmatter.image.childImageSharp.gatsbyImageData.src}`}
+            content={`${config.siteUrl}${getSrc(post.frontmatter.image)}`}
           />
         )}
         <meta property="article:published_time" content={post.frontmatter.date} />
@@ -154,10 +154,10 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
         <meta name="twitter:title" content={post.frontmatter.title} />
         <meta name="twitter:description" content={post.frontmatter.excerpt || post.excerpt} />
         <meta name="twitter:url" content={config.siteUrl + location.pathname} />
-        {post.frontmatter.image?.childImageSharp && (
+        {post.frontmatter.image && (
           <meta
             name="twitter:image"
-            content={`${config.siteUrl}${post.frontmatter.image.childImageSharp.gatsbyImageData.src}`}
+            content={`${config.siteUrl}${getSrc(post.frontmatter.image)}`}
           />
         )}
         <meta name="twitter:label1" content="Written by" />
@@ -225,10 +225,10 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                 </PostFullByline>
               </PostFullHeader>
 
-              {post.frontmatter.image?.childImageSharp && (
+              {post.frontmatter.image && (
                 <PostFullImage>
                   <GatsbyImage
-                    image={post.frontmatter.image.childImageSharp.gatsbyImageData}
+                    image={getImage(post.frontmatter.image)}
                     style={{ height: '100%' }}
                     alt={post.frontmatter.title} />
                 </PostFullImage>

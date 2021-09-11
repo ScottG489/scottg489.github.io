@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc, getImage } from "gatsby-plugin-image";
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -95,7 +95,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
           </div>
           <ResponsiveHeaderBackground
             css={[outer, SiteHeaderBackground]}
-            backgroundImage={tagData?.node?.image?.childImageSharp?.gatsbyImageData?.src}
+            backgroundImage={getSrc(tagData?.node?.image)}
             className="site-header-background"
           >
             <SiteHeaderContent css={inner} className="site-header-content">
