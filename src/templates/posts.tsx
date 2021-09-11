@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -30,12 +30,12 @@ export interface PostsProps {
   data: {
     logo: {
       childImageSharp: {
-        fixed: FixedObject;
+        fixed: GatsbyImage;
       };
     };
     header: {
       childImageSharp: {
-        fixed: FixedObject;
+        fixed: GatsbyImage;
       };
     };
     posts: {
@@ -47,7 +47,7 @@ export interface PostsProps {
 }
 
 const PostsPage: React.FC<PostsProps> = props => {
-  const { width, height } = props.data.header.childImageSharp.fixed;
+  const { width, height } = props.data.header.childImageSharp.gatsbyImageData;
   const posts = props.data.posts.edges;
 
   return (
@@ -63,7 +63,7 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta property="og:url" content={config.siteUrl} />
         <meta
           property="og:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
+          content={`${config.siteUrl}${props.data.header.childImageSharp.gatsbyImageData.src}`}
         />
         {config.facebook && <meta property="article:publisher" content={config.facebook} />}
         {config.googleSiteVerification && (
@@ -75,7 +75,7 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta name="twitter:url" content={config.siteUrl} />
         <meta
           name="twitter:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.fixed.src}`}
+          content={`${config.siteUrl}${props.data.header.childImageSharp.gatsbyImageData.src}`}
         />
         {config.twitter && (
           <meta
@@ -91,7 +91,7 @@ const PostsPage: React.FC<PostsProps> = props => {
           css={[outer, SiteHeader]}
           className="site-header-background"
           style={{
-            backgroundImage: `url('${props.data.header.childImageSharp.fixed.src}')`,
+            backgroundImage: `url('${props.data.header.childImageSharp.gatsbyImageData.src}')`,
           }}
         >
           <div css={inner}>
@@ -133,20 +133,12 @@ export const pageQuery = graphql`
   query postsPageQuery($skip: Int!, $limit: Int!) {
     logo: file(relativePath: { eq: "img/scott-logo.png" }) {
       childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(layout: FIXED)
       }
     }
     header: file(relativePath: { eq: "posts/img/blog-cover.png" }) {
       childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed(width: 2000, quality: 100) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 2000, quality: 100, layout: FIXED)
       }
     }
     posts: allMarkdownRemark(
@@ -157,7 +149,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          timeToRead
           frontmatter {
             title
             date
@@ -166,14 +157,15 @@ export const pageQuery = graphql`
             excerpt
             image {
               childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
           excerpt
           fields {
+            readingTime {
+              text
+            }
             layout
             slug
           }

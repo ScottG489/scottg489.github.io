@@ -65,17 +65,14 @@ exports.createPages = async ({ graphql, actions }) => {
               excerpt
               image {
                 childImageSharp {
-                  fluid(maxWidth: 3720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
+                  gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
                 }
               }
             }
             fields {
+              readingTime {
+                text
+              }
               layout
               slug
             }
@@ -102,7 +99,6 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             excerpt
-            timeToRead
             frontmatter {
               title
               tags
@@ -111,13 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
               excerpt
               image {
                 childImageSharp {
-                  fluid(maxWidth: 3720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
+                  gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
                 }
               }
             }

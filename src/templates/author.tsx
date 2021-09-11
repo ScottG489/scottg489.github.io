@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { FluidObject } from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -48,13 +48,13 @@ interface AuthorTemplateProps {
       location?: string;
       profile_image?: {
         childImageSharp: {
-          fluid: FluidObject;
+          fluid: GatsbyImage;
         };
       };
       bio?: string;
       avatar: {
         childImageSharp: {
-          fluid: FluidObject;
+          fluid: GatsbyImage;
         };
       };
     };
@@ -103,7 +103,7 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
           </div>
 
           <ResponsiveHeaderBackground
-            backgroundImage={author.profile_image?.childImageSharp.fluid.src}
+            backgroundImage={author.profile_image?.childImageSharp?.gatsbyImageData.src}
             css={[outer, SiteHeaderBackground]}
             className="site-header-background"
           >
@@ -112,7 +112,7 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
                 <img
                   style={{ marginTop: '8px' }}
                   css={[AuthorProfileImage, AuthorProfileBioImage]}
-                  src={data.authorYaml.avatar.childImageSharp.fluid.src}
+                  src={data.authorYaml.avatar.childImageSharp.gatsbyImageData.src}
                   alt={author.id}
                 />
                 <AuthHeaderContent className="author-header-content">
@@ -161,20 +161,23 @@ export const pageQuery = graphql`
   query($author: String) {
     authorYaml(id: { eq: $author }) {
       id
+      website
+      twitter
       bio
+      facebook
       location
       profile_image {
         childImageSharp {
-          fluid(maxWidth: 3720) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       avatar {
         childImageSharp {
-          fluid(quality: 100, srcSetBreakpoints: [40, 80, 120]) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(
+            quality: 100
+            srcSetBreakpoints: [40, 80, 120]
+            layout: FULL_WIDTH
+          )
         }
       }
     }
@@ -194,9 +197,7 @@ export const pageQuery = graphql`
             draft
             image {
               childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
