@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { GatsbyImage, getSrc } from "gatsby-plugin-image";
+import { getSrc } from 'gatsby-plugin-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -46,17 +46,9 @@ interface AuthorTemplateProps {
       twitter?: string;
       facebook?: string;
       location?: string;
-      profile_image?: {
-        childImageSharp: {
-          fluid: GatsbyImage;
-        };
-      };
+      profile_image?: any;
       bio?: string;
-      avatar: {
-        childImageSharp: {
-          fluid: GatsbyImage;
-        };
-      };
+      avatar: any;
     };
   };
 }
@@ -173,11 +165,7 @@ export const pageQuery = graphql`
       }
       avatar {
         childImageSharp {
-          gatsbyImageData(
-            quality: 100
-            breakpoints: [40, 80, 120]
-            layout: FULL_WIDTH
-          )
+          gatsbyImageData(quality: 100, breakpoints: [40, 80, 120], layout: FULL_WIDTH)
         }
       }
     }

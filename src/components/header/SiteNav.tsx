@@ -93,19 +93,27 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
               <ul css={NavStyles} role="menu">
                 <li role="menuitem">
-                  <Link to="/" activeClassName="nav-current">Home</Link>
+                  <Link to="/" activeClassName="nav-current">
+                    Home
+                  </Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/posts" activeClassName="nav-current">Posts</Link>
+                  <Link to="/posts" activeClassName="nav-current">
+                    Posts
+                  </Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/projects" activeClassName="nav-current">Projects</Link>
+                  <Link to="/projects" activeClassName="nav-current">
+                    Projects
+                  </Link>
                 </li>
                 <li role="menuitem">
                   <a href="https://docs.google.com/document/d/1CSoMo6zwKaeT4jfHjl3YTOx4ad9z5u7GVpqUUqC2Z4k">Resume</a>
                 </li>
                 <li role="menuitem">
-                  <Link to="/about" activeClassName="nav-current">About</Link>
+                  <Link to="/about" activeClassName="nav-current">
+                    About
+                  </Link>
                 </li>
               </ul>
               {isPost && (
