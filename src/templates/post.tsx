@@ -38,11 +38,7 @@ interface PageTemplateProps {
         title: string;
         date: string;
         userDate: string;
-        image: {
-          childImageSharp: {
-            fluid: any;
-          };
-        };
+        image: any;
         excerpt: string;
         tags: string[];
       };
@@ -82,11 +78,7 @@ export interface PageContext {
     };
   };
   frontmatter: {
-    image: {
-      childImageSharp: {
-        fluid: GatsbyImage;
-      };
-    };
+    image: any;
     link: string;
     excerpt: string;
     title: string;
@@ -104,11 +96,11 @@ interface DisqusConfig {
 
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const post = data.markdownRemark;
-  let width = '';
-  let height = '';
+  let width: number | undefined;
+  let height: number | undefined;
   if (post.frontmatter.image) {
-    width = getImage(post.frontmatter.image).width;
-    height = getImage(post.frontmatter.image).height;
+    width = getImage(post.frontmatter.image)?.width;
+    height = getImage(post.frontmatter.image)?.height;
   }
 
   const date = new Date(post.frontmatter.date);
@@ -175,8 +167,8 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
             content={`@${config.twitter.split('https://twitter.com/')[1]}`}
           />
         )}
-        {width && <meta property="og:image:width" content={width} />}
-        {height && <meta property="og:image:height" content={height} />}
+        {width && <meta property="og:image:width" content={width?.toString()} />}
+        {height && <meta property="og:image:height" content={height?.toString()} />}
       </Helmet>
       <Wrapper css={PostTemplate}>
         <header className="site-header">
@@ -228,7 +220,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               {post.frontmatter.image && (
                 <PostFullImage>
                   <GatsbyImage
-                    image={getImage(post.frontmatter.image)}
+                    image={getImage(post.frontmatter.image)!}
                     style={{ height: '100%' }}
                     alt={post.frontmatter.title} />
                 </PostFullImage>

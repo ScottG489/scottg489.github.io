@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { Link } from 'gatsby';
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import _ from 'lodash';
 import { lighten } from 'polished';
 import React from 'react';
@@ -35,9 +35,10 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
           <PostCardImage className="post-card-image">
             {post.frontmatter?.image && (
               <GatsbyImage
-                image={getImage(post.frontmatter.image)}
+                image={getImage(post.frontmatter.image)!}
                 alt={`${post.frontmatter.title} cover image`}
-                style={{ height: '100%' }} />
+                style={{ height: '100%' }}
+              />
             )}
           </PostCardImage>
         </Link>
