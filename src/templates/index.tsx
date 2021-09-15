@@ -125,8 +125,8 @@ const IndexPage: React.FC<IndexProps> = props => {
               {posts.slice(0, 4).map((post, index) => {
                 // filter out drafts in production
                 return (
-                  (post.node.frontmatter.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
+                  (post.node.frontmatter.draft !== true
+                    || process.env.NODE_ENV !== 'production') && (
                     <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
                   )
                 );

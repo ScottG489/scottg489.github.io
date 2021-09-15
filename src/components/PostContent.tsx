@@ -19,13 +19,11 @@ export interface PostContentProps {
   htmlAst: any;
 }
 
-const PostContent: React.FC<PostContentProps> = ({ htmlAst }) => {
-  return (
-    <PostFullContent className="post-full-content">
-      <Ast className="post-content" ast={htmlAst} />
-    </PostFullContent>
-  );
-};
+const PostContent: React.FC<PostContentProps> = ({ htmlAst }) => (
+  <PostFullContent className="post-full-content">
+    <Ast className="post-content" ast={htmlAst} />
+  </PostFullContent>
+);
 
 export const PostFullContent = styled.section`
   h1 > a, h2 > a, h3 > a, h4 > a {
