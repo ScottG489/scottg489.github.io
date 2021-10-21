@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: 'https://giminiani.com', // full path to blog - no ending slash
   },
   mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
+    'MarkdownRemark.frontmatter.author': 'AuthorYaml.name',
   },
   plugins: [
     'gatsby-plugin-sitemap',
