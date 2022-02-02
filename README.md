@@ -1,4 +1,5 @@
 # Personal Website
+![CI](https://github.com/ScottG489/scottg489.github.io/workflows/CI/badge.svg)
 
 Project for my personal website, [giminiani.com](http://www.giminiani.com).
 Created using the [Gatsby framework](https://github.com/gatsbyjs/gatsby).
