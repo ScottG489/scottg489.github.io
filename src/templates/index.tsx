@@ -136,7 +136,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               </Link>
             </HomeContentHeader>
             <div css={[PostFeed]}>
-              {posts.map((post, index) => {
+              {posts.slice(0, 4).map((post, index) => {
                 // filter out drafts in production
                 return (
                   (post.node.frontmatter.draft !== true ||
