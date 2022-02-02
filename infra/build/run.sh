@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-source /opt/build/build_functions.sh
+source /home/build-user/build/build_functions.sh
 
 set +x
 setup_credentials "$1"
@@ -19,13 +19,13 @@ cd $_PROJECT_NAME
 
 build_application
 
-/opt/build/run-test.sh
+/home/build-user/build/run-test.sh
 
 tf_backend_init $_TFSTATE_BUCKET_NAME
 
 tf_apply "infra/tf"
 
-ui_deploy $_DOMAIN_NAME
+ui_deploy
 
 # Acceptance testing. Currently running against prod but once we have multiple environments this will point elsewhere
 # TODO: Uncomment this once we have some cypress tests

@@ -12,10 +12,10 @@ setup_credentials() {
   readonly ID_RSA_CONTENTS=$(echo -n $1 | jq -r .ID_RSA | base64 --decode)
   readonly AWS_CREDENTIALS_CONTENTS=$(echo -n $1 | jq -r .AWS_CREDENTIALS | base64 --decode)
 
-  printf -- "$ID_RSA_CONTENTS" >/root/.ssh/id_rsa
-  printf -- "$AWS_CREDENTIALS_CONTENTS" >/root/.aws/credentials
+  printf -- "$ID_RSA_CONTENTS" >/home/build-user/.ssh/id_rsa
+  printf -- "$AWS_CREDENTIALS_CONTENTS" >/home/build-user/.aws/credentials
 
-  chmod 400 /root/.ssh/id_rsa
+  chmod 400 /home/build-user/.ssh/id_rsa
 }
 
 build_application() {
@@ -24,6 +24,7 @@ build_application() {
   cd "$ROOT_DIR"
 
   npm ci
+  npm run build
 
   # TODO: No tests right now
   # Build and package front-end
@@ -66,16 +67,10 @@ tf_apply() {
 
 ui_deploy() {
   local ROOT_DIR
-  local DOMAIN_NAME
-  local REACT_APP_BACKEND_SERVER_BASE_URL
 
   readonly ROOT_DIR=$(get_git_root_dir)
-  readonly DOMAIN_NAME=$1
-  readonly REACT_APP_BACKEND_SERVER_BASE_URL="http://api.$DOMAIN_NAME"
-  export REACT_APP_BACKEND_SERVER_BASE_URL
 
   cd "$ROOT_DIR"
 
-  npm run build
   npm run deploy
 }
