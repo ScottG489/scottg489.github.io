@@ -1,6 +1,15 @@
+- title: conjob
+  layout: project
+  link: https://github.com/ScottG489/conjob
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=conjob&show_owner=true&theme=github_dark
+  excerpt: Simple un-opinionated service to run containers as jobs or serverless functions
+  tags:
+    - Serverless
+    - Java
+    - Docker
 - title: machine-setup
   link: https://github.com/ScottG489/machine-setup
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=machine-setup&show_owner=true
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=machine-setup&show_owner=true&theme=github_dark
   excerpt: Personal machine provisioning. Supports running tests against a freshly provisioned VM.
   tags:
     - Provisioning
@@ -8,25 +17,16 @@
     - Ansible
 - title: unified-diff-parser
   link: https://github.com/ScottG489/unified-diff-parser
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=unified-diff-parser&show_owner=true
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=unified-diff-parser&show_owner=true&theme=github_dark
   excerpt: Extract metadata from unified diffs. Provides information such as type of change, file names, mode change, etc.
   tags:
     - Diff
     - Java
     - Spock
-- title: conjob
-  layout: project
-  link: https://github.com/ScottG489/conjob
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=conjob&show_owner=true
-  excerpt: Simple un-opinionated service to run containers as jobs or serverless functions
-  tags:
-    - Serverless
-    - Java
-    - Docker
 - title: scottg489.github.io
   layout: project
   link: https://github.com/ScottG489/scottg489.github.io
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489.github.io&show_owner=true
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489.github.io&show_owner=true&theme=github_dark
   excerpt: The project for the website you're looking at right now! Built using the Gatsby framework.
   tags:
     - Website
@@ -35,7 +35,7 @@
 - title: scottg489/scottg489
   layout: project
   link: https://github.com/ScottG489/scottg489
-  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489&show_owner=true
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=scottg489&show_owner=true&theme=github_dark
   excerpt: My GitHub profile README. This displays at the top of my GitHub profile page.
   tags:
     - GitHub
