@@ -43,6 +43,8 @@ COPY known_hosts /home/build-user/.ssh/known_hosts
 RUN mkdir /home/build-user/.aws
 COPY config /home/build-user/.aws/config
 
+COPY gitconfig /home/build-user/.gitconfig
+
 RUN mkdir -p /home/build-user/build
 COPY run.sh /home/build-user/build/run.sh
 COPY run-test.sh /home/build-user/build/run-test.sh
