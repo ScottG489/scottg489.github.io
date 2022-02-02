@@ -4,11 +4,17 @@
 Project for my personal website, [giminiani.com](http://www.giminiani.com).
 Created using the [Gatsby framework](https://github.com/gatsbyjs/gatsby).
 
-## Posting
+## Development
+Run `npm start` to start the development server.
 
+Run `./test.sh` to run full CI build. Be sure to comment out lines that you don't want to occur such as prod deployment
+lines or lines relating to infra testing in cases where no infra changes have occurred.
+
+## Posting
 ### Creating a new post
 
-Simply add a new `.md` file in `src/content/posts` along with any other assets such as images. Be sure set the `layout` field in the Front Matter to "post". See other existing posts for examples.
+Simply add a new `.md` file in `src/content/posts` along with any other assets such as images.
+Be sure set the `layout` field in the Front Matter to "post". See other existing posts for examples.
 
 ### Getting the date for a blog post
 
