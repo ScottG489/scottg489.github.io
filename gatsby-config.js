@@ -95,5 +95,11 @@ module.exports = {
         siteSpeedSampleRate: 10,
       },
     },
+    {
+      resolve: 'gatsby-plugin-disqus',
+      options: {
+        shortname: 'giminiani',
+      },
+    },
   ],
 };

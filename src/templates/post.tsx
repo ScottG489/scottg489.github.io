@@ -20,6 +20,8 @@ import { colors } from '../styles/colors';
 import { inner, outer, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
+import { Disqus } from 'gatsby-plugin-disqus';
+
 interface PageTemplateProps {
   location: Location;
   data: {
@@ -89,6 +91,12 @@ export interface PageContext {
   };
 }
 
+interface DisqusConfig {
+  url: string;
+  identifier: string;
+  title: string;
+}
+
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const post = data.markdownRemark;
   let width = '';
@@ -103,6 +111,12 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const datetime = format(date, 'yyyy-MM-dd');
   // 20 AUG 2018
   const displayDatetime = format(date, 'dd LLL yyyy');
+
+  const disqusConfig: DisqusConfig = {
+    url: config.siteUrl + location.pathname,
+    identifier: location.pathname,
+    title: post.frontmatter.title,
+  };
 
   return (
     <IndexLayout className="post-template">
@@ -220,6 +234,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               {/* The big email subscribe modal content */}
               {config.showSubscribe && <Subscribe title={config.title} />}
             </article>
+            <Disqus config={disqusConfig}/>
           </div>
         </main>
 
