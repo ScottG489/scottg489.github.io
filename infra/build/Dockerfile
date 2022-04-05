@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   git \
   npm \
   awscli \
@@ -18,9 +18,12 @@ RUN apt-get update && \
   libasound2 \
   libxtst6 \
   xauth \
-  xvfb
+  xvfb \
+   && apt-get clean \
+   && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip -o /tmp/terraform.zip && \
+ARG TERRAFORM_VERSION=0.12.26
+RUN curl https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o /tmp/terraform.zip && \
   unzip -d /usr/local/bin /tmp/terraform.zip && \
   rm /tmp/terraform.zip
 
@@ -28,10 +31,12 @@ RUN curl https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linu
 RUN useradd -m -u 1000 -s /usr/bin/bash build-user
 USER build-user
 
+ARG NODE_VERSION=16.13.1
+ENV NODE_VERSION $NODE_VERSION
 ENV NVM_DIR /home/build-user/.nvm
-ENV NODE_VERSION 16.13.1
 
 # Install nvm with node and npm
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 RUN . $NVM_DIR/nvm.sh \
     && nvm alias default $NODE_VERSION \
