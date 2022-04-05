@@ -2,24 +2,24 @@ FROM ubuntu:20.04
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  git \
+  git=1:2.25.1-1ubuntu3.2 \
   openssh-client=1:8.2p1-4ubuntu0.4 \
-  npm \
-  awscli \
-  jq \
-  curl \
-  unzip \
+  awscli=1.18.69-1ubuntu0.20.04.1 \
+  jq=1.6-1ubuntu0.20.04.1 \
+  curl=7.68.0-1ubuntu2.7 \
+  unzip=6.0-25ubuntu1 \
   # Required for Cypress
-  libgtk2.0-0 \
-  libgtk-3-0 \
-  libnotify-dev \
-  libgconf-2-4 \
-  libnss3 \
-  libxss1 \
-  libasound2 \
-  libxtst6 \
-  xauth \
-  xvfb \
+  libgtk2.0-0=2.24.32-4ubuntu4 \
+  libgtk-3-0=3.24.20-0ubuntu1.1 \
+  libgbm-dev=21.2.6-0ubuntu0.1~20.04.2 \
+  libnotify-dev=0.7.9-1ubuntu2 \
+  libgconf-2-4=3.2.6-6ubuntu1 \
+  libnss3=2:3.49.1-1ubuntu1.6 \
+  libxss1=1:1.2.3-1 \
+  libasound2=1.2.2-2.1ubuntu2.5 \
+  libxtst6=2:1.2.3-1 \
+  xauth=1:1.1-0ubuntu1 \
+  xvfb=2:1.20.13-1ubuntu1~20.04.2 \
    && apt-get clean \
    && rm -rf /var/lib/apt/lists/*
 
