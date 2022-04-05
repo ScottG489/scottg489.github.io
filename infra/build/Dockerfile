@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   git \
+  openssh-client=1:8.2p1-4ubuntu0.4 \
   npm \
   awscli \
   jq \
