@@ -57,7 +57,7 @@
     "react-dom": "16.13.1",
     "react-emotion": "10.0.0",
     "react-helmet": "6.1.0",
-    "rehype-react": "6.1.0"
+    "rehype-react": "7.0.4"
   },
   "devDependencies": {
     "@types/lodash": "4.14.181",
