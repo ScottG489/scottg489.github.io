@@ -8,6 +8,9 @@ RUN apt-get update && \
   jq=1.6-1ubuntu0.20.04.1 \
   curl=7.68.0-1ubuntu2.7 \
   unzip=6.0-25ubuntu1 \
+  make=4.2.1-1.2 \
+  gcc=4:9.3.0-1ubuntu2 \
+  g++=4:9.3.0-1ubuntu2 \
   # Required for Cypress
   libgtk2.0-0=2.24.32-4ubuntu4 \
   libgtk-3-0=3.24.20-0ubuntu1.1 \
