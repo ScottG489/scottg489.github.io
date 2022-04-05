@@ -23,6 +23,8 @@ build_application() {
   readonly ROOT_DIR=$(get_git_root_dir)
   cd "$ROOT_DIR"
 
+  hadolint --failure-threshold warning infra/build/Dockerfile
+
   set +x
   . "$NVM_DIR/nvm.sh"
   set -x
