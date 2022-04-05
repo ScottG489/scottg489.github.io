@@ -35,7 +35,7 @@ RUN curl -L https://github.com/hadolint/hadolint/releases/download/v$HADOLINT_VE
 RUN useradd -m -u 1000 -s /usr/bin/bash build-user
 USER build-user
 
-ARG NODE_VERSION=16.13.1
+ARG NODE_VERSION=17.8.0
 ENV NODE_VERSION $NODE_VERSION
 ENV NVM_DIR /home/build-user/.nvm
 
