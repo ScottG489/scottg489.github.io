@@ -21,7 +21,7 @@ You'll then be ready to explore and play around with the API yourself.
 
 ##### If you're just looking for the code it can be found [as a GitHub gist](https://gist.github.com/ScottG489/b6d134d37dcbb4e8f9e07aca48a9cde1)
 Or run the following:
-```shell script
+```shell
 git clone git@github.com:b6d134d37dcbb4e8f9e07aca48a9cde1.git google-drive-api-project
 cd google-drive-api-project
 npm install
@@ -29,7 +29,7 @@ npm install
 
 Then copy in your service account's [`credentials.json`](#add-a-key-to-your-service-account) key file and run:
 <br/>
-```shell script
+```shell
 ts-node index.ts
 ```
 <br/>

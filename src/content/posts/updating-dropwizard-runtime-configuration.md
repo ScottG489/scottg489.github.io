@@ -112,13 +112,13 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 
 ## Usage
 Start up the application
-```shell script
+```shell
 ./gradlew clean build install && \
     ./build/install/dropwizard-runtime-config-example/bin/dropwizard-runtime-config-example server config.yml
 ```
 
 Then verify everything is working as expected:
-```sh
+```shell
 $ curl 'http://localhost:8080/config'
 hello
 $ curl -X POST 'http://localhost:8081/tasks/updateconfig'
