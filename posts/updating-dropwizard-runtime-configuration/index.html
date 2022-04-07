@@ -148,13 +148,13 @@ I’ve linked below.</p>
 <span class="token punctuation">}</span></code></pre></div>
 <h2 id="usage" style="position:relative">Usage<a href="#usage" aria-label="usage permalink" class="anchor after"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
 <p>Start up the application</p>
-<div class="gatsby-highlight" data-language="shellscript"><pre class="language-shellscript"><code class="language-shellscript">./gradlew clean build install &amp;&amp; \
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">./gradlew clean build <span class="token function">install</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
     ./build/install/dropwizard-runtime-config-example/bin/dropwizard-runtime-config-example server config.yml</code></pre></div>
 <p>Then verify everything is working as expected:</p>
-<div class="gatsby-highlight" data-language="sh"><pre class="language-sh"><code class="language-sh">$ curl &#x27;http://localhost:8080/config&#x27;
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">curl</span> <span class="token string">&#x27;http://localhost:8080/config&#x27;</span>
 hello
-$ curl -X POST &#x27;http://localhost:8081/tasks/updateconfig&#x27;
-$ curl &#x27;http://localhost:8080/config&#x27;
+$ <span class="token function">curl</span> -X POST <span class="token string">&#x27;http://localhost:8081/tasks/updateconfig&#x27;</span>
+$ <span class="token function">curl</span> <span class="token string">&#x27;http://localhost:8080/config&#x27;</span>
 goodbye</code></pre></div>
 <h2 id="how-it-works" style="position:relative">How it works<a href="#how-it-works" aria-label="how it works permalink" class="anchor after"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
 <p>This works simply by passing the same reference to the constructor of <code class="language-text">ConfigResource.java</code> and <code class="language-text">UpdateConfigTask.java</code>. If you aren’t familiar with the concept see here:
