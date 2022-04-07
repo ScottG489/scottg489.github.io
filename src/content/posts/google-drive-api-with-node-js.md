@@ -222,7 +222,7 @@ Note the reference to your [`credentials.json`](#add-a-key-to-your-service-accou
 be run.
 
 ### Running the application
-```shell script
+```shell
 ts-node index.ts
 ```
 
