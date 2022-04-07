@@ -8,6 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "debug": "gatsby develop --inspect",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "lint": "eslint --ext .js,.ts,.tsx .",
