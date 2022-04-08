@@ -10,6 +10,24 @@ Run `npm start` to start the development server.
 Run `./test.sh` to run full CI build. Be sure to comment out lines that you don't want to occur such as prod deployment
 lines or lines relating to infra testing in cases where no infra changes have occurred.
 
+## Testing
+Right now there aren't any tests so all pages need to be verified manually. Unless we decide to add some advanced
+testing functionality that can even verify styling, this will probably have to be done indefinitely. However,
+there aren't too many types of pages. Here are types of pages that should be verified:
+- Home
+- Posts
+  - 1 or more specific post
+  - Post tags (plus ideally one that has a header image)
+- Projects
+  - Project tags (not sure if they support header images? Or at least none are being used at the moment)
+- About
+- Resume link
+- RSS feed
+- 404 page
+
+Make sure the pages look as expected and particularly compare them against the old version if no changes should
+have occurred.
+
 ## Posting
 ### Creating a new post
 
