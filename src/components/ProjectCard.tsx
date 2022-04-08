@@ -33,17 +33,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">
           {
-            post.tags && post.tags.length > 0 && post.tags.map((tag, index, arr) => {
-              return (
-                <Link
-                  key={tag} className="post-card-primary-tag"
-                  to={`/projects/tags/${_.kebabCase(tag)}/`}
-                >
-                  {tag}
-                  {index === arr.length - 1 || ', '}
-                </Link>
-              );
-            })
+            post.tags && post.tags.length > 0 && post.tags.map((tag, index, arr) => (
+              <Link
+                key={tag} className="post-card-primary-tag"
+                to={`/projects/tags/${_.kebabCase(tag)}/`}
+              >
+                {tag}
+                {index === arr.length - 1 || ', '}
+              </Link>
+            ))
           }
         </PostCardHeader>
         <PostCardContentText className="post-card-content-link">

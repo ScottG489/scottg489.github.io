@@ -52,6 +52,7 @@ interface PageTemplateProps {
       totalCount: number;
       edges: Array<{
         node: {
+          timeToRead: number;
           frontmatter: {
             title: string;
             date: string;
@@ -185,16 +186,14 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               <PostFullHeader className="post-full-header">
                 <PostFullTags className="post-card-primary-tag">
                   {
-                    post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
-                      return (
-                        <Link key={tag} to={`/posts/tags/${_.kebabCase(tag)}/`}>
-                          <span>
-                            {tag}
-                            {index === arr.length - 1 || ', '}
-                          </span>
-                        </Link>
-                      );
-                    })
+                    post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => (
+                      <Link key={tag} to={`/posts/tags/${_.kebabCase(tag)}/`}>
+                        <span>
+                          {tag}
+                          {index === arr.length - 1 || ', '}
+                        </span>
+                      </Link>
+                    ))
                   }
                 </PostFullTags>
                 <PostFullTitle className="post-full-title">{post.frontmatter.title}</PostFullTitle>

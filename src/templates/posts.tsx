@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import {getImage, getSrc} from 'gatsby-plugin-image';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -28,16 +28,8 @@ export interface PostsProps {
     numPages: number;
   };
   data: {
-    logo: {
-      childImageSharp: {
-        fixed: GatsbyImage;
-      };
-    };
-    header: {
-      childImageSharp: {
-        fixed: GatsbyImage;
-      };
-    };
+    logo: any;
+    header: any;
     posts: {
       edges: Array<{
         node: PageContext;
@@ -47,7 +39,8 @@ export interface PostsProps {
 }
 
 const PostsPage: React.FC<PostsProps> = props => {
-  const { width, height } = props.data.header.childImageSharp.gatsbyImageData;
+  const width = getImage(props.data.header)?.width;
+  const height = getImage(props.data.header)?.height;
   const posts = props.data.posts.edges;
 
   return (
@@ -61,10 +54,7 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.description} />
         <meta property="og:url" content={config.siteUrl} />
-        <meta
-          property="og:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.gatsbyImageData.src}`}
-        />
+        <meta property="og:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
         {config.facebook && <meta property="article:publisher" content={config.facebook} />}
         {config.googleSiteVerification && (
           <meta name="google-site-verification" content={config.googleSiteVerification} />
@@ -73,25 +63,22 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
         <meta name="twitter:url" content={config.siteUrl} />
-        <meta
-          name="twitter:image"
-          content={`${config.siteUrl}${props.data.header.childImageSharp.gatsbyImageData.src}`}
-        />
+        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
         {config.twitter && (
           <meta
             name="twitter:site"
             content={`@${config.twitter.split('https://twitter.com/')[1]}`}
           />
         )}
-        <meta property="og:image:width" content={width.toString()} />
-        <meta property="og:image:height" content={height.toString()} />
+        <meta property="og:image:width" content={width?.toString()} />
+        <meta property="og:image:height" content={height?.toString()} />
       </Helmet>
       <Wrapper>
         <div
           css={[outer, SiteHeader]}
           className="site-header-background"
           style={{
-            backgroundImage: `url('${props.data.header.childImageSharp.gatsbyImageData.src}')`,
+            backgroundImage: `url('${getSrc(props.data.header)}')`,
           }}
         >
           <div css={inner}>
@@ -104,15 +91,15 @@ const PostsPage: React.FC<PostsProps> = props => {
               <HomeFullTitle className="post-full-title">Posts</HomeFullTitle>
             </HomeFullHeader>
             <div css={[PostFeed]}>
-              {posts.map((post, index) => {
+              {posts.map((post, index) =>
                 // filter out drafts in production
-                return (
-                  (post.node.frontmatter.draft !== true ||
-                    process.env.NODE_ENV !== 'production') && (
+                (
+                  (post.node.frontmatter.draft !== true
+                    || process.env.NODE_ENV !== 'production') && (
                     <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
                   )
-                );
-              })}
+                ),
+              )}
             </div>
           </div>
         </main>

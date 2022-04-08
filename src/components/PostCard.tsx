@@ -46,17 +46,15 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
       <PostCardContent className="post-card-content">
         <PostCardHeader className="post-card-header">
           {
-            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => {
-              return (
-                <Link
-                  key={tag} className="post-card-primary-tag"
-                  to={`/posts/tags/${_.kebabCase(tag)}/`}
-                >
-                  {tag}
-                  {index === arr.length - 1 || ', '}
-                </Link>
-              );
-            })
+            post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => (
+              <Link
+                key={tag} className="post-card-primary-tag"
+                to={`/posts/tags/${_.kebabCase(tag)}/`}
+              >
+                {tag}
+                {index === arr.length - 1 || ', '}
+              </Link>
+            ))
           }
         </PostCardHeader>
         <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
@@ -87,6 +85,8 @@ const PostCardStyles = css`
   margin: 0 0 40px;
   padding: 0 20px 40px;
   min-height: 220px;
+  /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
+  border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
   background-size: cover;
 
   @media (prefers-color-scheme: dark) {

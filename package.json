@@ -1,17 +1,21 @@
 {
-  "name": "gatsby-casper",
-  "description": "Casper for gatsby",
+  "name": "scottg489.github.io",
+  "description": "Website for giminiani.com",
   "version": "0.0.0",
   "private": true,
-  "author": "Scott Cooper <scttcper@gmail.com>",
+  "author": "Scott Giminiani <scottg489@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "debug": "gatsby develop --inspect",
+    "clean": "gatsby clean",
+    "serve": "gatsby serve",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "start": "npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gatsby build && echo 'giminiani.com' > public/CNAME && gh-pages -d public"
   },
   "dependencies": {
     "@emotion/react": "11.7.1",
@@ -22,6 +26,7 @@
     "emotion-server": "11.0.0",
     "gatsby": "4.7.2",
     "gatsby-plugin-canonical-urls": "4.7.0",
+    "gatsby-plugin-disqus": "^1.2.3",
     "gatsby-plugin-emotion": "7.7.0",
     "gatsby-plugin-feed": "4.7.0",
     "gatsby-plugin-google-analytics": "4.7.0",
@@ -31,6 +36,7 @@
     "gatsby-plugin-sharp": "4.7.0",
     "gatsby-plugin-sitemap": "5.7.0",
     "gatsby-plugin-typescript": "4.7.0",
+    "gatsby-remark-autolink-headers": "^5.0.0",
     "gatsby-remark-copy-linked-files": "5.7.0",
     "gatsby-remark-images": "6.7.0",
     "gatsby-remark-prismjs": "6.7.0",

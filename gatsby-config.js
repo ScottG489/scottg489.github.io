@@ -11,6 +11,14 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml.name',
   },
   plugins: [
+    {
+      resolve: 'gatsby-remark-autolink-headers',
+      options: {
+        offsetY: '75',
+        isIconAfterHeader: true,
+        elements: ['h1', 'h2', 'h3', 'h4'],
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
     {

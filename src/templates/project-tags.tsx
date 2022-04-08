@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { FluidObject } from 'gatsby-image';
+import { getSrc } from 'gatsby-plugin-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -34,14 +34,10 @@ interface TagTemplateProps {
     allTagYaml: {
       edges: Array<{
         node: {
-          id: string;
+          yamlId: string;
           description: string;
           layout: string;
-          image?: {
-            childImageSharp: {
-              fluid: FluidObject;
-            };
-          };
+          image?: any;
         };
       }>;
     };
@@ -57,9 +53,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
   const tag = pageContext.tag ? pageContext.tag : '';
   const { edges } = data.projects;
   const totalCount = edges.length;
-  const tagData = data.allTagYaml.edges.find(
-    n => n.node.id.toLowerCase() === tag.toLowerCase(),
-  );
+  const tagData = data.allTagYaml.edges.find(n => n.node.yamlId.toLowerCase() === tag.toLowerCase());
 
   return (
     <IndexLayout>
@@ -85,10 +79,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
         )}
       </Helmet>
       <Wrapper>
-        <header
-          className="site-archive-header"
-          css={[SiteHeader, SiteArchiveHeader]}
-        >
+        <header className="site-archive-header" css={[SiteHeader, SiteArchiveHeader]} >
           <div css={[outer, SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
@@ -96,7 +87,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
           </div>
           <ResponsiveHeaderBackground
             css={[outer, SiteHeaderBackground]}
-            backgroundImage={tagData?.node?.image?.childImageSharp?.fluid?.src}
+            backgroundImage={getSrc(tagData?.node?.image)}
             className="site-header-background"
           >
             <SiteHeaderContent css={inner} className="site-header-content">
@@ -137,7 +128,7 @@ export const pageQuery = graphql`
     allTagYaml {
       edges {
         node {
-          id
+          yamlId
           description
         }
       }

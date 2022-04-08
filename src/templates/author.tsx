@@ -153,6 +153,7 @@ export const pageQuery = graphql`
   query ($author: String) {
     authorYaml(id: { eq: $author }) {
       id
+      name
       website
       twitter
       bio
@@ -160,7 +161,7 @@ export const pageQuery = graphql`
       location
       profile_image {
         childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData
         }
       }
       avatar {

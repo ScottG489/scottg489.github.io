@@ -122,15 +122,15 @@ const IndexPage: React.FC<IndexProps> = props => {
               </Link>
             </HomeContentHeader>
             <div css={[PostFeed]}>
-              {posts.slice(0, 4).map((post, index) => {
+              {posts.slice(0, 4).map((post, index) =>
                 // filter out drafts in production
-                return (
+                (
                   (post.node.frontmatter.draft !== true
                     || process.env.NODE_ENV !== 'production') && (
                     <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
                   )
-                );
-              })}
+                ),
+              )}
             </div>
             <HomeContentHeader className="post-full-header">
               <Link to="/projects" css={HomeContentHeaderLink}>
@@ -140,9 +140,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               </Link>
             </HomeContentHeader>
             <div css={[PostFeed]}>
-              {projects.map(project => {
-                return (<ProjectCard key={project.node.title} post={project.node} />);
-              })}
+              {projects.map(project => (<ProjectCard key={project.node.title} post={project.node} />))}
             </div>
           </div>
         </main>

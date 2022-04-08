@@ -233,9 +233,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectTagTemplate = path.resolve('./src/templates/project-tags.tsx');
   const postTags = _.uniq(
     _.flatten(
-      posts.map(edge => {
-        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
-      }),
+      posts.map(edge => _.castArray(_.get(edge, 'node.frontmatter.tags', []))),
     ),
   );
   postTags.forEach(tag => {
@@ -250,9 +248,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projectTags = _.uniq(
     _.flatten(
-      projects.map(edge => {
-        return _.castArray(_.get(edge, 'node.tags', []));
-      }),
+      projects.map(edge => _.castArray(_.get(edge, 'node.tags', []))),
     ),
   );
   projectTags.forEach(tag => {
