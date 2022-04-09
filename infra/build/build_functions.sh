@@ -29,14 +29,14 @@ build_application() {
   . "$NVM_DIR/nvm.sh"
   set -x
 
+  export CI=true
   npm ci
   npm run build
 
   # TODO: No tests right now
   # Build and package front-end
-#  export CI=true
 #  npm run test
-#  unset CI
+  unset CI
 }
 
 tf_backend_init() {
