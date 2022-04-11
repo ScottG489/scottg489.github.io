@@ -11,6 +11,8 @@ Run `./test.sh` to run full CI build. Be sure to comment out lines that you don'
 lines or lines relating to infra testing in cases where no infra changes have occurred.
 
 ## Testing
+Run `npm run build && npm run serve` to build and serve the production build.
+
 Right now there aren't any tests so all pages need to be verified manually. Unless we decide to add some advanced
 testing functionality that can even verify styling, this will probably have to be done indefinitely. However,
 there aren't too many types of pages. Here are types of pages that should be verified:
