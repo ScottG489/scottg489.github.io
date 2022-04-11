@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import {getImage, getSrc} from 'gatsby-plugin-image';
+import { getImage, getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 

@@ -53,7 +53,7 @@ interface AuthorTemplateProps {
   };
 }
 
-const Author = ({ data, location }: AuthorTemplateProps) => {
+function Author({ data, location }: AuthorTemplateProps) {
   const author = data.authorYaml;
 
   return (
@@ -147,7 +147,7 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
       </Wrapper>
     </IndexLayout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query ($author: String) {

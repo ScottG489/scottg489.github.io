@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { getImage, getSrc } from "gatsby-plugin-image";
+import { getImage, getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -106,9 +106,7 @@ const ProjectsPage: React.FC<ProjectsProps> = props => {
               <HomeFullTitle className="post-full-title">Projects</HomeFullTitle>
             </HomeFullHeader>
             <div css={[PostFeed]}>
-              {projects.map(project => {
-                return (<ProjectCard key={project.node.title} post={project.node} />);
-              })}
+              {projects.map(project => (<ProjectCard key={project.node.title} post={project.node} />))}
             </div>
           </div>
         </main>

@@ -49,7 +49,7 @@ interface TagTemplateProps {
   };
 }
 
-const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
+function Tags({ pageContext, data, location }: TagTemplateProps) {
   const tag = pageContext.tag ? pageContext.tag : '';
   const { edges } = data.projects;
   const totalCount = edges.length;
@@ -119,7 +119,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
       </Wrapper>
     </IndexLayout>
   );
-};
+}
 
 export default Tags;
 
