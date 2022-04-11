@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 17:09:33 GMT</lastBuildDate><item><title><![CDATA[Updating Dropwizard configuration at runtime]]></title><description><![CDATA[An example Dropwizard application demonstrating runtime configuration Although this feature isn’t supported out of the box by dropwizard…]]></description><link>https://giminiani.com/posts/updating-dropwizard-runtime-configuration/</link><guid isPermaLink="false">https://giminiani.com/posts/updating-dropwizard-runtime-configuration/</guid><pubDate>Fri, 20 Nov 2020 05:32:36 GMT</pubDate><content:encoded>&lt;h1 id=&quot;an-example-dropwizard-application-demonstrating-runtime-configuration&quot; style=&quot;position:relative;&quot;&gt;An example Dropwizard application demonstrating runtime configuration&lt;a href=&quot;#an-example-dropwizard-application-demonstrating-runtime-configuration&quot; aria-label=&quot;an example dropwizard application demonstrating runtime configuration permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 Apr 2022 03:13:58 GMT</lastBuildDate><item><title><![CDATA[Updating Dropwizard configuration at runtime]]></title><description><![CDATA[An example Dropwizard application demonstrating runtime configuration Although this feature isn’t supported out of the box by dropwizard…]]></description><link>https://giminiani.com/posts/updating-dropwizard-runtime-configuration/</link><guid isPermaLink="false">https://giminiani.com/posts/updating-dropwizard-runtime-configuration/</guid><pubDate>Fri, 20 Nov 2020 05:32:36 GMT</pubDate><content:encoded>&lt;h1 id=&quot;an-example-dropwizard-application-demonstrating-runtime-configuration&quot; style=&quot;position:relative;&quot;&gt;An example Dropwizard application demonstrating runtime configuration&lt;a href=&quot;#an-example-dropwizard-application-demonstrating-runtime-configuration&quot; aria-label=&quot;an example dropwizard application demonstrating runtime configuration permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Although this feature isn’t supported out of the box by dropwizard, you’re able to update your configuration at
 runtime fairly easy with the tools they give you.&lt;/p&gt;
 &lt;p&gt;Before I get started, note that this &lt;strong&gt;doesn’t persist&lt;/strong&gt; the updated config values to the &lt;code class=&quot;language-text&quot;&gt;config.yml&lt;/code&gt;.
@@ -107,14 +107,12 @@ You’ll then be ready to explore and play around with the API yourself.&lt;/p&g
 &lt;br/&gt;
 &lt;h2 id=&quot;table-of-contents&quot; style=&quot;position:relative;&quot;&gt;Table of contents&lt;a href=&quot;#table-of-contents&quot; aria-label=&quot;table of contents permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#google-cloud-api-setup&quot;&gt;Google Cloud API setup&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#google-cloud-api-setup&quot;&gt;Google Cloud API setup&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#setting-up-a-google-cloud-account&quot;&gt;Setting up Google Cloud&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#creating-a-project&quot;&gt;Creating a project&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#configuring-your-project-to-use-the-google-drive-api&quot;&gt;Configuring your project to use Google Drive&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#setting-up-credentials&quot;&gt;Setting up credentials&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#setting-up-credentials&quot;&gt;Setting up credentials&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#create-a-service-account&quot;&gt;Create a service account&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#add-a-key-to-your-service-account&quot;&gt;Add a key to your service account&lt;/a&gt;&lt;/li&gt;
@@ -122,15 +120,13 @@ You’ll then be ready to explore and play around with the API yourself.&lt;/p&g
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#google-drive-configuration&quot;&gt;Google Drive configuration&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#google-drive-configuration&quot;&gt;Google Drive configuration&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#find-your-service-accounts-client_email&quot;&gt;Find your service account’s &lt;code class=&quot;language-text&quot;&gt;client_email&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#share-your-files-with-the-service-account&quot;&gt;Share your files with the service account&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#application-code-and-configuration&quot;&gt;Application code and configuration&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#application-code-and-configuration&quot;&gt;Application code and configuration&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#install-prerequisites&quot;&gt;Install prerequisites&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#project-configuration&quot;&gt;Project configuration&lt;/a&gt;&lt;/li&gt;
@@ -138,10 +134,10 @@ You’ll then be ready to explore and play around with the API yourself.&lt;/p&g
 &lt;li&gt;&lt;a href=&quot;#running-the-application&quot;&gt;Running the application&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;
-&lt;br/&gt;
-&lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;br/&gt;
+&lt;br/&gt;
 &lt;h2 id=&quot;google-cloud-api-setup&quot; style=&quot;position:relative;&quot;&gt;Google Cloud API setup&lt;a href=&quot;#google-cloud-api-setup&quot; aria-label=&quot;google cloud api setup permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&quot;setting-up-a-google-cloud-account&quot; style=&quot;position:relative;&quot;&gt;Setting up a Google Cloud account&lt;a href=&quot;#setting-up-a-google-cloud-account&quot; aria-label=&quot;setting up a google cloud account permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;In order to access Google APIs you need to set up &lt;a href=&quot;https://console.cloud.google.com&quot;&gt;Google Cloud&lt;/a&gt;.
@@ -172,6 +168,7 @@ to do so.&lt;/p&gt;
         sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;
 Once you’re in your project navigate, to your project’s &lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;API dashboard&lt;/a&gt;.
@@ -224,9 +221,9 @@ the &lt;samp&gt;&lt;strong&gt;Share&lt;/strong&gt;&lt;/samp&gt; button in the bo
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt;&lt;/a&gt; &lt;strong&gt;v10.19.0&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;&lt;/a&gt; &lt;strong&gt;v6.14.4&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/ts-node/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt;&lt;/a&gt; &lt;strong&gt;v9.0.0&lt;/strong&gt;
-&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;&lt;img align=&quot;right&quot; src=&quot;https://raw.githubusercontent.com/gilbarbara/logos/master/logos/npm.svg&quot; style=&quot;width: 150px; margin: 0 70px 0 100px;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/ts-node/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ts-node&lt;/code&gt;&lt;/a&gt; &lt;strong&gt;v9.0.0&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;&lt;img align=&quot;right&quot; src=&quot;https://raw.githubusercontent.com/gilbarbara/logos/master/logos/npm.svg&quot; style=&quot;width: 150px; margin: 0 70px 0 100px;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; is very popular and can be found and installed by most popular package managers.
 You can also download it from the &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;Node.js downloads&lt;/a&gt; page.
 Once you’ve installed &lt;code class=&quot;language-text&quot;&gt;node&lt;/code&gt; you’ll also have &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; installed.
@@ -331,7 +328,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
 &lt;p&gt;This is my GitHub profile README at the time of writing (layout may differ):&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=scottg489&amp;#x26;show_icons=true&amp;#x26;count_private=true&amp;#x26;line_height=34&quot; alt=&quot;GitHub Stats&quot;&gt;
 &lt;img src=&quot;https://github-readme-stats.vercel.app/api/top-langs/?username=scottg489&amp;#x26;cache_seconds=1800&amp;#x26;hide=python&quot; alt=&quot;Top Languages&quot;&gt;&lt;/p&gt;
-&lt;p&gt; Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
+&lt;p&gt;Check out &lt;a href=&quot;https://github.com/ScottG489&quot;&gt;my GitHub profile page&lt;/a&gt; to view the current version.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[First blog post]]></title><description><![CDATA[Frist psot First!
                                                   :)]]></description><link>https://giminiani.com/posts/frist-psot/</link><guid isPermaLink="false">https://giminiani.com/posts/frist-psot/</guid><pubDate>Thu, 01 Oct 2020 02:51:29 GMT</pubDate><content:encoded>&lt;h1 id=&quot;frist-psot&quot; style=&quot;position:relative;&quot;&gt;Frist psot&lt;a href=&quot;#frist-psot&quot; aria-label=&quot;frist psot permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;First!
 &lt;br&gt;
@@ -417,6 +414,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
         sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&lt;/p&gt;
@@ -439,6 +437,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
         sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Labore et dolore.&lt;/p&gt;
@@ -452,8 +451,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
 &lt;h3 id=&quot;ordered-list&quot; style=&quot;position:relative;&quot;&gt;Ordered List&lt;a href=&quot;#ordered-list&quot; aria-label=&quot;ordered list permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;List Item 1&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;List Item 2&lt;/p&gt;
+&lt;li&gt;List Item 2
 &lt;ol&gt;
 &lt;li&gt;Nested list item A&lt;/li&gt;
 &lt;li&gt;Nested list item B&lt;/li&gt;
@@ -464,8 +462,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
 &lt;h3 id=&quot;unordered-list&quot; style=&quot;position:relative;&quot;&gt;Unordered List&lt;a href=&quot;#unordered-list&quot; aria-label=&quot;unordered list permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;List Item 1&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;List Item 2&lt;/p&gt;
+&lt;li&gt;List Item 2
 &lt;ul&gt;
 &lt;li&gt;Nested list item A&lt;/li&gt;
 &lt;li&gt;Nested list item B&lt;/li&gt;

@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-project-tags-tsx",
     "path": "/projects/tags/docker/",
-    "result": {"data":{"allTagYaml":{"edges":[{"node":{"id":"First","description":"Every single one of my very first blog post"}},{"node":{"id":"test-post-please-ignore","description":"Some test posts"}}]},"projects":{"edges":[{"node":{"title":"conjob","link":"https://github.com/ScottG489/conjob","ghimage":"https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=conjob&show_owner=true&theme=github_dark","excerpt":"Simple un-opinionated service to run containers as jobs or serverless functions","tags":["Serverless","Java","Docker"]}}]}},"pageContext":{"tag":"Docker"}},
-    "staticQueryHashes": ["2269326781","2323659357"]}
+    "result": {"data":{"allTagYaml":{"edges":[{"node":{"yamlId":"First","description":"Every single one of my very first blog post"}},{"node":{"yamlId":"test-post-please-ignore","description":"Some test posts"}}]},"projects":{"edges":[{"node":{"title":"conjob","link":"https://github.com/ScottG489/conjob","ghimage":"https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=conjob&show_owner=true&theme=github_dark","excerpt":"Simple un-opinionated service to run containers as jobs or serverless functions","tags":["Serverless","Java","Docker"]}}]}},"pageContext":{"tag":"Docker"}},
+    "staticQueryHashes": ["1840320222","942736162"]}
