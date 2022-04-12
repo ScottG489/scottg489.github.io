@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 export interface ReadNextProps {
   tags: string[];
   currentPageSlug: string;
-  relatedPosts: {
+  allRelatedPosts: {
     totalCount: number;
     edges: Array<{
       node: {
@@ -27,10 +27,10 @@ export interface ReadNextProps {
   };
 }
 
-export const ReadNextCard: React.FC<ReadNextProps> = props => {
+export function ReadNextCard({ tags, currentPageSlug, allRelatedPosts }: ReadNextProps) {
   // filter out current post and limit to 3 related posts
-  const relatedPosts = props.relatedPosts.edges
-    .filter(post => post.node.fields.slug !== props.currentPageSlug)
+  const relatedPosts = allRelatedPosts.edges
+    .filter(post => post.node.fields.slug !== currentPageSlug)
     .slice(0, 3);
 
   return (
@@ -38,7 +38,7 @@ export const ReadNextCard: React.FC<ReadNextProps> = props => {
       <header className="read-next-card-header">
         <ReadNextCardHeaderTitle>
           <span>More in</span>{' '}
-          <Link to={`/posts/tags/${_.kebabCase(props.tags[0])}/`}>{props.tags[0]}</Link>
+          <Link to={`/posts/tags/${_.kebabCase(tags[0])}/`}>{tags[0]}</Link>
         </ReadNextCardHeaderTitle>
       </header>
       <ReadNextCardContent className="read-next-card-content">
@@ -66,15 +66,15 @@ export const ReadNextCard: React.FC<ReadNextProps> = props => {
         </ul>
       </ReadNextCardContent>
       <ReadNextCardFooter className="read-next-card-footer">
-        <Link to={`/posts/tags/${_.kebabCase(props.tags[0])}/`}>
-          {props.relatedPosts.totalCount > 1 && `See all ${props.relatedPosts.totalCount} posts`}
-          {props.relatedPosts.totalCount === 1 && '1 post'}
-          {props.relatedPosts.totalCount === 0 && 'No posts'} →
+        <Link to={`/posts/tags/${_.kebabCase(tags[0])}/`}>
+          {allRelatedPosts.totalCount > 1 && `See all ${allRelatedPosts.totalCount} posts`}
+          {allRelatedPosts.totalCount === 1 && '1 post'}
+          {allRelatedPosts.totalCount === 0 && 'No posts'} →
         </Link>
       </ReadNextCardFooter>
     </ReadNextCardArticle>
   );
-};
+}
 
 const ReadNextCardArticle = styled.article`
   position: relative;

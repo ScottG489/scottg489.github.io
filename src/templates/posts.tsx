@@ -38,10 +38,10 @@ export interface PostsProps {
   };
 }
 
-const PostsPage: React.FC<PostsProps> = props => {
-  const width = getImage(props.data.header)?.width;
-  const height = getImage(props.data.header)?.height;
-  const posts = props.data.posts.edges;
+function PostsPage({ data, pageContext }: PostsProps) {
+  const width = getImage(data.header)?.width;
+  const height = getImage(data.header)?.height;
+  const posts = data.posts.edges;
 
   return (
     <IndexLayout css={HomePosts}>
@@ -54,7 +54,7 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.description} />
         <meta property="og:url" content={config.siteUrl} />
-        <meta property="og:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
+        <meta property="og:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
         {config.facebook && <meta property="article:publisher" content={config.facebook} />}
         {config.googleSiteVerification && (
           <meta name="google-site-verification" content={config.googleSiteVerification} />
@@ -63,7 +63,7 @@ const PostsPage: React.FC<PostsProps> = props => {
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
         <meta name="twitter:url" content={config.siteUrl} />
-        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
+        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
         {config.twitter && (
           <meta
             name="twitter:site"
@@ -78,7 +78,7 @@ const PostsPage: React.FC<PostsProps> = props => {
           css={[outer, SiteHeader]}
           className="site-header-background"
           style={{
-            backgroundImage: `url('${getSrc(props.data.header)}')`,
+            backgroundImage: `url('${getSrc(data.header)}')`,
           }}
         >
           <div css={inner}>
@@ -103,18 +103,17 @@ const PostsPage: React.FC<PostsProps> = props => {
             </div>
           </div>
         </main>
-        {props.children}
-        {props.pageContext.numPages > 1 && (
+        {pageContext.numPages > 1 && (
           <Pagination
-            currentPage={props.pageContext.currentPage}
-            numPages={props.pageContext.numPages}
+            currentPage={pageContext.currentPage}
+            numPages={pageContext.numPages}
           />
         )}
         <Footer />
       </Wrapper>
     </IndexLayout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query postsPageQuery($skip: Int!, $limit: Int!) {

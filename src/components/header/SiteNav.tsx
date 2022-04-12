@@ -27,6 +27,12 @@ interface SiteNavState {
 }
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
+  static defaultProps = {
+    isHome: false,
+    isPost: false,
+    post: '',
+  };
+
   subscribe = React.createRef<SubscribeModal>();
   titleRef = React.createRef<HTMLSpanElement>();
   lastScrollY = 0;

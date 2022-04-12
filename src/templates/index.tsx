@@ -50,11 +50,11 @@ export interface IndexProps {
   };
 }
 
-const IndexPage: React.FC<IndexProps> = props => {
-  const width = getImage(props.data.header)?.width;
-  const height = getImage(props.data.header)?.height;
-  const posts = props.data.posts.edges;
-  const projects = props.data.projects.edges;
+function IndexPage({ data, pageContext }: IndexProps) {
+  const width = getImage(data.header)?.width;
+  const height = getImage(data.header)?.height;
+  const posts = data.posts.edges;
+  const projects = data.projects.edges;
 
   return (
     <IndexLayout css={HomePosts}>
@@ -67,7 +67,7 @@ const IndexPage: React.FC<IndexProps> = props => {
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.description} />
         <meta property="og:url" content={config.siteUrl} />
-        <meta property="og:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
+        <meta property="og:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
         {config.facebook && <meta property="article:publisher" content={config.facebook} />}
         {config.googleSiteVerification && (
           <meta name="google-site-verification" content={config.googleSiteVerification} />
@@ -76,7 +76,7 @@ const IndexPage: React.FC<IndexProps> = props => {
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
         <meta name="twitter:url" content={config.siteUrl} />
-        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(props.data.header)}`} />
+        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
         {config.twitter && (
           <meta
             name="twitter:site"
@@ -91,17 +91,17 @@ const IndexPage: React.FC<IndexProps> = props => {
           css={[outer, SiteHeader, SiteHeaderStyles]}
           className="site-header-background"
           style={{
-            backgroundImage: `url('${getSrc(props.data.header)}')`,
+            backgroundImage: `url('${getSrc(data.header)}')`,
           }}
         >
           <div css={inner}>
             <SiteNav />
             <SiteHeaderContent className="site-header-content">
               <SiteTitle className="site-title">
-                {props.data.logo ? (
+                {data.logo ? (
                   <img
                     style={{ maxHeight: '200px' }}
-                    src={getSrc(props.data.logo)}
+                    src={getSrc(data.logo)}
                     alt={config.title}
                   />
                 ) : (
@@ -144,18 +144,17 @@ const IndexPage: React.FC<IndexProps> = props => {
             </div>
           </div>
         </main>
-        {props.children}
-        {props.pageContext.numPages > 1 && (
+        {pageContext.numPages > 1 && (
           <Pagination
-            currentPage={props.pageContext.currentPage}
-            numPages={props.pageContext.numPages}
+            currentPage={pageContext.currentPage}
+            numPages={pageContext.numPages}
           />
         )}
         <Footer />
       </Wrapper>
     </IndexLayout>
   );
-};
+}
 
 export const pageQuery = graphql`
 query blogPageQuery($skip: Int!, $limit: Int!) {

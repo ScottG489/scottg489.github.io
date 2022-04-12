@@ -14,7 +14,7 @@ export interface ProjectCardProps {
   large?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) => {
+export function ProjectCard({ post, large = true }: ProjectCardProps) {
   const { ghimage, link } = post;
   const { title } = post;
 
@@ -53,7 +53,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ post, large = true }) 
       </PostCardContent>
     </article>
   );
-};
+}
 
 const PostCardStyles = css`
   position: relative;
