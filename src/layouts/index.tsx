@@ -7,16 +7,18 @@ import favicon from '../../src/favicon.ico';
 import { colors } from '../styles/colors';
 
 interface IndexProps {
+  children: any;
   className?: string;
 }
 
-const IndexLayout: React.FC<IndexProps> = props => (
-  <div className={props.className}>
-    <Helmet>
-      <link rel="icon" href={favicon} type="image/x-icon" />
-    </Helmet>
-    <Global
-      styles={css`
+function IndexLayout({ children, className }: IndexProps) {
+  return (
+    <div className={className}>
+      <Helmet>
+        <link rel="icon" href={favicon} type="image/x-icon" />
+      </Helmet>
+      <Global
+        styles={css`
           html,
           body,
           div,
@@ -490,9 +492,10 @@ const IndexLayout: React.FC<IndexProps> = props => (
             }
           }
         `}
-    />
-    {props.children}
-  </div>
-);
+      />
+      {children}
+    </div>
+  );
+}
 
 export default IndexLayout;
