@@ -26,7 +26,7 @@ import { Helmet } from 'react-helmet';
 import config from '../website-config';
 import { PostFullContent } from '../components/PostContent';
 
-interface AuthorTemplateProps {
+interface AboutTemplateProps {
   location: Location;
   data: {
     logo: {
@@ -53,7 +53,7 @@ interface AuthorTemplateProps {
   };
 }
 
-function Author({ data, location }: AuthorTemplateProps) {
+function About({ data, location }: AboutTemplateProps) {
   const author = data.authorYaml;
 
   return (
@@ -297,4 +297,4 @@ const AuthorProfileBioImage = css`
   border-radius: 100%;
 `;
 
-export default Author;
+export default About;

@@ -261,7 +261,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const aboutTemplate = path.resolve('./src/templates/author.tsx');
+  const aboutTemplate = path.resolve('./src/templates/about.tsx');
   createPage({
     path: '/about',
     component: aboutTemplate,
