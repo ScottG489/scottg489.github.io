@@ -7,6 +7,16 @@
     - Serverless
     - Java
     - Docker
+- title: metadiff-ui
+  layout: project
+  link: https://github.com/ScottG489/metadiff-ui
+  ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=metadiff-ui&show_owner=true&theme=github_dark
+  excerpt: Get metadata about a unified diff. Website frontend for unified-diff-parser.
+  tags:
+    - Diff
+    - React
+    - Website
+    - Frontend
 - title: machine-setup
   link: https://github.com/ScottG489/machine-setup
   ghimage: https://github-readme-stats.vercel.app/api/pin/?username=scottg489&repo=machine-setup&show_owner=true&theme=github_dark
