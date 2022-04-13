@@ -34,7 +34,7 @@ build_application() {
 
   npx npm-check-updates --errorLevel 2
   npm run lint
-  npm audit --production
+#  npm audit --production
 
   npm run build
 
