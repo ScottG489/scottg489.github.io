@@ -23,11 +23,15 @@ build_application() {
   readonly ROOT_DIR=$(get_git_root_dir)
   cd "$ROOT_DIR"
 
-  hadolint --failure-threshold warning infra/build/Dockerfile
-
   set +x
   . "$NVM_DIR/nvm.sh"
   set -x
+
+  [[ $(terraform version -json | jq --raw-output '.terraform_outdated') == "false" ]]
+  [[ $(node -v | sed 's/^v//') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=nodejs' | jq --raw-output '.items[].stable_versions[0]') ]]
+  [[ $(hadolint --version | awk '{print $4}') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=hadolint' | jq --raw-output '.items[].stable_versions[0]') ]]
+
+  hadolint --failure-threshold warning infra/build/Dockerfile
 
   export CI=true
   npm ci
