@@ -30,6 +30,7 @@ build_application() {
   [[ $(terraform version -json | jq --raw-output '.terraform_outdated') == "false" ]]
   [[ $(node -v | sed 's/^v//') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=nodejs' | jq --raw-output '.items[].stable_versions[0]') ]]
   [[ $(hadolint --version | awk '{print $4}') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=hadolint' | jq --raw-output '.items[].stable_versions[0]') ]]
+  [[ $(git ls-remote https://github.com/scttcper/gatsby-casper.git | head -1 | awk '{print $1}') == "351ca050cfbbd6ae56b322dccdf2db2348e6752d" ]]
 
   hadolint --failure-threshold warning infra/build/Dockerfile
 
