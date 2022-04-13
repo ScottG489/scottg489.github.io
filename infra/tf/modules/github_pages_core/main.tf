@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.8.0"
+    }
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.1.1"
+    }
+  }
+}
+
 resource "aws_route53_zone" "r53_zone" {
   name         = var.website_name
 }
