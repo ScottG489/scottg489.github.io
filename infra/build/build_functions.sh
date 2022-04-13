@@ -31,6 +31,11 @@ build_application() {
 
   export CI=true
   npm ci
+
+  npx npm-check-updates --errorLevel 2
+  npm run lint
+  npm audit --production
+
   npm run build
 
   # TODO: No tests right now
