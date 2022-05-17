@@ -37,9 +37,9 @@ export function ReadNext({ relatedPosts, currentPageSlug, tags, pageContext }: R
   const showRelatedPosts = relatedPosts.totalCount > 1;
 
   return (
-    <ReadNextAside className="read-next" css={outer}>
+    <ReadNextAside className='read-next' css={outer}>
       <div css={inner}>
-        <ReadNextFeed className="read-next-feed">
+        <ReadNextFeed className='read-next-feed'>
           {showRelatedPosts && (
             <ReadNextCard
               currentPageSlug={currentPageSlug}

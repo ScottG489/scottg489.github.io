@@ -94,36 +94,36 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
       <>
         {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
         <nav css={SiteNavStyles}>
-          <SiteNavLeft className="site-nav-left">
+          <SiteNavLeft className='site-nav-left'>
             {!isHome && <SiteNavLogo />}
             <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
-              <ul css={NavStyles} role="menu">
-                <li role="menuitem">
-                  <Link to="/" activeClassName="nav-current">
+              <ul css={NavStyles} role='menu'>
+                <li role='menuitem'>
+                  <Link to='/' activeClassName='nav-current'>
                     Home
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <Link to="/posts" activeClassName="nav-current">
+                <li role='menuitem'>
+                  <Link to='/posts' activeClassName='nav-current'>
                     Posts
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <Link to="/projects" activeClassName="nav-current">
+                <li role='menuitem'>
+                  <Link to='/projects' activeClassName='nav-current'>
                     Projects
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <a href="https://docs.google.com/document/d/1CSoMo6zwKaeT4jfHjl3YTOx4ad9z5u7GVpqUUqC2Z4k">Resume</a>
+                <li role='menuitem'>
+                  <a href='https://docs.google.com/document/d/1CSoMo6zwKaeT4jfHjl3YTOx4ad9z5u7GVpqUUqC2Z4k'>Resume</a>
                 </li>
-                <li role="menuitem">
-                  <Link to="/about" activeClassName="nav-current">
+                <li role='menuitem'>
+                  <Link to='/about' activeClassName='nav-current'>
                     About
                   </Link>
                 </li>
               </ul>
               {isPost && (
-                <NavPostTitle ref={this.titleRef} className="nav-post-title">
+                <NavPostTitle ref={this.titleRef} className='nav-post-title'>
                   {post.title}
                 </NavPostTitle>
               )}
@@ -135,9 +135,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <a
                   css={SocialLink}
                   href={config.github}
-                  title="GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title='GitHub'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <GitHub />
                 </a>
@@ -146,9 +146,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <a
                   css={SocialLink}
                   href={config.linkedin}
-                  title="LinkedIn"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title='LinkedIn'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <LinkedIn />
                 </a>
@@ -157,9 +157,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <a
                   css={SocialLink}
                   href={config.twitter}
-                  title="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title='Twitter'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <Twitter />
                 </a>
@@ -168,9 +168,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <a
                   css={SocialLink}
                   href={config.email}
-                  title="Email"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title='Email'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <Email />
                 </a>
@@ -179,9 +179,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                 <a
                   css={SocialLink}
                   href={config.rss}
-                  title="RSS"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title='RSS'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <Rss />
                 </a>

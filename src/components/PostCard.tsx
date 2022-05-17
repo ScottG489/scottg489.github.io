@@ -31,8 +31,8 @@ export function PostCard({ post, large = false }: PostCardProps) {
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {post.frontmatter.image && (
-        <Link className="post-card-image-link" css={PostCardImageLink} to={post.fields.slug}>
-          <PostCardImage className="post-card-image">
+        <Link className='post-card-image-link' css={PostCardImageLink} to={post.fields.slug}>
+          <PostCardImage className='post-card-image'>
             {post.frontmatter?.image && (
               <GatsbyImage
                 image={getImage(post.frontmatter.image)!}
@@ -43,12 +43,12 @@ export function PostCard({ post, large = false }: PostCardProps) {
           </PostCardImage>
         </Link>
       )}
-      <PostCardContent className="post-card-content">
-        <PostCardHeader className="post-card-header">
+      <PostCardContent className='post-card-content'>
+        <PostCardHeader className='post-card-header'>
           {
             post.frontmatter.tags && post.frontmatter.tags.length > 0 && post.frontmatter.tags.map((tag, index, arr) => (
               <Link
-                key={tag} className="post-card-primary-tag"
+                key={tag} className='post-card-primary-tag'
                 to={`/posts/tags/${_.kebabCase(tag)}/`}
               >
                 {tag}
@@ -57,17 +57,17 @@ export function PostCard({ post, large = false }: PostCardProps) {
             ))
           }
         </PostCardHeader>
-        <Link className="post-card-content-link" css={PostCardContentLink} to={post.fields.slug}>
-          <PostCardTitle className="post-card-title">{post.frontmatter.title}</PostCardTitle>
-          <PostCardExcerpt className="post-card-excerpt">
+        <Link className='post-card-content-link' css={PostCardContentLink} to={post.fields.slug}>
+          <PostCardTitle className='post-card-title'>{post.frontmatter.title}</PostCardTitle>
+          <PostCardExcerpt className='post-card-excerpt'>
             <p>{post.frontmatter.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
         </Link>
-        <PostCardMeta className="post-card-meta">
-          <PostCardBylineContent className="post-card-byline-content">
-            <span className="post-card-byline-date">
+        <PostCardMeta className='post-card-meta'>
+          <PostCardBylineContent className='post-card-byline-content'>
+            <span className='post-card-byline-date'>
               <time dateTime={datetime}>{displayDatetime}</time>{' '}
-              <span className="bull">&bull;</span> {post.fields.readingTime.text}
+              <span className='bull'>&bull;</span> {post.fields.readingTime.text}
             </span>
           </PostCardBylineContent>
         </PostCardMeta>

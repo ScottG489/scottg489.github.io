@@ -48,35 +48,35 @@ function PostsPage({ data, pageContext }: PostsProps) {
       <Helmet>
         <html lang={config.lang} />
         <title>{config.title}</title>
-        <meta name="description" content={config.description} />
-        <meta property="og:site_name" content={config.title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={config.title} />
-        <meta property="og:description" content={config.description} />
-        <meta property="og:url" content={config.siteUrl} />
-        <meta property="og:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
-        {config.facebook && <meta property="article:publisher" content={config.facebook} />}
+        <meta name='description' content={config.description} />
+        <meta property='og:site_name' content={config.title} />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={config.title} />
+        <meta property='og:description' content={config.description} />
+        <meta property='og:url' content={config.siteUrl} />
+        <meta property='og:image' content={`${config.siteUrl}${getSrc(data.header)}`} />
+        {config.facebook && <meta property='article:publisher' content={config.facebook} />}
         {config.googleSiteVerification && (
-          <meta name="google-site-verification" content={config.googleSiteVerification} />
+          <meta name='google-site-verification' content={config.googleSiteVerification} />
         )}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={config.title} />
-        <meta name="twitter:description" content={config.description} />
-        <meta name="twitter:url" content={config.siteUrl} />
-        <meta name="twitter:image" content={`${config.siteUrl}${getSrc(data.header)}`} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content={config.title} />
+        <meta name='twitter:description' content={config.description} />
+        <meta name='twitter:url' content={config.siteUrl} />
+        <meta name='twitter:image' content={`${config.siteUrl}${getSrc(data.header)}`} />
         {config.twitter && (
           <meta
-            name="twitter:site"
+            name='twitter:site'
             content={`@${config.twitter.split('https://twitter.com/')[1]}`}
           />
         )}
-        <meta property="og:image:width" content={width?.toString()} />
-        <meta property="og:image:height" content={height?.toString()} />
+        <meta property='og:image:width' content={width?.toString()} />
+        <meta property='og:image:height' content={height?.toString()} />
       </Helmet>
       <Wrapper>
         <div
           css={[outer, SiteHeader]}
-          className="site-header-background"
+          className='site-header-background'
           style={{
             backgroundImage: `url('${getSrc(data.header)}')`,
           }}
@@ -85,10 +85,10 @@ function PostsPage({ data, pageContext }: PostsProps) {
             <SiteNav />
           </div>
         </div>
-        <main id="site-main" css={[SiteMain, outer]}>
+        <main id='site-main' css={[SiteMain, outer]}>
           <div css={[inner, Posts]}>
-            <HomeFullHeader className="post-full-header">
-              <HomeFullTitle className="post-full-title">Posts</HomeFullTitle>
+            <HomeFullHeader className='post-full-header'>
+              <HomeFullTitle className='post-full-title'>Posts</HomeFullTitle>
             </HomeFullHeader>
             <div css={[PostFeed]}>
               {posts.map((post, index) =>

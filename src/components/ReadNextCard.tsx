@@ -34,14 +34,14 @@ export function ReadNextCard({ tags, currentPageSlug, allRelatedPosts }: ReadNex
     .slice(0, 3);
 
   return (
-    <ReadNextCardArticle className="read-next-card">
-      <header className="read-next-card-header">
+    <ReadNextCardArticle className='read-next-card'>
+      <header className='read-next-card-header'>
         <ReadNextCardHeaderTitle>
           <span>More in</span>{' '}
           <Link to={`/posts/tags/${_.kebabCase(tags[0])}/`}>{tags[0]}</Link>
         </ReadNextCardHeaderTitle>
       </header>
-      <ReadNextCardContent className="read-next-card-content">
+      <ReadNextCardContent className='read-next-card-content'>
         <ul>
           {relatedPosts.map(n => {
             const date = new Date(n.node.frontmatter.date);
@@ -54,7 +54,7 @@ export function ReadNextCard({ tags, currentPageSlug, allRelatedPosts }: ReadNex
                 <h4>
                   <Link to={n.node.fields.slug}>{n.node.frontmatter.title}</Link>
                 </h4>
-                <ReadNextCardMeta className="read-next-card-meta">
+                <ReadNextCardMeta className='read-next-card-meta'>
                   <p>
                     <time dateTime={datetime}>{displayDatetime}</time> - {n.node.timeToRead} min
                     read
@@ -65,7 +65,7 @@ export function ReadNextCard({ tags, currentPageSlug, allRelatedPosts }: ReadNex
           })}
         </ul>
       </ReadNextCardContent>
-      <ReadNextCardFooter className="read-next-card-footer">
+      <ReadNextCardFooter className='read-next-card-footer'>
         <Link to={`/posts/tags/${_.kebabCase(tags[0])}/`}>
           {allRelatedPosts.totalCount > 1 && `See all ${allRelatedPosts.totalCount} posts`}
           {allRelatedPosts.totalCount === 1 && '1 post'}

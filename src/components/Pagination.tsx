@@ -20,7 +20,7 @@ function Pagination({ currentPage, numPages }: PaginationProps) {
     <nav css={navCss}>
       <div>
         {!isFirst && (
-          <Link to={prevPage} rel="prev">
+          <Link to={prevPage} rel='prev'>
             {/* << symbol */}
             {String.fromCharCode(171)}
           </Link>
@@ -37,7 +37,7 @@ function Pagination({ currentPage, numPages }: PaginationProps) {
         ))}
 
         {!isLast && (
-          <Link to={nextPage} rel="next">
+          <Link to={nextPage} rel='next'>
             {/* >> symbol */}
             {String.fromCharCode(187)}
           </Link>

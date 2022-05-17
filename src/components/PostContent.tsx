@@ -21,8 +21,8 @@ export interface PostContentProps {
 
 function PostContent({ htmlAst }: PostContentProps) {
   return (
-    <PostFullContent className="post-full-content">
-      <Ast className="post-content" ast={htmlAst} />
+    <PostFullContent className='post-full-content'>
+      <Ast className='post-content' ast={htmlAst} />
     </PostFullContent>
   );
 }

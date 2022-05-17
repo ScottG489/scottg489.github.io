@@ -15,7 +15,7 @@ function IndexLayout({ children, className }: IndexProps) {
   return (
     <div className={className}>
       <Helmet>
-        <link rel="icon" href={favicon} type="image/x-icon" />
+        <link rel='icon' href={favicon} type='image/x-icon' />
       </Helmet>
       <Global
         styles={css`

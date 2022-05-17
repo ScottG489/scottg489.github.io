@@ -36,17 +36,17 @@ function NotFoundPage(props: NotFoundTemplateProps) {
             </div>
           </div>
         </header>
-        <main id="site-main" css={[outer, ErrorContent]} className="error-content">
+        <main id='site-main' css={[outer, ErrorContent]} className='error-content'>
           <div css={[inner]}>
             <section style={{ textAlign: 'center' }}>
               <ErrorCode>404</ErrorCode>
               <ErrorDescription>Page not found</ErrorDescription>
-              <Link css={ErrorLink} to="/">
+              <Link css={ErrorLink} to='/'>
                 Go to the front page →
               </Link>
             </section>
 
-            <div css={PostFeed404} className="post-feed">
+            <div css={PostFeed404} className='post-feed'>
               {edges.map(({ node }) => (
                 <PostCard key={node.fields.slug} post={node} />
               ))}

@@ -31,7 +31,7 @@ function SubscribeLogo() {
         return (
           <img
             css={SubscribeOverlayLogo}
-            className="subscribe-overlay-logo"
+            className='subscribe-overlay-logo'
             src={getSrc(logo)}
             alt={config.title}
           />

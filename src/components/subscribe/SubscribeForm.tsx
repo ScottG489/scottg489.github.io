@@ -14,26 +14,26 @@ export function SubscribeForm() {
       noValidate
       css={SubscribeFormStyles}
       action={config.mailchimpAction}
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      className="subscribe-form"
-      target="_blank"
+      method='post'
+      id='mc-embedded-subscribe-form'
+      name='mc-embedded-subscribe-form'
+      className='subscribe-form'
+      target='_blank'
     >
       {/* This is required for the form to work correctly  */}
-      <FormGroup className="form-group">
+      <FormGroup className='form-group'>
         <SubscribeEmail
-          className="subscribe-email"
-          type="email"
+          className='subscribe-email'
+          type='email'
           name={config.mailchimpEmailFieldName}
           id={config.mailchimpEmailFieldName}
-          placeholder="youremail@example.com"
+          placeholder='youremail@example.com'
         />
       </FormGroup>
-      <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-        <input type="text" name={config.mailchimpName} tabIndex={-1} />
+      <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden='true'>
+        <input type='text' name={config.mailchimpName} tabIndex={-1} />
       </div>
-      <SubscribeFormButton type="submit">
+      <SubscribeFormButton type='submit'>
         <span>Subscribe</span>
       </SubscribeFormButton>
     </form>

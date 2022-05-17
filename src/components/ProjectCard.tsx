@@ -26,16 +26,16 @@ export function ProjectCard({ post, large = true }: ProjectCardProps) {
       css={[PostCardStyles, large && PostCardLarge]}
     >
       {ghimage && (
-        <ProjectCardImage href={link} target="_blank" rel="noopener noreferrer">
+        <ProjectCardImage href={link} target='_blank' rel='noopener noreferrer'>
           <img src={ghimage} alt={`${title} GitHub repo card`}/>
         </ProjectCardImage>
       )}
-      <PostCardContent className="post-card-content">
-        <PostCardHeader className="post-card-header">
+      <PostCardContent className='post-card-content'>
+        <PostCardHeader className='post-card-header'>
           {
             post.tags && post.tags.length > 0 && post.tags.map((tag, index, arr) => (
               <Link
-                key={tag} className="post-card-primary-tag"
+                key={tag} className='post-card-primary-tag'
                 to={`/projects/tags/${_.kebabCase(tag)}/`}
               >
                 {tag}
@@ -44,9 +44,9 @@ export function ProjectCard({ post, large = true }: ProjectCardProps) {
             ))
           }
         </PostCardHeader>
-        <PostCardContentText className="post-card-content-link">
-          <PostCardTitle className="post-card-title">{post.title}</PostCardTitle>
-          <PostCardExcerpt className="post-card-excerpt">
+        <PostCardContentText className='post-card-content-link'>
+          <PostCardTitle className='post-card-title'>{post.title}</PostCardTitle>
+          <PostCardExcerpt className='post-card-excerpt'>
             <p>{post.excerpt || post.excerpt}</p>
           </PostCardExcerpt>
         </PostCardContentText>

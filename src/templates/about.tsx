@@ -63,31 +63,31 @@ function About({ data, location }: AboutTemplateProps) {
         <title>
           {author.name} - {config.title}
         </title>
-        <meta name="description" content={author.bio} />
-        <meta property="og:site_name" content={config.title} />
-        <meta property="og:type" content="profile" />
-        <meta property="og:title" content={`${author.name} - ${config.title}`} />
-        <meta property="og:url" content={config.siteUrl + location.pathname} />
-        <meta property="article:publisher" content="https://www.facebook.com/ghost" />
-        <meta property="article:author" content="https://www.facebook.com/ghost" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={`${author.name} - ${config.title}`} />
-        <meta name="twitter:url" content={config.siteUrl + location.pathname} />
+        <meta name='description' content={author.bio} />
+        <meta property='og:site_name' content={config.title} />
+        <meta property='og:type' content='profile' />
+        <meta property='og:title' content={`${author.name} - ${config.title}`} />
+        <meta property='og:url' content={config.siteUrl + location.pathname} />
+        <meta property='article:publisher' content='https://www.facebook.com/ghost' />
+        <meta property='article:author' content='https://www.facebook.com/ghost' />
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:title' content={`${author.name} - ${config.title}`} />
+        <meta name='twitter:url' content={config.siteUrl + location.pathname} />
         {config.twitter && (
           <meta
-            name="twitter:site"
+            name='twitter:site'
             content={`@${config.twitter.split('https://twitter.com/')[1]}`}
           />
         )}
         {config.twitter && (
           <meta
-            name="twitter:creator"
+            name='twitter:creator'
             content={`@${config.twitter.split('https://twitter.com/')[1]}`}
           />
         )}
       </Helmet>
       <Wrapper>
-        <header className="site-archive-header" css={[SiteHeader, SiteArchiveHeader]}>
+        <header className='site-archive-header' css={[SiteHeader, SiteArchiveHeader]}>
           <div css={[outer, SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
@@ -97,22 +97,22 @@ function About({ data, location }: AboutTemplateProps) {
           <ResponsiveHeaderBackground
             backgroundImage={getSrc(author.profile_image)}
             css={[outer, SiteHeaderBackground]}
-            className="site-header-background"
+            className='site-header-background'
           >
             <div css={inner}>
-              <SiteHeaderContent css={AuthorHeader} className="site-header-content author-header">
+              <SiteHeaderContent css={AuthorHeader} className='site-header-content author-header'>
                 <img
                   style={{ marginTop: '8px' }}
                   css={[AuthorProfileImage, AuthorProfileBioImage]}
                   src={getSrc(data.authorYaml.avatar)}
                   alt={author.name}
                 />
-                <AuthHeaderContent className="author-header-content">
-                  <SiteTitle className="site-title">{author.name}</SiteTitle>
-                  {author.bio && <AuthorBio className="author-bio">{author.bio}</AuthorBio>}
-                  <div css={AuthorMeta} className="author-meta">
+                <AuthHeaderContent className='author-header-content'>
+                  <SiteTitle className='site-title'>{author.name}</SiteTitle>
+                  {author.bio && <AuthorBio className='author-bio'>{author.bio}</AuthorBio>}
+                  <div css={AuthorMeta} className='author-meta'>
                     {author.location && (
-                      <div className="author-location" css={[HiddenMobile]}>
+                      <div className='author-location' css={[HiddenMobile]}>
                         {author.location}
                       </div>
                     )}
@@ -122,22 +122,22 @@ function About({ data, location }: AboutTemplateProps) {
             </div>
           </ResponsiveHeaderBackground>
         </header>
-        <main id="site-main" className="site-main" css={[SiteMain, outer]}>
+        <main id='site-main' className='site-main' css={[SiteMain, outer]}>
           <div css={inner}>
-            <article className="post page" css={[PostFull, NoImage]}>
-              <PostFullHeader className="post-full-header">
-                <PostFullTitle className="post-full-title">About</PostFullTitle>
+            <article className='post page' css={[PostFull, NoImage]}>
+              <PostFullHeader className='post-full-header'>
+                <PostFullTitle className='post-full-title'>About</PostFullTitle>
               </PostFullHeader>
 
-              <PostFullContent className="post-full-content">
-                <div className="post-content">
+              <PostFullContent className='post-full-content'>
+                <div className='post-content'>
                   <h5>
                     Me
                   </h5>
                   <p>
                     Something something something something...
                   </p>
-                  <p><small><a href="https://lh3.googleusercontent.com/pw/ACtC-3c0EBDHOGuYfq2wP0sKXSqyNdZXYw53r-6hvYclhuKwku8Mrl80gMZri4mXU_sDibV6vDNtTlhhNRLjP_zugSova1CSSMM4rVKA5AmH9gGEOILQguehzJv2yyxrhF9yN4qcjoLnrtGSsUZXygW5dDLCwA=w2012-h474-no?authuser=0">Header photo</a> courtesy of <a href="https://www.instagram.com/theknio/">Tom Flanagan</a>. He is so courteous.</small></p>
+                  <p><small><a href='https://lh3.googleusercontent.com/pw/ACtC-3c0EBDHOGuYfq2wP0sKXSqyNdZXYw53r-6hvYclhuKwku8Mrl80gMZri4mXU_sDibV6vDNtTlhhNRLjP_zugSova1CSSMM4rVKA5AmH9gGEOILQguehzJv2yyxrhF9yN4qcjoLnrtGSsUZXygW5dDLCwA=w2012-h474-no?authuser=0'>Header photo</a> courtesy of <a href='https://www.instagram.com/theknio/'>Tom Flanagan</a>. He is so courteous.</small></p>
                 </div>
               </PostFullContent>
             </article>
