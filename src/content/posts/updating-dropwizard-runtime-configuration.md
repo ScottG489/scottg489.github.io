@@ -67,7 +67,7 @@ public class UpdateConfigTask extends Task {
 }
 ```
 
-Also for demonstration purposes, create a [resource](https://www.dropwizard.io/en/latest/manual/core.html#man-core-resources) which allows you to get the config value:
+Also, for demonstration purposes, create a [resource](https://www.dropwizard.io/en/latest/manual/core.html#man-core-resources) which allows you to get the config value:
 
 
 [ConfigResource.java](https://github.com/ScottG489/dropwizard-runtime-config-example/blob/master/src/main/java/example/resource/ConfigResource.java)
