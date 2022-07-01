@@ -30,7 +30,7 @@ sudo chown -R "$(whoami)":"$(whoami)" -- * .*
 find . -name '*terraform.tfstate*' -exec rm {} \;
 find . -name '.terraform' -type d -prune -exec rm -rf {} \;
 
-docker build infra/build -t scottg489-github-io-build-test && \
+docker build infra/build -t scottg489-github-io-build-test-$(uuidgen | cut -c -8) && \
   docker run -it \
   --runtime=sysbox-runc \
   --volume "$PWD:/home/build-user/build/scottg489.github.io" \
