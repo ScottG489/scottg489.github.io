@@ -30,8 +30,9 @@ sudo chown -R "$(whoami)":"$(whoami)" -- * .*
 find . -name '*terraform.tfstate*' -exec rm {} \;
 find . -name '.terraform' -type d -prune -exec rm -rf {} \;
 
-docker build infra/build -t scottg489-github-io-build-test-$(uuidgen | cut -c -8) && \
+LOCAL_IMAGE_TAG="scottg489-github-io-build-test-$(uuidgen | cut -c -8)"
+docker build infra/build -t $LOCAL_IMAGE_TAG && \
   docker run -it \
   --runtime=sysbox-runc \
   --volume "$PWD:/home/build-user/build/scottg489.github.io" \
-  scottg489-github-io-build-test '{"ID_RSA": "'"$ID_RSA_CONTENTS_BASE64"'", "AWS_CREDENTIALS": "'"$AWS_CREDENTIALS_CONTENTS_BASE64"'", "DOCKER_CONFIG": "'"$DOCKER_CONFIG_CONTENTS_BASE64"'"}'
+  $LOCAL_IMAGE_TAG '{"ID_RSA": "'"$ID_RSA_CONTENTS_BASE64"'", "AWS_CREDENTIALS": "'"$AWS_CREDENTIALS_CONTENTS_BASE64"'", "DOCKER_CONFIG": "'"$DOCKER_CONFIG_CONTENTS_BASE64"'"}'
