@@ -7,10 +7,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0",
     "debug": "gatsby develop --inspect",
     "clean": "gatsby clean",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "start": "npm run dev",
