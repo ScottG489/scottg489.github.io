@@ -32,7 +32,7 @@ build_application() {
   # TODO: release-monitoring doesn't use the github as the backend to determine versions and we install from github
   # TODO:   We should check and install from the same place.
 #  [[ $(hadolint --version | awk '{print $4}') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=hadolint' | jq --raw-output '.items[].stable_versions[0]') ]]
-  [[ $(git ls-remote https://github.com/scttcper/gatsby-casper.git | head -1 | awk '{print $1}') == "3dc8423ab392cc72f9268a1884b3ae5c7e737500" ]]
+  [[ $(git ls-remote https://github.com/scttcper/gatsby-casper.git | head -1 | awk '{print $1}') == "b87a93bd4449feab593b55555b28f01cdf5b4ffb" ]]
 
   hadolint --failure-threshold warning infra/build/Dockerfile
 
