@@ -22,7 +22,7 @@ import config from '../website-config';
 import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
 import { ProjectCard } from '../components/ProjectCard';
 
-export interface ProjectsProps {
+export type ProjectsProps = {
   pageContext: {
     currentPage: number;
     numPages: number;
@@ -41,9 +41,9 @@ export interface ProjectsProps {
       }>;
     };
   };
-}
+};
 
-export interface ProjectContext {
+export type ProjectContext = {
   title: string;
   post: string;
   large: boolean;
@@ -51,7 +51,7 @@ export interface ProjectContext {
   ghimage: string;
   excerpt: string;
   tags: string[];
-}
+};
 
 function ProjectsPage({ data, pageContext }: ProjectsProps) {
   const width = getImage(data.header)?.width;

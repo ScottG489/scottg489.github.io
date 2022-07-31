@@ -12,7 +12,7 @@ import { colors } from '../styles/colors';
 import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
 import { PageContext } from '../templates/post';
 
-interface NotFoundTemplateProps {
+type NotFoundTemplateProps = {
   data: {
     allMarkdownRemark: {
       totalCount: number;
@@ -21,7 +21,7 @@ interface NotFoundTemplateProps {
       }>;
     };
   };
-}
+};
 
 function NotFoundPage(props: NotFoundTemplateProps) {
   const { edges } = props.data.allMarkdownRemark;

@@ -26,7 +26,7 @@ import { Helmet } from 'react-helmet';
 import config from '../website-config';
 import { PostFullContent } from '../components/PostContent';
 
-interface AboutTemplateProps {
+type AboutTemplateProps = {
   location: Location;
   data: {
     logo: {
@@ -51,7 +51,7 @@ interface AboutTemplateProps {
       avatar: any;
     };
   };
-}
+};
 
 function About({ data, location }: AboutTemplateProps) {
   const author = data.authorYaml;

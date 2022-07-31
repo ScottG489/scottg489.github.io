@@ -25,7 +25,7 @@ import config from '../website-config';
 import { ProjectCard } from '../components/ProjectCard';
 import { ProjectContext } from './projects';
 
-interface TagTemplateProps {
+type TagTemplateProps = {
   location: Location;
   pageContext: {
     tag: string;
@@ -47,7 +47,7 @@ interface TagTemplateProps {
       }>;
     };
   };
-}
+};
 
 function Tags({ pageContext, data, location }: TagTemplateProps) {
   const tag = pageContext.tag ? pageContext.tag : '';

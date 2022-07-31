@@ -29,7 +29,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import styled from '@emotion/styled';
 import { ProjectContext } from './projects';
 
-export interface IndexProps {
+export type IndexProps = {
   pageContext: {
     currentPage: number;
     numPages: number;
@@ -48,7 +48,7 @@ export interface IndexProps {
       }>;
     };
   };
-}
+};
 
 function IndexPage({ data, pageContext }: IndexProps) {
   const width = getImage(data.header)?.width;
@@ -127,7 +127,7 @@ function IndexPage({ data, pageContext }: IndexProps) {
                 (
                   (post.node.frontmatter.draft !== true
                     || process.env.NODE_ENV !== 'production') && (
-                    <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
+                    <PostCard key={post.node.fields.slug} post={post.node} isLarge={index === 0} />
                   )
                 ),
               )}

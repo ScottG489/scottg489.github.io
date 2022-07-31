@@ -22,7 +22,7 @@ import {
 import config from '../website-config';
 import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
 
-export interface PostsProps {
+export type PostsProps = {
   pageContext: {
     currentPage: number;
     numPages: number;
@@ -36,7 +36,7 @@ export interface PostsProps {
       }>;
     };
   };
-}
+};
 
 function PostsPage({ data, pageContext }: PostsProps) {
   const width = getImage(data.header)?.width;
@@ -96,7 +96,7 @@ function PostsPage({ data, pageContext }: PostsProps) {
                 (
                   (post.node.frontmatter.draft !== true
                     || process.env.NODE_ENV !== 'production') && (
-                    <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
+                    <PostCard key={post.node.fields.slug} post={post.node} isLarge={index === 0} />
                   )
                 ),
               )}

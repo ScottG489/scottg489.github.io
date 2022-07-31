@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 import { colors } from '../styles/colors';
 import { format } from 'date-fns';
 
-export interface ReadNextProps {
+export type ReadNextProps = {
   tags: string[];
   currentPageSlug: string;
   allRelatedPosts: {
@@ -25,7 +25,7 @@ export interface ReadNextProps {
       };
     }>;
   };
-}
+};
 
 export function ReadNextCard({ tags, currentPageSlug, allRelatedPosts }: ReadNextProps) {
   // filter out current post and limit to 3 related posts

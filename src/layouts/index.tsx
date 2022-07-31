@@ -6,10 +6,10 @@ import { lighten } from 'polished';
 import favicon from '../../src/favicon.ico';
 import { colors } from '../styles/colors';
 
-interface IndexProps {
+type IndexProps = {
   children: any;
   className?: string;
-}
+};
 
 function IndexLayout({ children, className }: IndexProps) {
   return (

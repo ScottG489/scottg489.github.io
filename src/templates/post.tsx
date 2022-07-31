@@ -22,7 +22,7 @@ import config from '../website-config';
 
 import { Disqus } from 'gatsby-plugin-disqus';
 
-interface PageTemplateProps {
+type PageTemplateProps = {
   location: Location;
   data: {
     markdownRemark: {
@@ -63,9 +63,9 @@ interface PageTemplateProps {
     prev: PageContext;
     next: PageContext;
   };
-}
+};
 
-export interface PageContext {
+export type PageContext = {
   excerpt: string;
   fields: {
     slug: string;
@@ -82,13 +82,13 @@ export interface PageContext {
     draft?: boolean;
     tags: string[];
   };
-}
+};
 
-interface DisqusConfig {
+type DisqusConfig = {
   url: string;
   identifier: string;
   title: string;
-}
+};
 
 function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
   const post = data.markdownRemark;

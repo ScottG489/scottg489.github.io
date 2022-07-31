@@ -1,4 +1,4 @@
-export interface WebsiteConfig {
+export type WebsiteConfig = {
   title: string;
   description: string;
   coverImage?: string;
@@ -41,7 +41,7 @@ export interface WebsiteConfig {
    * Appears alongside the footer, after the credits
    */
   footer?: string;
-}
+};
 
 const config: WebsiteConfig = {
   title: 'Scott Giminiani',

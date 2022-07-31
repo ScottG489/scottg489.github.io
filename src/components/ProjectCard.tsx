@@ -9,21 +9,21 @@ import styled from '@emotion/styled';
 import { colors } from '../styles/colors';
 import { ProjectContext } from '../templates/projects';
 
-export interface ProjectCardProps {
+export type ProjectCardProps = {
   post: ProjectContext;
-  large?: boolean;
-}
+  isLarge?: boolean;
+};
 
-export function ProjectCard({ post, large = true }: ProjectCardProps) {
+export function ProjectCard({ post, isLarge = true }: ProjectCardProps) {
   const { ghimage, link } = post;
   const { title } = post;
 
   return (
     <article
       className={`post-card 'no-image' ${
-        large ? 'post-card-large' : ''
+        isLarge ? 'post-card-large' : ''
       }`}
-      css={[PostCardStyles, large && PostCardLarge]}
+      css={[PostCardStyles, isLarge && PostCardLarge]}
     >
       {ghimage && (
         <ProjectCardImage href={link} target='_blank' rel='noopener noreferrer'>

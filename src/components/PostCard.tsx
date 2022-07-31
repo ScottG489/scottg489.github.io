@@ -11,12 +11,12 @@ import styled from '@emotion/styled';
 import { colors } from '../styles/colors';
 import { PageContext } from '../templates/post';
 
-export interface PostCardProps {
+export type PostCardProps = {
   post: PageContext;
-  large?: boolean;
-}
+  isLarge?: boolean;
+};
 
-export function PostCard({ post, large = false }: PostCardProps) {
+export function PostCard({ post, isLarge = false }: PostCardProps) {
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
   const datetime = format(date, 'yyyy-MM-dd');
@@ -26,9 +26,9 @@ export function PostCard({ post, large = false }: PostCardProps) {
   return (
     <article
       className={`post-card ${post.frontmatter.image ? '' : 'no-image'} ${
-        large ? 'post-card-large' : ''
+        isLarge ? 'post-card-large' : ''
       }`}
-      css={[PostCardStyles, large && PostCardLarge]}
+      css={[PostCardStyles, isLarge && PostCardLarge]}
     >
       {post.frontmatter.image && (
         <Link className='post-card-image-link' css={PostCardImageLink} to={post.fields.slug}>

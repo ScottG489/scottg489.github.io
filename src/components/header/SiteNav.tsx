@@ -16,15 +16,15 @@ import { LinkedIn } from '../icons/linkedin';
 import { Email } from '../icons/email';
 import { Rss } from '../icons/rss';
 
-interface SiteNavProps {
+type SiteNavProps = {
   isHome?: boolean;
   isPost?: boolean;
   post?: any;
-}
+};
 
-interface SiteNavState {
+type SiteNavState = {
   showTitle: boolean;
-}
+};
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   static defaultProps = {
