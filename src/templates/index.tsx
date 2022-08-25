@@ -24,10 +24,11 @@ import {
   SiteHeaderStyles,
 } from '../styles/shared';
 import config from '../website-config';
-import { HomeFullTitle, PageContext } from './post';
+import type { PageContext } from './post';
+import { HomeFullTitle } from './post';
 import { ProjectCard } from '../components/ProjectCard';
 import styled from '@emotion/styled';
-import { ProjectContext } from './projects';
+import type { ProjectContext } from './projects';
 
 export type IndexProps = {
   pageContext: {

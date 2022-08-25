@@ -7,7 +7,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../styles/colors';
-import { ProjectContext } from '../templates/projects';
+import type { ProjectContext } from '../templates/projects';
 
 export type ProjectCardProps = {
   post: ProjectContext;

@@ -21,7 +21,8 @@ import {
   ResponsiveHeaderBackground,
   SiteHeaderBackground,
 } from '../styles/shared';
-import { NoImage, PageContext, PostFull, PostFullHeader, PostFullTitle } from './post';
+import type { PageContext } from './post';
+import { NoImage, PostFull, PostFullHeader, PostFullTitle } from './post';
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
 import { PostFullContent } from '../components/PostContent';

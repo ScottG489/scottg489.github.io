@@ -20,7 +20,8 @@ import {
   SiteMain,
 } from '../styles/shared';
 import config from '../website-config';
-import { HomeFullHeader, HomeFullTitle, PageContext } from './post';
+import type { PageContext } from './post';
+import { HomeFullHeader, HomeFullTitle } from './post';
 
 export type PostsProps = {
   pageContext: {

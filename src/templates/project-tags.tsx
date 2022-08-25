@@ -23,7 +23,7 @@ import {
 import { Helmet } from 'react-helmet';
 import config from '../website-config';
 import { ProjectCard } from '../components/ProjectCard';
-import { ProjectContext } from './projects';
+import type { ProjectContext } from './projects';
 
 type TagTemplateProps = {
   location: Location;

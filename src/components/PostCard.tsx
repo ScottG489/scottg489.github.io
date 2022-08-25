@@ -9,7 +9,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../styles/colors';
-import { PageContext } from '../templates/post';
+import type { PageContext } from '../templates/post';
 
 export type PostCardProps = {
   post: PageContext;
