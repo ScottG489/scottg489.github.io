@@ -44,7 +44,7 @@ export function ReadNext({ relatedPosts, currentPageSlug, tags, pageContext }: R
             <ReadNextCard
               currentPageSlug={currentPageSlug}
               tags={tags}
-              relatedPosts={relatedPosts}
+              allRelatedPosts={relatedPosts}
             />
           )}
 
