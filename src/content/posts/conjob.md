@@ -15,6 +15,9 @@ tags:
 
 [ConJob](https://github.com/ScottG489/conjob) is a service for running containers as jobs, with a focus on CI use cases.
 
+A job has 3 defining properties - a name (i.e. the docker image's name), optional inputs, and when finished it returns
+the stdout and stderr contents.
+
 ## What problem does it solve?
 
 I found a very important aspect missing from nearly all CI offerings: **local reproducibility**.
@@ -51,6 +54,7 @@ replicate on my local machine.
 ConJob provides as thin of a layer as possible on top of docker. You tell it what image to run,
 optionally provide input to the job, then it returns to you any output. This also allows it to be used in a "serverless"
 capacity (with the understanding that there will be the usual overhead of starting a container for each request). 
+
 If you must, you could say it's "docker as a service", but please don't.
 
 To reproduce a CI build failure locally, you'd simply run the same image with the same inputs.
@@ -77,8 +81,8 @@ on how to build and run from source.
 
 ### A note on serverless
 Since ConJob can run anything you can put in an image and return the result, it also has the possibility to be used
-as a serverless backend. The use cases for this capacity are usually best saved for requests that are asynchronous
-or slow enough so that the overhead of spinning up a container won't be noticeable.
+as a serverless backend. This use case is probably best saved for requests that are asynchronous or slow enough so
+that the overhead of spinning up a container won't be noticeable.
 
 If you're curious what this would look like, check out my other project [metadiff-ui](https://github.com/ScottG489/metadiff-ui)
 (which is, of course, also built on ConJob) and hosted at [metadiff.com](https://metadiff.com) as a proof of concept of
@@ -104,7 +108,7 @@ file.
 
 ## Wrapping up
 So that's ConJob! Let me know what you think in the comments. I'm looking for any kind of feedback, ideas, or problems
-you run into trying it yourself.
+you run into while trying it yourself.
 
 ---
 
