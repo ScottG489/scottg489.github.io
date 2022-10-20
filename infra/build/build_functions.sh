@@ -27,16 +27,16 @@ build_application() {
   . "$NVM_DIR/nvm.sh"
   set -x
 
-  [[ $(terraform version -json | jq --raw-output '.terraform_outdated') == "false" ]]
-  [[ $(node -v | sed 's/^v//') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=nodejs' | jq --raw-output '.items[].stable_versions[0]') ]]
+  #[[ $(terraform version -json | jq --raw-output '.terraform_outdated') == "false" ]]
+  #[[ $(node -v | sed 's/^v//') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=nodejs' | jq --raw-output '.items[].stable_versions[0]') ]]
   # TODO: release-monitoring doesn't use the github as the backend to determine versions and we install from github
   # TODO:   We should check and install from the same place.
 #  [[ $(hadolint --version | awk '{print $4}') == $(curl -sL 'https://release-monitoring.org/api/v2/projects?name=hadolint' | jq --raw-output '.items[].stable_versions[0]') ]]
-  [[ $(git ls-remote https://github.com/scttcper/gatsby-casper.git | head -1 | awk '{print $1}') == "b87a93bd4449feab593b55555b28f01cdf5b4ffb" ]]
+  #[[ $(git ls-remote https://github.com/scttcper/gatsby-casper.git | head -1 | awk '{print $1}') == "b87a93bd4449feab593b55555b28f01cdf5b4ffb" ]]
 
   hadolint --failure-threshold warning infra/build/Dockerfile
 
-  npx --yes npm-check-updates --errorLevel 2
+  #npx --yes npm-check-updates --errorLevel 2
 
   export CI=true
   npm ci
