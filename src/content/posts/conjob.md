@@ -98,7 +98,7 @@ docker run -it \
 The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running docker in docker and is really the
 underlying technology that made this project feasible.
 
-There are plenty of other configuration options as well such as auth, job limits, and docker registry login. For a full
+There are plenty of other configuration options as well such as auth, job limits, and container registry login. For a full
 list of all configuration options see the [default-config.yml](https://github.com/ScottG489/conjob/blob/master/default-config.yml)
 file.
 
@@ -108,7 +108,7 @@ you run into trying it yourself.
 
 ---
 
-For the time being, you can try ConJob with nothing more than an internet connection.
+For the time being, you can try ConJob with nothing more than an internet connection:
 
 https://try.conjob.io/job/run?image=library/hello-world:latest
 
