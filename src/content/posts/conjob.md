@@ -42,13 +42,14 @@ The spiral into insanity would usually look like this:
     `git commit --no-verify -a -m 'HAAAAAAAAANDS' && git push --force --no-verify`
 
 Although things with CI have gotten better recently with code based configuration (usually YAML files),
-this hasn't solved the problem of local reproducibility. Those YAML files can only be consumed by the remote
-CI service. There are some tools like [act](https://github.com/nektos/act) for [GitHub Actions](https://docs.github.com/en/actions)
+this hasn't solved the problem of local reproducibility. Those YAML files can only be consumed by the remote CI service.
+
+There are some tools like [act](https://github.com/nektos/act) for [GitHub Actions](https://docs.github.com/en/actions)
 which attempt to replicate what's happening on CI when you push your code, but there's no substitute for
 the real thing. In fact, the first time I tried to use `act` to replicate a CI issue it was unable to do so.
 
-Since I started using ConJob as the CI server for all my projects, I have yet to find an issue I cannot
-replicate on my local machine.
+***Since I started using ConJob as the CI server for all my projects, I have yet to find an issue I cannot
+replicate on my local machine.***
 
 ## The solution
 ConJob provides as thin of a layer as possible on top of docker. You tell it what image to run,
@@ -107,8 +108,10 @@ list of all configuration options see the [default-config.yml](https://github.co
 file.
 
 ## Wrapping up
-So that's ConJob! Let me know what you think in the comments. I'm looking for any kind of feedback, ideas, or problems
-you run into while trying it yourself.
+So that's ConJob! There's a lot more going on under the surface such as caching between runs and support for secrets.
+Future plans include adding per-job configuration and a UI.
+So let me know in the comments if you'd be interested in a deeper dive.
+I'm also looking for any kind of feedback, ideas, or problems you run into while trying it yourself.
 
 ---
 
@@ -116,7 +119,8 @@ For the time being, you can try ConJob with nothing more than an internet connec
 
 https://try.conjob.io/job/run?image=library/hello-world:latest
 
-Just change the `image` query param to an image that can be run as a job. Also see the `curl` examples above for
-providing input to your job.
+Just change the `image` query param to an image that can be run as a job (i.e. exits on its own).
+Also see the `curl` examples above for providing input to your job.
 
-Be aware that there are some job limitations at the moment. Also be sure to specify an image tag (e.g. "latest").
+Be aware that there are some job limitations (duration, etc.) at the moment.
+Also be sure to specify an image tag (e.g. "latest").
