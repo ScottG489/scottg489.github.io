@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing ConJob
-image: img/docker.png
+image: img/docker_sysbox.png
 date: 2022-06-10T01:12:19Z
 draft: true
 excerpt: A service for running containers as jobs
