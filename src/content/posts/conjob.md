@@ -91,8 +91,9 @@ using ConJob in this way, albeit maybe not the best use case.
 
 ## A little extra
 As avid docker users, you'd probably like to use docker inside your jobs, particularly if you're using it for CI.
-To help with this, ConJob allows you to specify a different container runtime. This will be the runtime that the
-containers (jobs) being run by ConJob are started with:
+To support this, ConJob allows you to specify a different [container runtime](https://github.com/opencontainers/runtime-spec).
+This will be the [runtime](https://docs.docker.com/engine/reference/commandline/run/#options) that the containers (jobs)
+being run by ConJob are started with:
 ```shell
 docker run -it \
   -p 8080:8080 \
