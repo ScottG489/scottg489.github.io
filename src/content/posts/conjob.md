@@ -22,8 +22,8 @@ the stdout and stderr contents.
 
 I found a very important aspect missing from nearly all CI offerings: **local reproducibility**.
 
-The first time I can remember being frustrated with a CI job was at my second job, but the first where I
-encountered CI. Like many others, my first experience with CI was with [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)).
+The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
+Like many others, my first experience with CI was with [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)).
 The jobs were defined by a script typed into a text area in the Jenkins UI, and the environment was a number of special
 snowflake servers we had provisioned manually.
 
