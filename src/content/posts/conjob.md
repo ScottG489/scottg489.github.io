@@ -102,7 +102,8 @@ docker run -it \
   scottg489/conjob
 ```
 The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running docker in docker and is really the
-underlying technology that made this project feasible.
+underlying technology that made this project feasible. *Note that you'll need to have the [Sysbox runtime installed](https://github.com/nestybox/sysbox#installation)
+for this to work.*
 
 There are plenty of other configuration options as well such as auth, job limits, and container registry login. For a full
 list of all configuration options see the [default-config.yml](https://github.com/ScottG489/conjob/blob/master/default-config.yml)
