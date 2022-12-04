@@ -56,7 +56,7 @@ ConJob provides as thin of a layer as possible on top of docker. You tell it wha
 optionally provide input to the job, then it returns to you any output. This also allows it to be used in a "serverless"
 capacity (with the understanding that there will be the usual overhead of starting a container for each request). 
 
-If you must, you could say it's "docker as a service", but please don't.
+If you must, you could say it's "docker as a service", but please don't :)
 
 To reproduce a CI build failure locally, you'd simply run the same image with the same inputs.
 
@@ -101,12 +101,13 @@ docker run -it \
   -e CONTAINER_RUNTIME=sysbox_runc \
   scottg489/conjob
 ```
-The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running docker in docker and is really the
+The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running docker-in-docker and is really the
 underlying technology that made this project feasible. *Note that you'll need to have the [Sysbox runtime installed](https://github.com/nestybox/sysbox#installation)
 for this to work.*
 
-There are plenty of other configuration options as well such as auth, job limits, and container registry login. For a full
-list of all configuration options see the [default-config.yml](https://github.com/ScottG489/conjob/blob/master/default-config.yml)
+There are plenty of other configuration options as well such as auth, job limits, and container registry login for using
+a container registry other than [Docker Hub](https://hub.docker.com/) (e.g. [GitHub Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)).
+For a full list of all configuration options see the [default-config.yml](https://github.com/ScottG489/conjob/blob/master/default-config.yml)
 file.
 
 ## Wrapping up
