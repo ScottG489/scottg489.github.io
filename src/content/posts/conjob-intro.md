@@ -15,8 +15,10 @@ tags:
 
 [ConJob](https://github.com/ScottG489/conjob) is a service for running containers as jobs, with a focus on CI use cases.
 
-A job has 3 defining properties - a name (i.e. the docker image's name), optional inputs, and when finished it returns
-the stdout and stderr contents.
+A job has 3 defining properties:
+- it exits of its own accord
+- it takes (optional) inputs
+- when finished it returns any stdout and stderr output
 
 ## What problem does it solve?
 
@@ -24,8 +26,8 @@ I found a very important aspect missing from nearly all CI offerings: **local re
 
 The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
 Like many others, my first experience with CI was with [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)).
-The jobs were defined by a script typed into a text area in the Jenkins UI, and the environment was a number of special
-snowflake servers we had provisioned manually.
+The jobs were defined by a script typed into a text area in the Jenkins GUI, and the environment was a number of [special
+snowflake](https://martinfowler.com/bliki/SnowflakeServer.html) servers we had provisioned manually.
 
 More times than I can remember there would be a failure on CI that we couldn't reproduce locally. This usually involved
 making some code changes, pushing them, then seeing if it had the desired effect.
@@ -86,7 +88,7 @@ as a serverless backend. This use case is probably best saved for requests that 
 that the overhead of spinning up a container won't be noticeable.
 
 If you're curious what this would look like, check out my other project [metadiff-ui](https://github.com/ScottG489/metadiff-ui)
-(which is, of course, also built on ConJob) and hosted at [metadiff.com](https://metadiff.com) as a proof of concept of
+(which is, of course, also built with ConJob) and hosted at [metadiff.com](https://metadiff.com) as a proof of concept of
 using ConJob in this way, albeit maybe not the best use case.
 
 ## A little extra
