@@ -13,7 +13,8 @@ tags:
 
 ## What is ConJob?
 
-[ConJob](https://github.com/ScottG489/conjob) is a service for running containers as jobs, with a focus on CI use cases.
+[ConJob](https://github.com/ScottG489/conjob) is a service for running containers as jobs, with a focus on [CI](https://en.wikipedia.org/wiki/Continuous_integration)
+use cases.
 
 A job has 3 defining properties:
 - it exits of its own accord
@@ -22,7 +23,8 @@ A job has 3 defining properties:
 
 ## What problem does it solve?
 
-I found a very important aspect missing from nearly all CI offerings: **local reproducibility**.
+An important aspect missing from nearly all CI offerings is **local reproducibility**: builds pass on your
+local machine but fail in CI. This is challenging to debug and makes it slow to iterate on changes.
 
 The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
 Like many others, my first experience with CI was with [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)).
