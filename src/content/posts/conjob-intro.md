@@ -130,4 +130,3 @@ Just change the `image` query param to an image that can be run as a job (i.e. e
 Also see the `curl` examples above for providing input to your job.
 
 Be aware that there are some job limitations (duration, etc.) at the moment.
-Also be sure to specify an image tag (e.g. "latest").
