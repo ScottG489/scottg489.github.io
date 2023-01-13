@@ -4,7 +4,7 @@ title: Introducing ConJob
 image: img/docker_sysbox.png
 date: 2022-06-10T01:12:19Z
 draft: true
-excerpt: A service for running containers as jobs
+excerpt: A simple web service to run containers as jobs or serverless functions
 tags:
   - Docker
   - Java
@@ -13,13 +13,16 @@ tags:
 
 ## What is ConJob?
 
-[ConJob](https://github.com/ScottG489/conjob) is a service for running containers as jobs, with a focus on [CI](https://en.wikipedia.org/wiki/Continuous_integration)
+[ConJob](https://github.com/ScottG489/conjob) is a service for running "job" containers, with a focus on [CI](https://en.wikipedia.org/wiki/Continuous_integration)
 use cases.
 
-A job has 3 defining properties:
-- it exits of its own accord
-- it takes (optional) inputs
-- when finished it returns any stdout and stderr output
+For a container to be considered a job, it should have 3 defining properties:
+- it's ephemeral (exits of its own accord in a reasonable amount of time)
+- it can take inputs
+- it returns any stdout and stderr output to the caller
+
+The idea is that you can run these job images easily in any environment, with ConJob or just Docker,
+and reproduce the same results.
 
 ## What problem does it solve?
 
@@ -56,16 +59,16 @@ the real thing. In fact, the first time I tried to use `act` to replicate a CI i
 replicate on my local machine.***
 
 ## The solution
-ConJob provides as thin of a layer as possible on top of docker. You tell it what image to run,
+ConJob provides as thin of a layer as possible on top of Docker. You tell it what image to run,
 optionally provide input to the job, then it returns to you any output. This also allows it to be used in a "serverless"
 capacity (with the understanding that there will be the usual overhead of starting a container for each request). 
 
-If you must, you could say it's "docker as a service", but please don't :)
+If you must, you could say it's "Docker as a service", but please don't :)
 
 To reproduce a CI build failure locally, you'd simply run the same image with the same inputs.
 
 ## Using ConJob
-Getting started with ConJob is easy. Since those using ConJob are likely to be avid users of docker, the best way to
+Getting started with ConJob is easy. Since those using ConJob are likely to be avid users of Docker, the best way to
 run ConJob is:
 ```shell
 docker run -it \
@@ -79,22 +82,22 @@ curl 'localhost:8080/job/run?image=library/hello-world:latest'
 ```
 Or try making a request with input:
 ```shell
-curl -X POST --data 'foobar' 'localhost:8080/job/run?image=scottg489/echo-job:latest'
+curl --data 'foobar' 'localhost:8080/job/run?image=scottg489/echo-job:latest'
 ```
 More info can be found in [the project's README](https://github.com/ScottG489/conjob/blob/master/README.md#build-and-run-from-source)
 on how to build and run from source.
 
 ### A note on serverless
-Since ConJob can run anything you can put in an image and return the result, it also has the possibility to be used
-as a serverless backend. This use case is probably best saved for requests that are asynchronous or slow enough so
-that the overhead of spinning up a container won't be noticeable.
+Since ConJob can run any image and return the resulting output, it also has the possibility to be used as a serverless backend.
+This use case is probably best saved for requests that are asynchronous or slow enough so that the overhead of spinning
+up a container won't be noticeable.
 
 If you're curious what this would look like, check out my other project [metadiff-ui](https://github.com/ScottG489/metadiff-ui)
 (which is, of course, also built with ConJob) and hosted at [metadiff.com](https://metadiff.com) as a proof of concept of
 using ConJob in this way, albeit maybe not the best use case.
 
 ## A little extra
-As avid docker users, you'd probably like to use docker inside your jobs, particularly if you're using it for CI.
+As avid Docker users, you'd probably like to use it inside your jobs, particularly if you're using it for CI.
 To support this, ConJob allows you to specify a different [container runtime](https://github.com/opencontainers/runtime-spec).
 This will be the [runtime](https://docs.docker.com/engine/reference/commandline/run/#options) that the containers (jobs)
 being run by ConJob are started with:
@@ -105,7 +108,7 @@ docker run -it \
   -e CONTAINER_RUNTIME=sysbox_runc \
   scottg489/conjob
 ```
-The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running docker-in-docker and is really the
+The [Sysbox](https://github.com/nestybox/sysbox) runtime is perfect for running Docker-in-Docker and is really the
 underlying technology that made this project feasible. *Note that you'll need to have the [Sysbox runtime installed](https://github.com/nestybox/sysbox#installation)
 for this to work.*
 
