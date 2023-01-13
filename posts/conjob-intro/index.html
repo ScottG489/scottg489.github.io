@@ -131,22 +131,22 @@ use cases.</p>
 <li>it can take inputs</li>
 <li>it returns any stdout and stderr output to the caller</li>
 </ul>
-<p>The idea is that you can run these job images easily in any environment, with ConJob or just Docker,
+<p>The idea is that you can run these job images easily in any environment, with ConJob or just with Docker,
 and reproduce the same results.</p>
 <h2 id="what-problem-does-it-solve" style="position:relative">What problem does it solve?<a href="#what-problem-does-it-solve" aria-label="what problem does it solve permalink" class="anchor after"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
 <p>An important aspect missing from nearly all CI offerings is <strong>local reproducibility</strong>: builds pass on your
 local machine but fail in CI. This is challenging to debug and makes it slow to iterate on changes.</p>
 <p>The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
-Like many others, my company used <a href="https://en.wikipedia.org/wiki/Jenkins_(software)">Jenkins</a>.
+Like many others, we used used <a href="https://en.wikipedia.org/wiki/Jenkins_(software)">Jenkins</a> at my company.
 The jobs were defined by a script typed into a text area in the Jenkins GUI, and the environment was a number of <a href="https://martinfowler.com/bliki/SnowflakeServer.html">special
 snowflake</a> servers we had provisioned manually.</p>
-<p>More times than I can remember there would be a failure on CI that we couldn’t reproduce locally. This usually involved
-making some code changes, pushing them, then seeing if it had the desired effect.</p>
+<p>More times than I can remember there would be a failure on CI that we couldn’t reproduce locally. Attempts to get the build green
+usually involved making some code changes, pushing them, then seeing if it had the desired effect.</p>
 <p>The spiral into insanity would usually look like this:</p>
 <ol>
 <li>Carefully analyze the problem, write up some elegant code, craft a <a href="https://cbea.ms/git-commit/">nicely written commit message</a>,
 and push.</li>
-<li>Doesn’t work.</li>
+<li>[Doesn’t work]</li>
 <li>Do everything the same except faster and less elegant.</li>
 </ol>
 <p>…</p>
