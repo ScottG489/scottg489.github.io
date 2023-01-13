@@ -21,7 +21,7 @@ For a container to be considered a job, it should have 3 defining properties:
 - it can take inputs
 - it returns any stdout and stderr output to the caller
 
-The idea is that you can run these job images easily in any environment, with ConJob or just Docker,
+The idea is that you can run these job images easily in any environment, with ConJob or just with Docker,
 and reproduce the same results.
 
 ## What problem does it solve?
@@ -30,17 +30,17 @@ An important aspect missing from nearly all CI offerings is **local reproducibil
 local machine but fail in CI. This is challenging to debug and makes it slow to iterate on changes.
 
 The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
-Like many others, my company used [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)).
+Like many others, we used used [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)) at my company.
 The jobs were defined by a script typed into a text area in the Jenkins GUI, and the environment was a number of [special
 snowflake](https://martinfowler.com/bliki/SnowflakeServer.html) servers we had provisioned manually.
 
-More times than I can remember there would be a failure on CI that we couldn't reproduce locally. This usually involved
-making some code changes, pushing them, then seeing if it had the desired effect.
+More times than I can remember there would be a failure on CI that we couldn't reproduce locally. Attempts to get the build green
+usually involved making some code changes, pushing them, then seeing if it had the desired effect.
 
 The spiral into insanity would usually look like this:
 1. Carefully analyze the problem, write up some elegant code, craft a [nicely written commit message](https://cbea.ms/git-commit/),
    and push.
-2. Doesn't work.
+2. [Doesn't work]
 3. Do everything the same except faster and less elegant.
 ...
 
