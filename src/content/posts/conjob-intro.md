@@ -18,7 +18,7 @@ use cases.
 
 For a container to be considered a job, it should have 3 defining properties:
 - it's ephemeral (exits of its own accord in a reasonable amount of time)
-- it can take inputs
+- it accepts input
 - it returns any stdout and stderr output to the caller
 
 The idea is that you can run these job images easily in any environment, with ConJob or just with Docker,
