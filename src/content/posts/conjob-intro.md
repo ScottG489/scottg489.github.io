@@ -3,7 +3,7 @@ layout: post
 title: Introducing ConJob
 image: img/docker_sysbox.png
 date: 2022-06-10T01:12:19Z
-draft: true
+draft: false
 excerpt: A simple web service to run containers as jobs or serverless functions
 tags:
   - Docker
