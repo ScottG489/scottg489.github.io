@@ -30,7 +30,7 @@ An important aspect missing from nearly all CI offerings is **local reproducibil
 local machine but fail in CI. This is challenging to debug and makes it slow to iterate on changes.
 
 The first time I can remember being frustrated with a CI job was the first time I encountered a failing one.
-Like many others, we used used [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)) at my company.
+Like many others, we used [Jenkins](https://en.wikipedia.org/wiki/Jenkins_(software)) at my company.
 The jobs were defined by a script typed into a text area in the Jenkins GUI, and the environment was a number of [special
 snowflake](https://martinfowler.com/bliki/SnowflakeServer.html) servers we had provisioned manually.
 
