@@ -14,6 +14,7 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-tag-spacing': 'off',
     'react/prop-types': 'off',
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
     'no-warning-comments': 'off',
     'complexity': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
