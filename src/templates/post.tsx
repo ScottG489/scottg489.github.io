@@ -459,8 +459,8 @@ const PostFullImage = styled.figure`
   }
 `;
 
-export const query = graphql`query($slug: String, $primaryTag: String) {
-  markdownRemark(fields: { slug: { eq: $slug } }) {
+export const query = graphql`query ($slug: String, $primaryTag: String) {
+  markdownRemark(fields: {slug: {eq: $slug}}) {
     html
     htmlAst
     excerpt
@@ -483,9 +483,9 @@ export const query = graphql`query($slug: String, $primaryTag: String) {
     }
   }
   relatedPosts: allMarkdownRemark(
-    filter: { frontmatter: { tags: { in: [$primaryTag] }, draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"}}
+    filter: {frontmatter: {tags: {in: [$primaryTag]}, draft: {ne: true}}, fileAbsolutePath: {regex: "/content/posts/"}}
     limit: 5
-    sort: { fields: [frontmatter___date], order: DESC }
+    sort: {frontmatter: {date: DESC}}
   ) {
     totalCount
     edges {
@@ -505,7 +505,6 @@ export const query = graphql`query($slug: String, $primaryTag: String) {
       }
     }
   }
-}
-`;
+}`;
 
 export default PageTemplate;

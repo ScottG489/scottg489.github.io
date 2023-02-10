@@ -103,17 +103,18 @@ module.exports = {
               guid: `${site.siteMetadata.siteUrl}${edge.node.fields.slug}`,
               custom_elements: [{ 'content:encoded': edge.node.html }],
             })),
-            query: `
-              {
+            query: `{
                 allMarkdownRemark(
-                  filter: { frontmatter: { draft: { ne: true } } }
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: {draft: {ne: true}}}
+                  sort: {frontmatter: {date: DESC}}
                 ) {
                   edges {
                     node {
                       excerpt
                       html
-                      fields { slug }
+                      fields {
+                        slug
+                      }
                       frontmatter {
                         title
                         date
@@ -121,8 +122,7 @@ module.exports = {
                     }
                   }
                 }
-              }
-            `,
+              }`,
             output: '/rss.xml',
             title: 'Scott Giminiani',
           },

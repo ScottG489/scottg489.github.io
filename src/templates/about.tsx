@@ -150,9 +150,8 @@ function About({ data, location }: AboutTemplateProps) {
   );
 }
 
-export const pageQuery = graphql`
-  query ($author: String) {
-    authorYaml(id: { eq: $author }) {
+export const pageQuery = graphql`query ($author: String) {
+    authorYaml(id: {eq: $author}) {
       id
       name
       website
@@ -172,8 +171,8 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {draft: {ne: true}}}
+      sort: {frontmatter: {date: DESC}}
       limit: 2000
     ) {
       edges {
@@ -201,8 +200,7 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`;
+  }`;
 
 const HiddenMobile = css`
   @media (max-width: 500px) {

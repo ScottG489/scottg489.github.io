@@ -58,12 +58,11 @@ function NotFoundPage(props: NotFoundTemplateProps) {
   );
 }
 
-export const pageQuery = graphql`
-  query {
+export const pageQuery = graphql`{
     allMarkdownRemark(
-      limit: 3,
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+      limit: 3
+      sort: {frontmatter: {date: DESC}}
+      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/content/posts/"}}
     ) {
       edges {
         node {
@@ -88,8 +87,7 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`;
+  }`;
 
 const ErrorContent = css`
   padding: 14vw 4vw 6vw;

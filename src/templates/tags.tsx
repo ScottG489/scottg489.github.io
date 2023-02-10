@@ -122,7 +122,7 @@ function Tags({ pageContext, data, location }: TagTemplateProps) {
 
 export default Tags;
 
-export const pageQuery = graphql`query($tag: String) {
+export const pageQuery = graphql`query ($tag: String) {
   allTagYaml {
     edges {
       node {
@@ -138,8 +138,8 @@ export const pageQuery = graphql`query($tag: String) {
   }
   allMarkdownRemark(
     limit: 2000
-    sort: { fields: [frontmatter___date], order: DESC }
-    filter: { frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {tags: {in: [$tag]}, draft: {ne: true}}, fileAbsolutePath: {regex: "/content/posts/"}}
   ) {
     totalCount
     edges {
@@ -166,5 +166,4 @@ export const pageQuery = graphql`query($tag: String) {
       }
     }
   }
-}
-`;
+}`;

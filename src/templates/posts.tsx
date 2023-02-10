@@ -116,21 +116,20 @@ function PostsPage({ data, pageContext }: PostsProps) {
   );
 }
 
-export const pageQuery = graphql`
-  query postsPageQuery($skip: Int!, $limit: Int!) {
-    logo: file(relativePath: { eq: "img/scott-logo.png" }) {
+export const pageQuery = graphql`query postsPageQuery($skip: Int!, $limit: Int!) {
+    logo: file(relativePath: {eq: "img/scott-logo.png"}) {
       childImageSharp {
         gatsbyImageData(layout: FIXED)
       }
     }
-    header: file(relativePath: { eq: "posts/img/blog-cover.png" }) {
+    header: file(relativePath: {eq: "posts/img/blog-cover.png"}) {
       childImageSharp {
         gatsbyImageData(width: 2000, quality: 100, layout: FIXED)
       }
     }
     posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: {regex: "/content/posts/"} }
+      sort: {frontmatter: {date: DESC}}
+      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/content/posts/"}}
       limit: $limit
       skip: $skip
     ) {
@@ -159,8 +158,7 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`;
+  }`;
 
 const HomePosts = css`
   @media (min-width: 795px) {

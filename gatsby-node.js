@@ -54,12 +54,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
-    {
+  const result = await graphql(`{
       allMarkdownRemark(
         limit: 2000
-        sort: { fields: [frontmatter___date], order: ASC }
-        filter: { frontmatter: { draft: { ne: true } } }
+        sort: {frontmatter: {date: ASC}}
+        filter: {frontmatter: {draft: {ne: true}}}
       ) {
         edges {
           node {
@@ -94,15 +93,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }
-  `);
+    }`);
 
-  const postResults = await graphql(`
-    {
+  const postResults = await graphql(`{
       allMarkdownRemark(
         limit: 2000
-        sort: { fields: [frontmatter___date], order: ASC }
-        filter: { fileAbsolutePath: {regex: "/content/posts/"} }
+        sort: {frontmatter: {date: ASC}}
+        filter: {fileAbsolutePath: {regex: "/content/posts/"}}
       ) {
         edges {
           node {
@@ -129,8 +126,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }
-  `);
+    }`);
 
   const projectResults = await graphql(`
     {
