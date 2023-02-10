@@ -136,29 +136,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-221469674-1',
-        // Puts tracking script in the head instead of the body
-        head: true,
-        // IP anonymization for GDPR compliance
-        anonymize: true,
-        // Disable analytics for users with `Do Not Track` enabled
-        respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ['/preview/**'],
-        // Specifies what percentage of users should be tracked
-        sampleRate: 100,
-        // Determines how often site speed tracking beacons will be sent
-        siteSpeedSampleRate: 10,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-BWZKN2R728", // Google Analytics / GA
+          'G-BWZKN2R728', // Google Analytics / GA
         ],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
