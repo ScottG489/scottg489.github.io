@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Feb 2023 23:27:06 GMT</lastBuildDate><item><title><![CDATA[Introducing ConJob]]></title><description><![CDATA[What is ConJob? ConJob is a service for running “job” containers, with a focus on CI
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Scott Giminiani]]></title><description><![CDATA[Personal website of Scott Giminiani]]></description><link>https://giminiani.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 10 Feb 2023 01:13:16 GMT</lastBuildDate><item><title><![CDATA[Introducing ConJob]]></title><description><![CDATA[What is ConJob? ConJob is a service for running “job” containers, with a focus on CI
 use cases. For a container to be considered a job, it…]]></description><link>https://giminiani.com/posts/conjob-intro/</link><guid isPermaLink="false">https://giminiani.com/posts/conjob-intro/</guid><pubDate>Mon, 30 Jan 2023 08:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;what-is-conjob&quot; style=&quot;position:relative;&quot;&gt;What is ConJob?&lt;a href=&quot;#what-is-conjob&quot; aria-label=&quot;what is conjob permalink&quot; class=&quot;anchor after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ScottG489/conjob&quot;&gt;ConJob&lt;/a&gt; is a service for running “job” containers, with a focus on &lt;a href=&quot;https://en.wikipedia.org/wiki/Continuous_integration&quot;&gt;CI&lt;/a&gt;
 use cases.&lt;/p&gt;
@@ -251,12 +251,12 @@ to do so.&lt;/p&gt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 20.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAkElEQVQI133PMQ7CMBBE0VyRQ3EGGjpqKjqOQOFAE6UgB0gQ8q6dFWB7Z5ESgdLA6780U5mZ5tHwykWZOYTgvRcRIhIR+6u6p7w5ra3fPp5a18451zRN13Vt2w7DYGYAfsaX+3W1O+yP55QkxrGU8g0ApJTyQloAUAG4EfpoUI0xeu+JaB4fPuY7zBwnPFHVN2Ta45O+cntgAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 20.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAjElEQVR42oXLMQoCMRAF0JzV04gewgtY29rZp9hqIS5ssTIYAolDZpJJRthtBEFf8fm/+EZViZ6tBmkKq2VZvPcAEELQn0wU2d+O+X6opQ7DYK0dx3GaJuccAPw5z/jYna+ni8uUEJFLEZFa65ZExMz0JefcWjOqytwTa+8dEeMqpbTla7WVzxljFJE3/c7ja4dIj5sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Google Drive API&quot;
-        title=&quot;Google Drive API&quot;
+        title=&quot;&quot;
         src=&quot;/static/da23cf1ec1b363a88d600495332743f3/663f3/gdrive_api.png&quot;
         srcset=&quot;/static/da23cf1ec1b363a88d600495332743f3/0eb09/gdrive_api.png 500w,
 /static/da23cf1ec1b363a88d600495332743f3/663f3/gdrive_api.png 650w&quot;
@@ -496,12 +496,12 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.39999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcFBggJ/8QAFQEBAQAAAAAAAAAAAAAAAAAABQT/2gAMAwEAAhADEAAAAdHtTjvLiMW8VAxN/8QAGhAAAgMBAQAAAAAAAAAAAAAAAwQCBQYHAf/aAAgBAQABBQLDbGhU2vYOgCqEy9C0hppnF5JuzgWQH2VIf//EACERAAIBAwQDAQAAAAAAAAAAAAECAwQREgATIWEyQVFi/9oACAEDAQE/AaJqNIo3k84l20UX2fyzptMTgDwMrGwJ+ayojy+Qc8sFpIWW/uzNOhI7Kqetf//EACIRAAIBAwMFAQAAAAAAAAAAAAECAwQREhMUIQAFIjJBYf/aAAgBAgEBPwGvkrmrMFR2iciSZm0TI1l9Fk3MeObDNjpHjxuPu47gOI0QoPXOtmRseLZKtM6g2+B2H71//8QAJxAAAgIBAgYABwAAAAAAAAAAAQIDEQQFEgAGEyEiQRUjMTIzQnH/2gAIAQEABj8C1V35i05uX4dA03FxJ3jkw4WKdGWYBJES8mKd8rrlIzvLVF4LZ0rG0DMXr5EyZr5uJJGxjjWJnxov2HzrLuki1sUAjgt8XnPoGRcZnP8AWMBJ7k1ZJquAWwsSXaG/Ijk2Vq7Ei1wFOBjBfKlD5PYhNl95ift8a9L2Xbd8dLGfpR2W27UbyP1NujN6Hvj/xAAaEAEBAQEBAQEAAAAAAAAAAAABESEAMVFB/9oACAEBAAE/IX+Ufkda6R6enEHdeyeN1OtXFHkuMy+Gr+QKCS5yliNtFCoBmZL97CHSA9D3pQQrsc1S5Y8T0UBME+2//9oADAMBAAIAAwAAABCkL//EABgRAQEBAQEAAAAAAAAAAAAAAAERIQAx/9oACAEDAQE/EBDZp9DDSEA2QAqldCDTjqG8WYoTv//EABgRAQEBAQEAAAAAAAAAAAAAAAERIUEA/9oACAECAQE/EHK+YKKLpCVmjVfc8NDQjg1tEMj5/8QAGBABAQEBAQAAAAAAAAAAAAAAAREhADH/2gAIAQEAAT8QLWu6VoOkrA7q7aAU9Ka9kEY2Xrglqp2bDvjT3pECzAgDASOYWXtV0dIwwq4KyIsejs4RsDClz//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.39999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcFBggJ/8QAFQEBAQAAAAAAAAAAAAAAAAAABQT/2gAMAwEAAhADEAAAAdJtTjrMBsW4UozN/8QAGhAAAgMBAQAAAAAAAAAAAAAAAwQCBQYHEv/aAAgBAQABBQLC6+iV2vYN+OlSL0PSGmmYPtyyGWQH2FIf/8QAIBEAAgEDBQEBAAAAAAAAAAAAAQIDBBETABIhMWEycf/aAAgBAwEBPwGiajWOOSX7iGONBfEegrOmJidoPW7mw61ehPLghzywWjhZb+MZ0JHpUfmv/8QAIhEAAgEDAwUBAAAAAAAAAAAAAQIDBBESExQhAAUxMmFS/9oACAECAQE/Aa+WtatwRJHiciWZm0dRrL6rJuo8c2GbHRP5uPJ3HcBxGiFBwpetmVsRa2SrTuoPwOw+9f/EACYQAAICAQMDAwUAAAAAAAAAAAECAxEEBRITACEiBhRBFTEyM3H/2gAIAQEABj8C1Yv6h0x/T8GgabjYmQyy4kLlOGaYbZUW8qOd8rn2qdxIWLwUk6VjaBmJ7jJmTNfNxZIm44liZ8aOjvU85Jd0kWti9x0X+qyt8AyRYjOf6TjknuTVkmq6BfCxZdob9gluytXayrXboA4EG3ypRLlGiE47tpmP4+NdqXsu2764sZhHHZbbxxSeR+53SRu3wO111//EABoQAQEBAAMBAAAAAAAAAAAAAAERIQAxUUH/2gAIAQEAAT8hVrfYghVudZLxH0klAnok1oyicbxDKAKr3grAlzhkNCqpRwGIZ37wd/IS9AZMEVu4V43lBOxB8FMLV//aAAwDAQACAAMAAAAQzO//xAAZEQEBAAMBAAAAAAAAAAAAAAABEQAhQTH/2gAIAQMBAT8QDiD5O2NFAoaICZbcEDmintNE27Hf/8QAGREBAQEAAwAAAAAAAAAAAAAAAREhADFB/9oACAECAQE/EJqmgy9sPWSUVeBKchT4FEo0RoI7/8QAGRABAAMBAQAAAAAAAAAAAAAAAREhMQBB/9oACAEBAAE/EDWweYgQIb2WJACAQwQgAcuuG5pljTc4UFzJaV5wWRUgMAGmEIrhICwxgBoguGd2ryZIRQ0Fw//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Test Image&quot;
-        title=&quot;Test Image&quot;
+        title=&quot;&quot;
         src=&quot;/static/8bafcea43f0bc141b01ef5b43dd2003b/b37e7/testimg1.jpg&quot;
         srcset=&quot;/static/8bafcea43f0bc141b01ef5b43dd2003b/953fe/testimg1.jpg 500w,
 /static/8bafcea43f0bc141b01ef5b43dd2003b/0a251/testimg1.jpg 1000w,
@@ -526,7 +526,7 @@ For more information, see the GitHub documentation on &lt;a href=&quot;https://d
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Small Test Image&quot;
-        title=&quot;Small Test Image&quot;
+        title=&quot;&quot;
         src=&quot;/static/b629d579b1c63df6750fc11d47141796/0cdb7/testimg2.jpg&quot;
         srcset=&quot;/static/b629d579b1c63df6750fc11d47141796/0cdb7/testimg2.jpg 300w&quot;
         sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
