@@ -1,4 +1,4 @@
-name: PR
+name: PR CI
 
 on:
   pull_request:
@@ -14,10 +14,10 @@ jobs:
           GIT_REPO_URL: 'git@github.com:ScottG489/scottg489.github.io.git'
           RELATIVE_SUB_DIR: 'infra/build'
 
-  build_application:
+  test_application:
     runs-on: ubuntu-latest
     needs: build
     steps:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
     - name: Build and test
-      run: ./build.sh deploy ${{ secrets.ID_RSA_CONTENTS_BASE64 }} ${{ secrets.AWS_CREDENTIALS_CONTENTS_BASE64 }}
+      run: ./build.sh test ${{ secrets.ID_RSA_CONTENTS_BASE64 }} ${{ secrets.AWS_CREDENTIALS_CONTENTS_BASE64 }}
