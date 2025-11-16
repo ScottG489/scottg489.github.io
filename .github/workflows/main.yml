@@ -15,7 +15,6 @@ jobs:
       env:
         GIT_REPO_URL: 'git@github.com:ScottG489/scottg489.github.io.git'
         RELATIVE_SUB_DIR: 'infra/build'
-        DOCKER_IMAGE_NAME: 'scottg489/scottg489.github.io-build:latest'
 
   build_application:
     runs-on: ubuntu-latest

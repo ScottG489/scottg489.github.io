@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-readonly IMAGE_NAME='scottg489/scottg489.github.io-build:latest'
+readonly GIT_BRANCH=${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}
+readonly DOCKER_IMAGE_TAG=$([[ $GIT_BRANCH == "master" ]] && echo -n "latest" || sed 's/[^a-zA-Z0-9]/-/g' <<< "$GIT_BRANCH")
+readonly IMAGE_NAME="scottg489/scottg489.github.io-build:$DOCKER_IMAGE_TAG"
 readonly ID_RSA=$1
 readonly AWS_CREDENTIALS=$2
 
