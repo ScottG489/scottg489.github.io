@@ -1,3 +1,5 @@
+*.swp
+
 .idea/
 # =========================
 # Node.js-Specific Ignores
