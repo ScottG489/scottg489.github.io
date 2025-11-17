@@ -43,7 +43,7 @@ RUN curl -L https://github.com/hadolint/hadolint/releases/download/v$HADOLINT_VE
 USER ${BUILD_USER}
 
 ARG NVM_VERSION=0.40.3
-ARG NODE_VERSION=18.8.0
+ARG NODE_VERSION=18.20.8
 ENV NODE_VERSION=$NODE_VERSION
 ENV NVM_DIR=${HOME}/.nvm
 
