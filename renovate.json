@@ -1,30 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices"
-  ],
+  "extends": ["config:best-practices"],
   "packageRules": [
     {
       "groupName": "node version",
-      "matchDatasources": ["node-version", "node"],
+      "matchDatasources": ["node-version", "node-version"],
       "matchPackageNames": ["node", "nodejs"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["(^|/)Dockerfile$"],
-      "matchStrings": [
-        "ARG NODE_VERSION=(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "matchStrings": ["ARG NODE_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
       "matchStrings": [
         "\\s+(?<depName>[a-z0-9][a-z0-9+.-]+)=(?<currentValue>[^\\s\\\\]+)"
       ],
@@ -33,45 +27,29 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "ARG TERRAFORM_VERSION=(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
+      "matchStrings": ["ARG TERRAFORM_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "hashicorp/terraform",
       "datasourceTemplate": "github-releases"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "ARG AWSCLI_VERSION=(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
+      "matchStrings": ["ARG AWSCLI_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "aws/aws-cli",
       "datasourceTemplate": "github-tags"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "ARG HADOLINT_VERSION=(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
+      "matchStrings": ["ARG HADOLINT_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "hadolint/hadolint",
       "datasourceTemplate": "github-releases"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile$/"
-      ],
-      "matchStrings": [
-        "ARG NVM_VERSION=(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "matchStrings": ["ARG NVM_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "nvm-sh/nvm",
       "datasourceTemplate": "github-releases"
     }
