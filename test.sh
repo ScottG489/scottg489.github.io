@@ -33,9 +33,9 @@ sudo chown -R "$(whoami)":"$(whoami)" .
 find . -name '*terraform.tfstate*' -exec rm {} \;
 find . -name '.terraform' -type d -prune -exec rm -rf {} \;
 
+BUILD_USER=ubuntu
 LOCAL_IMAGE_TAG="scottg489-github-io-build-test-$(uuidgen | cut -c -8)"
 docker build infra/build -t $LOCAL_IMAGE_TAG && \
   docker run -it \
-  --runtime=sysbox-runc \
-  --volume "$PWD:/home/build-user/build/scottg489.github.io" \
+  --volume "$PWD:/home/$BUILD_USER/build/scottg489.github.io" \
   $LOCAL_IMAGE_TAG "$JSON_BODY"
