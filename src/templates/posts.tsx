@@ -24,11 +24,11 @@ import type { PageContext } from './post';
 import { HomeFullHeader, HomeFullTitle } from './post';
 
 export type PostsProps = {
-  pageContext: {
+  readonly pageContext: {
     currentPage: number;
     numPages: number;
   };
-  data: {
+  readonly data: {
     logo: any;
     header: any;
     posts: {

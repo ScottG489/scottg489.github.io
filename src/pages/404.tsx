@@ -13,7 +13,7 @@ import { inner, outer, SiteHeader, SiteNavMain } from '../styles/shared';
 import type { PageContext } from '../templates/post';
 
 type NotFoundTemplateProps = {
-  data: {
+  readonly data: {
     allMarkdownRemark: {
       totalCount: number;
       edges: Array<{

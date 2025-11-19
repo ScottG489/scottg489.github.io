@@ -28,8 +28,8 @@ import config from '../website-config';
 import { PostFullContent } from '../components/PostContent';
 
 type AboutTemplateProps = {
-  location: Location;
-  data: {
+  readonly location: Location;
+  readonly data: {
     logo: {
       childImageSharp: {
         fluid: any;

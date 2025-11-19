@@ -26,11 +26,11 @@ import { Helmet } from 'react-helmet';
 import config from '../website-config';
 
 type TagTemplateProps = {
-  location: Location;
-  pageContext: {
+  readonly location: Location;
+  readonly pageContext: {
     tag: string;
   };
-  data: {
+  readonly data: {
     allTagYaml: {
       edges: Array<{
         node: {

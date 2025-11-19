@@ -7,7 +7,7 @@ import { colors } from '../../styles/colors';
 import { SubscribeForm } from './SubscribeForm';
 
 export type SubscribeProps = {
-  title: string;
+  readonly title: string;
 };
 
 export function Subscribe(props: SubscribeProps) {

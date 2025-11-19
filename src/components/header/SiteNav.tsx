@@ -17,9 +17,9 @@ import { Email } from '../icons/email';
 import { Rss } from '../icons/rss';
 
 type SiteNavProps = {
-  isHome?: boolean;
-  isPost?: boolean;
-  post?: any;
+  readonly isHome?: boolean;
+  readonly isPost?: boolean;
+  readonly post?: any;
 };
 
 type SiteNavState = {

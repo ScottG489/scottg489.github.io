@@ -16,7 +16,7 @@ const Ast = ({ ast, ...props }: any) => {
 };
 
 export type PostContentProps = {
-  htmlAst: any;
+  readonly htmlAst: any;
 };
 
 function PostContent({ htmlAst }: PostContentProps) {

@@ -12,8 +12,8 @@ import { colors } from '../styles/colors';
 import type { PageContext } from '../templates/post';
 
 export type PostCardProps = {
-  post: PageContext;
-  isLarge?: boolean;
+  readonly post: PageContext;
+  readonly isLarge?: boolean;
 };
 
 export function PostCard({ post, isLarge = false }: PostCardProps) {
