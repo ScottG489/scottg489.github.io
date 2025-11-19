@@ -31,11 +31,11 @@ import styled from '@emotion/styled';
 import type { ProjectContext } from './projects';
 
 export type IndexProps = {
-  pageContext: {
+  readonly pageContext: {
     currentPage: number;
     numPages: number;
   };
-  data: {
+  readonly data: {
     logo: any;
     header: any;
     posts: {

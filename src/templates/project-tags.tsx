@@ -26,11 +26,11 @@ import { ProjectCard } from '../components/ProjectCard';
 import type { ProjectContext } from './projects';
 
 type TagTemplateProps = {
-  location: Location;
-  pageContext: {
+  readonly location: Location;
+  readonly pageContext: {
     tag: string;
   };
-  data: {
+  readonly data: {
     allTagYaml: {
       edges: Array<{
         node: {

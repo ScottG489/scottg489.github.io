@@ -8,7 +8,7 @@ import { css } from '@emotion/react';
 import config from '../../website-config';
 
 type SiteNavLogoProps = {
-  logo?: any;
+  readonly logo?: any;
 };
 
 function SubscribeLogo() {

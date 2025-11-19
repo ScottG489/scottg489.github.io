@@ -24,11 +24,11 @@ import { HomeFullHeader, HomeFullTitle } from './post';
 import { ProjectCard } from '../components/ProjectCard';
 
 export type ProjectsProps = {
-  pageContext: {
+  readonly pageContext: {
     currentPage: number;
     numPages: number;
   };
-  data: {
+  readonly data: {
     logo: any;
     header: any;
     posts: {

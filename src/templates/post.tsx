@@ -23,8 +23,8 @@ import config from '../website-config';
 import { Disqus } from 'gatsby-plugin-disqus';
 
 type PageTemplateProps = {
-  location: Location;
-  data: {
+  readonly location: Location;
+  readonly data: {
     markdownRemark: {
       html: string;
       htmlAst: any;
@@ -59,7 +59,7 @@ type PageTemplateProps = {
       }>;
     };
   };
-  pageContext: {
+  readonly pageContext: {
     prev: PageContext;
     next: PageContext;
   };

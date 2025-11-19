@@ -10,8 +10,8 @@ import { colors } from '../styles/colors';
 import type { ProjectContext } from '../templates/projects';
 
 export type ProjectCardProps = {
-  post: ProjectContext;
-  isLarge?: boolean;
+  readonly post: ProjectContext;
+  readonly isLarge?: boolean;
 };
 
 export function ProjectCard({ post, isLarge = true }: ProjectCardProps) {

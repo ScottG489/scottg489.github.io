@@ -7,8 +7,8 @@ import favicon from '../../src/favicon.ico';
 import { colors } from '../styles/colors';
 
 type IndexProps = {
-  children: any;
-  className?: string;
+  readonly children: any;
+  readonly className?: string;
 };
 
 function IndexLayout({ children, className }: IndexProps) {

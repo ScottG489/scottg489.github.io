@@ -8,9 +8,9 @@ import { colors } from '../styles/colors';
 import { format } from 'date-fns';
 
 export type ReadNextProps = {
-  tags: string[];
-  currentPageSlug: string;
-  allRelatedPosts: {
+  readonly tags: string[];
+  readonly currentPageSlug: string;
+  readonly allRelatedPosts: {
     totalCount: number;
     edges: Array<{
       node: {
