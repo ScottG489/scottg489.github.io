@@ -6,6 +6,10 @@
       "groupName": "node version",
       "matchDatasources": ["node-version", "node-version"],
       "matchPackageNames": ["node", "nodejs"]
+    },
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "allowedVersions": "<19"
     }
   ],
   "customManagers": [
