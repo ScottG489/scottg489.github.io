@@ -10,6 +10,11 @@
     {
       "matchPackageNames": ["react", "react-dom"],
       "allowedVersions": "<19"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
     }
   ],
   "customManagers": [
