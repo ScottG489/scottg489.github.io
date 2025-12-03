@@ -16,7 +16,7 @@ declare -r _GIT_BRANCH=$(jq -r .GIT_BRANCH <<< "$1")
 declare -r _DOMAIN_NAME='giminiani.com'
 declare -r _TFSTATE_BUCKET_NAME='tfstate-github-pages'
 
-git clone --branch $_GIT_BRANCH $_GIT_REPO
+[ -d "$_PROJECT_NAME" ] || git clone --branch $_GIT_BRANCH $_GIT_REPO
 cd $_PROJECT_NAME
 
 build_application
