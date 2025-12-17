@@ -1,18 +1,21 @@
 import { lighten } from 'polished';
 import React from 'react';
 import styled from '@emotion/styled';
-import RehypeReact from 'rehype-react';
+import rehypeReact from 'rehype-react';
+import { unified } from 'unified';
+import * as jsxRuntime from 'react/jsx-runtime';
 
 import { colors } from '../styles/colors';
 
-const renderAst = new RehypeReact({
-  createElement: React.createElement,
+const processor = unified().use(rehypeReact, {
+  ...jsxRuntime,
+  Fragment: React.Fragment,
   components: {},
-}).Compiler;
+});
 
 const Ast = ({ ast, ...props }: any) => {
   ast.properties = props;
-  return renderAst(ast);
+  return processor.stringify(ast);
 };
 
 export type PostContentProps = {
