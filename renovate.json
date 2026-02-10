@@ -16,6 +16,10 @@
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
+    },
+    {
+      "groupName": "deb dependencies",
+      "matchDatasources": ["deb"]
     }
   ],
   "customManagers": [
