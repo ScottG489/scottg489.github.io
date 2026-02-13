@@ -7,12 +7,12 @@ RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   ca-certificates=20240203 \
   git=1:2.43.0-1ubuntu7.3 \
-  openssh-client=1:9.6p1-3ubuntu13 \
+  openssh-client=1:9.6p1-3ubuntu13.11 \
   jq=1.7.1-3ubuntu0.24.04.1 \
   curl=8.5.0-2ubuntu10.6 \
-  unzip=6.0-28ubuntu4 \
+  unzip=6.0-28ubuntu4.1 \
   # Required for Cypress \
-  libgtk-3-0t64=3.24.41-4ubuntu1.1 \
+  libgtk-3-0t64=3.24.41-4ubuntu1.3 \
   libgbm-dev=25.2.8-0ubuntu0.24.04.1 \
   libnotify-dev=0.8.3-1build2 \
   libnss3=2:3.98-1build1 \
@@ -20,7 +20,7 @@ RUN apt-get update && \
   libasound2t64=1.2.11-1ubuntu0.1 \
   libxtst6=2:1.2.3-1.1build1 \
   xauth=1:1.1.2-1build1 \
-  xvfb=2:21.1.12-1ubuntu1 \
+  xvfb=2:21.1.12-1ubuntu1.5 \
    && apt-get clean \
    && rm -rf /var/lib/apt/lists/*
 
