@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  "extends": ["github>ScottG489/renovate-config"],
   "automergeType": "branch",
   "packageRules": [
     {
@@ -11,11 +11,6 @@
     {
       "matchPackageNames": ["react", "react-dom"],
       "allowedVersions": "<19"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true
     },
     {
       "groupName": "deb dependencies",
@@ -33,48 +28,6 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
-      "matchStrings": [
-        "\\s+(?<depName>[a-z0-9][a-z0-9+.-]+)=(?<currentValue>[^\\s\\\\]+)"
-      ],
-      "datasourceTemplate": "deb",
-      "registryUrlTemplate": "https://archive.ubuntu.com/ubuntu?suite=noble&components=main,universe,restricted,multiverse&binaryArch=amd64"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "\\s+(?<depName>[a-z0-9][a-z0-9+.-]+)=(?<currentValue>[^\\s\\\\]+)"
-      ],
-      "datasourceTemplate": "deb",
-      "registryUrlTemplate": "https://archive.ubuntu.com/ubuntu?suite=noble-security&components=main,universe,restricted,multiverse&binaryArch=amd64"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "\\s+(?<depName>[a-z0-9][a-z0-9+.-]+)=(?<currentValue>[^\\s\\\\]+)"
-      ],
-      "datasourceTemplate": "deb",
-      "registryUrlTemplate": "https://archive.ubuntu.com/ubuntu?suite=noble-updates&components=main,universe,restricted,multiverse&binaryArch=amd64"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Dockerfile($|\\.)/"
-      ],
-      "matchStrings": [
-        "\\s+(?<depName>[a-z0-9][a-z0-9+.-]+)=(?<currentValue>[^\\s\\\\]+)"
-      ],
-      "datasourceTemplate": "deb",
-      "registryUrlTemplate": "https://archive.ubuntu.com/ubuntu?suite=noble-backports&components=main,universe,restricted,multiverse&binaryArch=amd64"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
       "matchStrings": ["ARG TERRAFORM_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "hashicorp/terraform",
       "datasourceTemplate": "github-releases"
@@ -85,13 +38,6 @@
       "matchStrings": ["ARG AWSCLI_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "aws/aws-cli",
       "datasourceTemplate": "github-tags"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)Dockerfile($|\\.)/"],
-      "matchStrings": ["ARG HADOLINT_VERSION=(?<currentValue>\\S+)"],
-      "depNameTemplate": "hadolint/hadolint",
-      "datasourceTemplate": "github-releases"
     },
     {
       "customType": "regex",
